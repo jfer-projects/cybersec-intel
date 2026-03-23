@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Cybersecurity Competitive Intelligence</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f1f5f9; color: #1e293b; }
+
+    header {
+      background: linear-gradient(135deg, #1e3a5f 0%, #1a56db 100%);
+      padding: 36px 32px;
+      color: #fff;
+    }
+    header .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 1.8px; opacity: .7; margin-bottom: 8px; }
+    header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+    header p { font-size: 14px; opacity: .8; }
+
+    .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .badge {
+      background: rgba(255,255,255,.15);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+    }
+
+    main { max-width: 860px; margin: 0 auto; padding: 36px 20px; }
+
+    .section-label {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; color: #64748b;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px; margin-bottom: 20px;
+    }
+
+    .report-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+
+    .report-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow .15s, transform .15s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .report-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+
+    .report-card .date {
+      font-size: 13px; font-weight: 700; color: #1a56db; margin-bottom: 6px;
+    }
+    .report-card .day { font-size: 12px; color: #94a3b8; margin-bottom: 12px; }
+    .report-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .report-card .tag {
+      font-size: 11px; padding: 3px 8px; border-radius: 12px;
+      background: #eff6ff; color: #1a56db; font-weight: 500;
+    }
+    .report-card .arrow {
+      margin-top: 14px; font-size: 13px; color: #94a3b8;
+      display: flex; align-items: center; gap: 4px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .cat-pill {
+      background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 8px; padding: 14px 16px;
+      font-size: 13px; font-weight: 600;
+    }
+    .cat-pill .icon { font-size: 18px; margin-bottom: 4px; }
+    .cat-pill .name { color: #334155; }
+    .cat-pill .comps { font-size: 11px; color: #94a3b8; margin-top: 2px; font-weight: 400; }
+
+    footer {
+      text-align: center; padding: 28px; font-size: 12px; color: #94a3b8;
+      border-top: 1px solid #e2e8f0; margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Internal · PM Team Only</div>
+  <h1>🔐 Cybersecurity Competitive Intel</h1>
+  <p>Auto-generated Mon / Wed / Fri — covering the full MSP &amp; SMB security portfolio</p>
+  <div class="badge-row">
+    <span class="badge">🛡️ Endpoint Protection</span>
+    <span class="badge">🔍 EDR</span>
+    <span class="badge">🎯 MDR</span>
+    <span class="badge">🌐 DNS Protection</span>
+    <span class="badge">🎓 Sec Awareness Training</span>
+    <span class="badge">⚠️ Threat Intelligence</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="section-label" style="margin-bottom:16px;">Competitors tracked</div>
+  <div class="categories" style="margin-bottom:36px;">
+    <div class="cat-pill"><div class="icon">🛡️</div><div class="name">Endpoint Protection</div><div class="comps">SentinelOne · Sophos · MSFT · ThreatDown · Bitdefender · ESET</div></div>
+    <div class="cat-pill"><div class="icon">🔍</div><div class="name">EDR</div><div class="comps">SentinelOne · Sophos · Huntress · MSFT · Bitdefender · ESET</div></div>
+    <div class="cat-pill"><div class="icon">🎯</div><div class="name">MDR</div><div class="comps">Huntress · Sophos · BlackPoint · Arctic Wolf · ConnectWise</div></div>
+    <div class="cat-pill"><div class="icon">🌐</div><div class="name">DNS Protection</div><div class="comps">Cisco Umbrella · Cisco OpenDNS</div></div>
+    <div class="cat-pill"><div class="icon">🎓</div><div class="name">SAT</div><div class="comps">KnowBe4 · Proofpoint</div></div>
+    <div class="cat-pill"><div class="icon">⚠️</div><div class="name">Threat Intelligence</div><div class="comps">Proofpoint · BrightCloud · Webroot</div></div>
+  </div>
+
+  <div class="section-label">Reports archive</div>
+  <div class="report-grid" id="report-grid">
+    <!-- Populated by JS below -->
+  </div>
+
+</main>
+
+<footer>
+  Competitive Intelligence · Internal Use Only · Ferrick Product Management Team<br/>
+  Sources: Google News · Reddit (r/msp, r/cybersecurity, r/netsec, r/sysadmin)
+</footer>
+
+<script>
+  // Report index — updated automatically by the scheduled task on each run
+  const reports = [
+    { date: "2026-03-23", label: "March 23, 2026", day: "Monday" }
+  ];
+
+  const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+  function formatDate(str) {
+    const [y,m,d] = str.split("-").map(Number);
+    const dt = new Date(y, m-1, d);
+    return { label: `${months[dt.getMonth()]} ${d}, ${y}`, day: days[dt.getDay()] };
+  }
+
+  const grid = document.getElementById("report-grid");
+  reports.slice().reverse().forEach(r => {
+    const fmt = formatDate(r.date);
+    const card = document.createElement("a");
+    card.className = "report-card";
+    card.href = `reports/${r.date}.html`;
+    card.innerHTML = `
+      <div class="date">${fmt.label}</div>
+      <div class="day">${fmt.day}</div>
+      <div class="tags">
+        <span class="tag">🛡️ EP</span>
+        <span class="tag">🔍 EDR</span>
+        <span class="tag">🎯 MDR</span>
+        <span class="tag">🌐 DNS</span>
+        <span class="tag">🎓 SAT</span>
+        <span class="tag">⚠️ TI</span>
+      </div>
+      <div class="arrow">View report →</div>
+    `;
+    grid.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
