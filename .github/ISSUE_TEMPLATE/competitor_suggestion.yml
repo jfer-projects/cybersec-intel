@@ -1,0 +1,44 @@
+name: Suggest a Competitor to Track
+description: Recommend a competitor for the automated intelligence report
+title: "[Competitor Suggestion] "
+labels: ["competitor-suggestion"]
+body:
+  - type: input
+    id: competitor_name
+    attributes:
+      label: Competitor Name
+      placeholder: e.g. Malwarebytes, Vipre, Guardz
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Product Category
+      options:
+        - Endpoint Protection
+        - Endpoint Detection & Response (EDR)
+        - Managed Detection & Response (MDR)
+        - DNS Protection
+        - Security Awareness Training
+        - Threat Intelligence
+        - Multiple Categories
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Competitor Website
+      placeholder: e.g. https://www.competitor.com
+    validations:
+      required: false
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why should we track them?
+      description: Who are they targeting? Why are they relevant to our MSP/SMB portfolio?
+      placeholder: e.g. Growing fast in the MSP channel, recently raised Series B, showing up in deals...
+    validations:
+      required: true
