@@ -8,78 +8,127 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f1f5f9; color: #1e293b; }
 
+    /* ── HEADER ── */
     header {
       background: linear-gradient(135deg, #1e3a5f 0%, #1a56db 100%);
-      padding: 36px 32px;
+      padding: 28px 32px;
       color: #fff;
     }
-    header .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 1.8px; opacity: .7; margin-bottom: 8px; }
-    header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
-    header p { font-size: 14px; opacity: .8; }
+    header .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 1.8px; opacity: .7; margin-bottom: 6px; }
+    header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+    header p { font-size: 13px; opacity: .8; }
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    .badge { background: rgba(255,255,255,.15); border-radius: 20px; padding: 3px 12px; font-size: 11px; }
 
-    .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-    .badge {
-      background: rgba(255,255,255,.15);
-      border-radius: 20px;
-      padding: 4px 14px;
-      font-size: 12px;
+    /* ── LAYOUT ── */
+    .layout { display: flex; max-width: 1100px; margin: 0 auto; padding: 28px 20px; gap: 28px; align-items: flex-start; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 20px;
+    }
+    .sidebar-title {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #64748b; margin-bottom: 12px;
     }
 
-    main { max-width: 860px; margin: 0 auto; padding: 36px 20px; }
+    /* Search box */
+    .search-wrap { position: relative; margin-bottom: 16px; }
+    .search-wrap input {
+      width: 100%; padding: 8px 12px 8px 32px;
+      border: 1px solid #e2e8f0; border-radius: 8px;
+      font-size: 13px; background: #fff; color: #1e293b;
+      outline: none; transition: border-color .15s;
+    }
+    .search-wrap input:focus { border-color: #1a56db; }
+    .search-wrap .icon {
+      position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+      font-size: 13px; color: #94a3b8; pointer-events: none;
+    }
+
+    /* Month groups */
+    .month-group { margin-bottom: 6px; }
+    .month-header {
+      font-size: 12px; font-weight: 700; color: #475569;
+      padding: 6px 10px; cursor: pointer;
+      border-radius: 6px; display: flex; justify-content: space-between; align-items: center;
+      transition: background .1s;
+      user-select: none;
+    }
+    .month-header:hover { background: #e2e8f0; }
+    .month-header .chevron { font-size: 10px; color: #94a3b8; transition: transform .2s; }
+    .month-header.open .chevron { transform: rotate(90deg); }
+
+    .date-list { padding-left: 4px; overflow: hidden; }
+    .date-item {
+      display: block; padding: 5px 10px;
+      font-size: 12px; color: #64748b;
+      border-radius: 6px; cursor: pointer;
+      transition: background .1s, color .1s;
+      text-decoration: none;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .date-item:hover { background: #e2e8f0; color: #1e293b; }
+    .date-item.active { background: #eff6ff; color: #1a56db; font-weight: 600; }
+
+    /* ── MAIN CONTENT ── */
+    .main { flex: 1; min-width: 0; }
 
     .section-label {
-      font-size: 12px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 1.2px; color: #64748b;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #64748b;
       border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 8px; margin-bottom: 20px;
+      padding-bottom: 8px; margin-bottom: 16px;
     }
 
-    .report-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-
-    .report-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      border: 1px solid #e2e8f0;
-      transition: box-shadow .15s, transform .15s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-    .report-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
-
-    .report-card .date {
-      font-size: 13px; font-weight: 700; color: #1a56db; margin-bottom: 6px;
-    }
-    .report-card .day { font-size: 12px; color: #94a3b8; margin-bottom: 12px; }
-    .report-card .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .report-card .tag {
-      font-size: 11px; padding: 3px 8px; border-radius: 12px;
-      background: #eff6ff; color: #1a56db; font-weight: 500;
-    }
-    .report-card .arrow {
-      margin-top: 14px; font-size: 13px; color: #94a3b8;
-      display: flex; align-items: center; gap: 4px;
-    }
-
+    /* Category pills row */
     .categories {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 12px;
-      margin-bottom: 40px;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px; margin-bottom: 32px;
     }
     .cat-pill {
       background: #fff; border: 1px solid #e2e8f0;
-      border-radius: 8px; padding: 14px 16px;
-      font-size: 13px; font-weight: 600;
+      border-radius: 8px; padding: 12px 14px; font-size: 13px;
     }
-    .cat-pill .icon { font-size: 18px; margin-bottom: 4px; }
-    .cat-pill .name { color: #334155; }
-    .cat-pill .comps { font-size: 11px; color: #94a3b8; margin-top: 2px; font-weight: 400; }
+    .cat-pill .icon { font-size: 16px; margin-bottom: 4px; }
+    .cat-pill .name { font-weight: 600; color: #334155; }
+    .cat-pill .comps { font-size: 11px; color: #94a3b8; margin-top: 2px; font-weight: 400; line-height: 1.4; }
+
+    /* Reports grid */
+    .report-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+
+    .report-card {
+      background: #fff; border-radius: 10px; padding: 18px;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow .15s, transform .15s, opacity .2s;
+      text-decoration: none; color: inherit; display: block;
+    }
+    .report-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .report-card.hidden { display: none; }
+
+    .report-card .date-label { font-size: 14px; font-weight: 700; color: #1a56db; margin-bottom: 4px; }
+    .report-card .day-label  { font-size: 11px; color: #94a3b8; margin-bottom: 12px; }
+    .report-card .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .report-card .tag {
+      font-size: 10px; padding: 2px 7px; border-radius: 10px;
+      background: #eff6ff; color: #1a56db; font-weight: 500;
+    }
+    .report-card .arrow { margin-top: 12px; font-size: 12px; color: #94a3b8; }
+
+    .no-results { text-align: center; padding: 40px; color: #94a3b8; font-size: 14px; display: none; }
 
     footer {
-      text-align: center; padding: 28px; font-size: 12px; color: #94a3b8;
+      text-align: center; padding: 24px; font-size: 12px; color: #94a3b8;
       border-top: 1px solid #e2e8f0; margin-top: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; position: static; }
     }
   </style>
 </head>
@@ -88,35 +137,52 @@
 <header>
   <div class="eyebrow">Internal · PM Team Only</div>
   <h1>🔐 Cybersecurity Competitive Intel</h1>
-  <p>Auto-generated Mon / Wed / Fri — covering the full MSP &amp; SMB security portfolio</p>
+  <p>Auto-generated Mon / Wed / Fri — MSP &amp; SMB security portfolio</p>
   <div class="badge-row">
     <span class="badge">🛡️ Endpoint Protection</span>
     <span class="badge">🔍 EDR</span>
     <span class="badge">🎯 MDR</span>
-    <span class="badge">🌐 DNS Protection</span>
-    <span class="badge">🎓 Sec Awareness Training</span>
-    <span class="badge">⚠️ Threat Intelligence</span>
+    <span class="badge">🌐 DNS</span>
+    <span class="badge">🎓 SAT</span>
+    <span class="badge">⚠️ Threat Intel</span>
   </div>
 </header>
 
-<main>
+<div class="layout">
 
-  <div class="section-label" style="margin-bottom:16px;">Competitors tracked</div>
-  <div class="categories" style="margin-bottom:36px;">
-    <div class="cat-pill"><div class="icon">🛡️</div><div class="name">Endpoint Protection</div><div class="comps">SentinelOne · Sophos · MSFT · ThreatDown · Bitdefender · ESET</div></div>
-    <div class="cat-pill"><div class="icon">🔍</div><div class="name">EDR</div><div class="comps">SentinelOne · Sophos · Huntress · MSFT · Bitdefender · ESET</div></div>
-    <div class="cat-pill"><div class="icon">🎯</div><div class="name">MDR</div><div class="comps">Huntress · Sophos · BlackPoint · Arctic Wolf · ConnectWise</div></div>
-    <div class="cat-pill"><div class="icon">🌐</div><div class="name">DNS Protection</div><div class="comps">Cisco Umbrella · Cisco OpenDNS</div></div>
-    <div class="cat-pill"><div class="icon">🎓</div><div class="name">SAT</div><div class="comps">KnowBe4 · Proofpoint</div></div>
-    <div class="cat-pill"><div class="icon">⚠️</div><div class="name">Threat Intelligence</div><div class="comps">Proofpoint · BrightCloud · Webroot</div></div>
-  </div>
+  <!-- ── SIDEBAR ── -->
+  <nav class="sidebar">
+    <div class="sidebar-title">Browse by date</div>
 
-  <div class="section-label">Reports archive</div>
-  <div class="report-grid" id="report-grid">
-    <!-- Populated by JS below -->
-  </div>
+    <div class="search-wrap">
+      <span class="icon">🔍</span>
+      <input type="text" id="date-search" placeholder="Search dates…" autocomplete="off"/>
+    </div>
 
-</main>
+    <div id="month-nav">
+      <!-- Populated by JS -->
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main class="main">
+
+    <div class="section-label" style="margin-bottom:14px;">Competitors tracked</div>
+    <div class="categories" style="margin-bottom:30px;">
+      <div class="cat-pill"><div class="icon">🛡️</div><div class="name">Endpoint Protection</div><div class="comps">SentinelOne · Sophos · MSFT · ThreatDown · Bitdefender · ESET</div></div>
+      <div class="cat-pill"><div class="icon">🔍</div><div class="name">EDR</div><div class="comps">SentinelOne · Sophos · Huntress · MSFT · Bitdefender · ESET</div></div>
+      <div class="cat-pill"><div class="icon">🎯</div><div class="name">MDR</div><div class="comps">Huntress · Sophos · BlackPoint · Arctic Wolf · ConnectWise</div></div>
+      <div class="cat-pill"><div class="icon">🌐</div><div class="name">DNS Protection</div><div class="comps">Cisco Umbrella · Cisco OpenDNS</div></div>
+      <div class="cat-pill"><div class="icon">🎓</div><div class="name">SAT</div><div class="comps">KnowBe4 · Proofpoint</div></div>
+      <div class="cat-pill"><div class="icon">⚠️</div><div class="name">Threat Intelligence</div><div class="comps">Proofpoint · BrightCloud · Webroot</div></div>
+    </div>
+
+    <div class="section-label">Reports — <span id="report-count"></span></div>
+    <div class="report-grid" id="report-grid"></div>
+    <div class="no-results" id="no-results">No reports match your search.</div>
+
+  </main>
+</div>
 
 <footer>
   Competitive Intelligence · Internal Use Only · Ferrick Product Management Team<br/>
@@ -124,29 +190,44 @@
 </footer>
 
 <script>
-  // Report index — updated automatically by the scheduled task on each run
+  // ── REPORT INDEX — auto-updated by scheduled task on each run ──
   const reports = [
-    { date: "2026-03-23", label: "March 23, 2026", day: "Monday" }
+    { date: "2026-03-23" }
   ];
 
-  const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  // ── HELPERS ──
+  const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const DAYS   = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
-  function formatDate(str) {
-    const [y,m,d] = str.split("-").map(Number);
-    const dt = new Date(y, m-1, d);
-    return { label: `${months[dt.getMonth()]} ${d}, ${y}`, day: days[dt.getDay()] };
+  function parseDate(str) {
+    const [y, m, d] = str.split("-").map(Number);
+    const dt = new Date(y, m - 1, d);
+    return {
+      year: y, month: m, day: d,
+      monthName: MONTHS[m - 1],
+      dayName: DAYS[dt.getDay()],
+      label: `${MONTHS[m - 1]} ${d}, ${y}`,
+      monthKey: `${y}-${String(m).padStart(2, "0")}`
+    };
   }
 
+  // Sort newest first
+  const sorted = reports.map(r => ({ ...r, ...parseDate(r.date) }))
+                        .sort((a, b) => b.date.localeCompare(a.date));
+
+  // ── BUILD REPORT CARDS ──
   const grid = document.getElementById("report-grid");
-  reports.slice().reverse().forEach(r => {
-    const fmt = formatDate(r.date);
+  const countEl = document.getElementById("report-count");
+
+  sorted.forEach(r => {
     const card = document.createElement("a");
     card.className = "report-card";
     card.href = `reports/${r.date}.html`;
+    card.dataset.date = r.date;
+    card.dataset.label = r.label.toLowerCase();
     card.innerHTML = `
-      <div class="date">${fmt.label}</div>
-      <div class="day">${fmt.day}</div>
+      <div class="date-label">${r.label}</div>
+      <div class="day-label">${r.dayName}</div>
       <div class="tags">
         <span class="tag">🛡️ EP</span>
         <span class="tag">🔍 EDR</span>
@@ -158,6 +239,91 @@
       <div class="arrow">View report →</div>
     `;
     grid.appendChild(card);
+  });
+
+  countEl.textContent = `${sorted.length} report${sorted.length !== 1 ? "s" : ""}`;
+
+  // ── BUILD SIDEBAR MONTH NAV ──
+  const nav = document.getElementById("month-nav");
+
+  // Group by month
+  const byMonth = {};
+  sorted.forEach(r => {
+    if (!byMonth[r.monthKey]) byMonth[r.monthKey] = [];
+    byMonth[r.monthKey].push(r);
+  });
+
+  Object.entries(byMonth).forEach(([key, items], i) => {
+    const [y, m] = key.split("-");
+    const group = document.createElement("div");
+    group.className = "month-group";
+
+    const hdr = document.createElement("div");
+    hdr.className = "month-header" + (i === 0 ? " open" : "");
+    hdr.innerHTML = `<span>${MONTHS[parseInt(m) - 1]} ${y}</span><span class="chevron">▶</span>`;
+
+    const list = document.createElement("div");
+    list.className = "date-list";
+    list.style.display = i === 0 ? "block" : "none";
+
+    items.forEach(r => {
+      const a = document.createElement("a");
+      a.className = "date-item";
+      a.href = `reports/${r.date}.html`;
+      a.textContent = `${r.dayName}, ${MONTHS[r.month - 1]} ${r.day}`;
+      a.dataset.date = r.date;
+      list.appendChild(a);
+    });
+
+    hdr.addEventListener("click", () => {
+      const open = hdr.classList.toggle("open");
+      list.style.display = open ? "block" : "none";
+    });
+
+    group.appendChild(hdr);
+    group.appendChild(list);
+    nav.appendChild(group);
+  });
+
+  // ── SEARCH / FILTER ──
+  const searchInput = document.getElementById("date-search");
+  const noResults   = document.getElementById("no-results");
+  const cards       = () => document.querySelectorAll(".report-card");
+  const dateItems   = () => document.querySelectorAll(".date-item");
+  const monthHdrs   = () => document.querySelectorAll(".month-group");
+
+  searchInput.addEventListener("input", () => {
+    const q = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards().forEach(card => {
+      const match = !q || card.dataset.label.includes(q) || card.dataset.date.includes(q);
+      card.classList.toggle("hidden", !match);
+      if (match) visible++;
+    });
+
+    // Update sidebar highlights and expand matching months
+    monthHdrs().forEach(group => {
+      const hdr  = group.querySelector(".month-header");
+      const list = group.querySelector(".date-list");
+      const items = list.querySelectorAll(".date-item");
+      let monthMatch = false;
+
+      items.forEach(item => {
+        const match = !q || item.textContent.toLowerCase().includes(q) || item.dataset.date.includes(q);
+        item.style.display = match ? "block" : "none";
+        if (match) monthMatch = true;
+      });
+
+      group.style.display = monthMatch || !q ? "block" : "none";
+      if (q && monthMatch) {
+        hdr.classList.add("open");
+        list.style.display = "block";
+      }
+    });
+
+    countEl.textContent = `${visible} report${visible !== 1 ? "s" : ""}`;
+    noResults.style.display = visible === 0 ? "block" : "none";
   });
 </script>
 
