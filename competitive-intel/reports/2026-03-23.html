@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🔐 Competitive Intel — Monday, March 23, 2026</title>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Reports</a>
+    <a href="#takeaways"            style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#endpoint-protection"  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🛡️ Endpoint</a>
+    <a href="#edr"                  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔍 EDR</a>
+    <a href="#mdr"                  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 MDR</a>
+    <a href="#dns"                  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🌐 DNS</a>
+    <a href="#sat"                  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎓 SAT</a>
+    <a href="#threat-intel"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚠️ Threat Intel</a>
+    <a href="#reddit"               style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🗣️ Reddit</a>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#0f2849 0%,#1a56db 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        🔐 Competitive Intelligence Report
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Monday, March 23, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📰 <strong>31</strong> news items
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📦 <strong>6</strong> product categories
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Sources: Google News, Vendor Press, Analyst Reports
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="takeaways" style="background:#0f2849;border-radius:12px;padding:24px 28px;
+                margin-bottom:0;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        ⚡ This Week's Key Takeaways
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          💰 <strong>SentinelOne</strong> crossed <strong>$1B in annual revenue</strong> and first-year non-GAAP profitability — plus acquired Prompt Security for GenAI/agent security. Watch for partner and pricing implications in the EP/EDR market.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          📦 <strong>Sophos</strong> launched <strong>Endpoint 100</strong> — fixed-price SMB endpoint for ≤100 employees. Direct competitive pressure on MSP-focused EP packaging; review our positioning and pricing response.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>Huntress</strong> launched Managed SIEM (GA) and signed Sherweb as first global distribution partner — significantly expanding MDR channel reach. Their 2026 Threat Report (RMM abuse +277% YoY) also drives urgency narrative.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🤝 <strong>Arctic Wolf</strong> acquired Sevco Security (asset intelligence) and partnered with Chubb for cyber insurance distribution — reinforcing the insurance + MDR bundle trend we should watch closely.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎓 <strong>KnowBe4</strong> launched AIDA Orchestration — first fully autonomous Human Risk Management system. SAT market is repositioning as HRM; assess our Security Awareness Training narrative accordingly.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🌐 <strong>Cisco</strong> rebranded Umbrella DNS to <strong>Cisco Secure Access</strong> with AI-powered DNS Defense — signals a broader SSE platform push, moving away from standalone DNS positioning.
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        High-signal items only · Full detail by category below
+      </p>
+    </div>
+
+    <!-- CATEGORY SECTIONS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin-bottom:22px;">📊 Intelligence by Product Category</h2>
+
+    
+    <div style="margin-bottom:32px;">
+      <div style="background:#eff6ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #1a56db;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#1a56db;font-weight:700;">
+          🛡️ Endpoint Protection
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (7 items)</span>
+        </h2>
+      </div>
+      
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://investors.sentinelone.com/press-releases/news-details/2025/SentinelOne-Announces-Third-Quarter-Fiscal-Year-2026-Financial-Results/default.aspx" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">SentinelOne Hits $1B Revenue & First Full-Year Non-GAAP Profitability</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 SentinelOne IR &nbsp;|&nbsp; 📅 March 12, 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">SentinelOne crossed the $1 billion annual revenue threshold and achieved its first full year of non-GAAP profitability. Total revenue reached $1.001B, a 22% YoY increase.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.sentinelone.com/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">SentinelOne Named Leader in 2025 Gartner Magic Quadrant for EPP — Fifth Consecutive Year</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 SentinelOne &nbsp;|&nbsp; 📅 2025 / Current
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">SentinelOne named a Leader in the Gartner® Magic Quadrant™ for Endpoint Protection Platforms for the fifth year running and Top-Performing Vendor in 2025 Frost Radar for Endpoint Security.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.sentinelone.com/press/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">SentinelOne Adds DSPM to AI Security Platform</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 SentinelOne Press &nbsp;|&nbsp; 📅 February 6, 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">SentinelOne expanded its AI Security Platform by adding Data Security Posture Management (DSPM) to protect AI systems from data ingestion through runtime execution.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://partnernews.sophos.com/en-us/2026/03/products/sophos-endpoint-100-designed-to-accelerate-your-smb-business-growth/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Sophos Launches Endpoint 100 — Fixed-Price SMB Endpoint Offer</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Sophos Partner News &nbsp;|&nbsp; 📅 March 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Sophos introduced Endpoint 100: a streamlined, fixed-price endpoint protection product for organizations with up to 100 employees. Designed to accelerate deal velocity and deliver predictable MSP margins.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://businessinsights.bitdefender.com/whats-new-gravityzone-february-2026" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Bitdefender GravityZone v6.70 — Breach Path & Kubernetes KSPM Introduced</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Bitdefender Business Insights &nbsp;|&nbsp; 📅 February 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Bitdefender GravityZone February 2026 update (v6.70) introduces Breach Path for proactive attack surface reduction and Kubernetes Security Posture Management (KSPM) integrated into the Risk Management dashboard.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.sentinelone.com/press/sentinelone-transforms-partner-success-with-the-launch-of-the-new-global-partnerone-program/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">SentinelOne Launches New Global PartnerOne Program</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 SentinelOne Press &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">SentinelOne transforms partner success with the launch of the new global PartnerOne program, designed to strengthen MSP and reseller engagement.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://markets.financialcontent.com/stocks/article/marketminute-2026-3-17-sentinelone-strikes-gold-options-surge-as-ai-native-security-firm-hits-profitability-milestone" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">SentinelOne Appoints Sonalee Parekh as New CFO</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 FinancialContent / SentinelOne &nbsp;|&nbsp; 📅 March 17–24, 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">SentinelOne appointed Sonalee Parekh as Chief Financial Officer, effective March 24, 2026, overseeing global finance including FP&A, accounting, tax, treasury, and investor relations.</div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px;">
+      <div style="background:#ecfeff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #0891b2;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#0891b2;font-weight:700;">
+          🔍 Endpoint Detection & Response (EDR)
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (6 items)</span>
+        </h2>
+      </div>
+      
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #0891b2;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.huntress.com/resources/2026-cyber-threat-report" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Huntress 2026 Cyber Threat Report: RMM Exploitation Up 277% YoY</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Huntress &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Huntress's 2026 Cyber Threat Report reveals RMM platform abuse increased 277% YoY in 2025, now the most prevalent category of cyber threats, accounting for 25% of all observed incidents (up from 7% in 2024).</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #0891b2;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.channelinsider.com/security/microsoft-huntress-smb-collaboration/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Microsoft & Huntress Partner to Extend SMB Security</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Channel Insider &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Microsoft and Huntress announce partnership to help SMBs unlock full Microsoft security potential, integrating Huntress EDR, ITDR, SIEM, and 24/7 SOC with Microsoft Defender capabilities.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #0891b2;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.sentinelone.com/press/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">SentinelOne Unveils New Identity Portfolio for Human & Non-Human Identities</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 SentinelOne Press &nbsp;|&nbsp; 📅 February 25, 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">SentinelOne unveiled a new identity portfolio and strategy to secure both human and non-human identities across endpoints, browsers, and AI agents.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #0891b2;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.sentinelone.com/press/sentinelone-to-acquire-prompt-security-to-advance-genai-security/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">SentinelOne to Acquire Prompt Security for GenAI & Agent Security</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 SentinelOne Press &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">SentinelOne announced the acquisition of Prompt Security to advance GenAI security and AI agent security strategy — extending its Singularity platform into AI workload protection.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #0891b2;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.sophos.com/en-us/press/press-releases/sophos-active-adversary-report-2026-identity-attacks-dominate-as-threat-groups-proliferate" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Sophos Active Adversary Report 2026: Identity Attacks Dominate</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Sophos &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">67% of all Sophos IR and MDR-investigated incidents last year were rooted in identity attacks. Analysis of 661 cases across 70 countries. Active Directory compromise is the top initial access vector.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #0891b2;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.huntress.com/platform/managed-edr" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Huntress Managed EDR — 0.7% False Positive Rate Highlighted in 2026 Comparisons</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Huntress &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Huntress Managed EDR continues to differentiate with human-led, 24/7 SOC coverage and a 0.7% false positive rate — positioning against SentinelOne's higher cost autonomous tiers for SMB/MSP buyers.</div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px;">
+      <div style="background:#f5f3ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #7c3aed;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#7c3aed;font-weight:700;">
+          🎯 Managed Detection & Response (MDR)
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (6 items)</span>
+        </h2>
+      </div>
+      
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #7c3aed;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://nationaltoday.com/us/tx/austin/news/2026/03/02/arctic-wolf-acquires-sevco-security-to-boost-asset-visibility/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Arctic Wolf Acquires Sevco Security to Boost Asset Intelligence</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Austin Today / Arctic Wolf &nbsp;|&nbsp; 📅 February 23, 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Arctic Wolf acquired Sevco Security (50-person startup, $38.7M raised) to natively integrate asset intelligence into its Aurora Platform, bolstering the Managed Risk offering with improved asset visibility.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #7c3aed;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.iteuropa.com/news/chubb-selects-arctic-wolf-provide-mdr-part-cyber-assurance-package" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Arctic Wolf Named Preferred MDR Provider by Chubb Cyber Insurance</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 IT Europa &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Chubb selected Arctic Wolf as a preferred MDR provider for cyber policyholders with 100+ employees — deepening the cyber insurance + MDR bundle trend relevant to the SMB/MSP market.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #7c3aed;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.msptoday.com/topics/msp-today/articles/462169-huntress-seeks-democratize-cybersecurity-with-managed-siem.htm" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Huntress Launches GA of Managed SIEM</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 MSP Today &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Huntress announced general availability of its Managed SIEM solution, extending its security platform beyond EDR/MDR to include log management and correlation — targeting MSPs serving SMBs.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #7c3aed;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.channele2e.com/news/huntress-partners-with-sherweb-to-bring-its-cybersecurity-platform-to-more-msps" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Huntress Names Sherweb as First Global Distribution Partner</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 ChannelE2E &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Huntress named Sherweb as its first-ever global distribution partner, expanding reach across North America, Ireland, and the UK — making all Huntress products available via the Sherweb Marketplace.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #7c3aed;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://blackpointcyber.com/why-blackpoint/blackpoint-vs-huntress/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Blackpoint Cyber CompassOne: Unified MSP Security Platform Update</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Blackpoint Cyber &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Blackpoint Cyber's CompassOne platform now unifies endpoint visibility, identity monitoring, vulnerability management, security posture, cloud posture, and network defense into a single MSP-focused system.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #7c3aed;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.channeldive.com/news/cybercriminals-seize-msp-tools-connectwise-huntress-personal-data/813394/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Cybercriminals Exploit MSP Tools — ConnectWise & Huntress RMM Abuse Detailed</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Channel Dive &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">A new report details how cybercriminals are seizing MSP tooling including ConnectWise and other RMM platforms to harvest personal data — underlining the MDR market's growth tailwinds.</div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px;">
+      <div style="background:#ecfdf5;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #059669;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#059669;font-weight:700;">
+          🌐 DNS Protection
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (4 items)</span>
+        </h2>
+      </div>
+      
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #059669;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://securitydocs.cisco.com/docs/secure-access/dns-defense/umbrella-dns-upgrade/107678.dita" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Cisco Secure Access DNS Defense Replaces Umbrella DNS Essentials & Advantage</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Cisco Security Docs &nbsp;|&nbsp; 📅 2025–2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Cisco Secure Access — DNS Defense replaces the legacy Cisco Umbrella DNS Essentials and Advantage packages with significantly enhanced capabilities including AI-powered DGA detection and DNS tunneling blocking (11.1% detection improvement).</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #059669;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://ifeeltech.com/blog/cisco-umbrella-review" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Cisco Umbrella: Roaming Client Fully Replaced by Cisco Secure Client</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 iFeeltech / Cisco &nbsp;|&nbsp; 📅 Post April 2025 / Active 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">The legacy Cisco Umbrella Roaming Client reached end-of-support in April 2025. All 2026 deployments now use Cisco Secure Client (formerly AnyConnect), bundling VPN, telemetry, and Umbrella roaming protection in a single agent.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #059669;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.networkworld.com/article/3998305/cisco-bolsters-dns-security-package.html" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Cisco Umbrella Added to Chrome Enterprise Recommended Program</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Network World / Cisco &nbsp;|&nbsp; 📅 2025–2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Cisco Umbrella is now part of the Chrome Enterprise Recommended program, extending DNS-layer protection to Chromebook users — relevant for SMB customers in the Google Workspace ecosystem.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #059669;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://ifeeltech.com/blog/cisco-umbrella-review" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Cisco Umbrella Review 2026: AI-Powered DNS Tunneling Detection Now Active</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 iFeeltech &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">New AI support in Cisco Umbrella detects and blocks DNS tunneling techniques, improving detection rates by 11.1% while reducing false positives. DNS Defense now employs AI-powered capabilities to prevent DGA-based command-and-control attacks.</div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px;">
+      <div style="background:#fffbeb;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #d97706;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#d97706;font-weight:700;">
+          🎓 Security Awareness Training
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (4 items)</span>
+        </h2>
+      </div>
+      
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #d97706;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.knowbe4.com" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">KnowBe4 Launches AIDA Orchestration — First Fully Autonomous Human Risk Mgmt System</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 KnowBe4 &nbsp;|&nbsp; 📅 February 24, 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">KnowBe4 launched AIDA Orchestration — its eighth AI agent and first fully autonomous HRM system. It coordinates all AIDA agents to continuously evaluate individual user risk and autonomously determine who to test, which attack vectors to use, what training to assign, and when — without manual intervention.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #d97706;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://valydex.com/reviews/knowbe4-review" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">KnowBe4 Commands 2026 Market with 1,271+ Training Modules & AI Phishing Sims</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Valydex &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">KnowBe4 leads the 2026 security awareness market with 1,271+ training modules updated weekly. AI-powered phishing simulations replicate QR code phishing, Office macro malware, and multi-stage social engineering inspired by Kevin Mitnick techniques.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #d97706;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://gbhackers.com/best-security-awareness-training-platforms/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">2026 Market Shift: Human Risk Management (HRM) Replaces Traditional SAT</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 GBHackers &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Organizations in 2026 are shifting from compliance-based security awareness training toward Human Risk Management — using behavioral analytics, adaptive training, and continuous measurement to reduce human cyber risk.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #d97706;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.gartner.com/reviews/market/security-awareness-computer-based-training/compare/knowbe4-vs-proofpoint" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">KnowBe4 vs Proofpoint Security Awareness — 2026 Comparison</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Gartner Peer Insights &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">KnowBe4 rated 4.6 stars (2,444 reviews) vs. Proofpoint at 4.6 stars (792 reviews) on Gartner Peer Insights. Both claim 50-80% reductions in phish-prone percentages through AI personalization and gamification.</div>
+        </div>
+    </div>
+    <div style="margin-bottom:32px;">
+      <div style="background:#fef2f2;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #dc2626;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#dc2626;font-weight:700;">
+          ⚠️ Threat Intelligence
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (4 items)</span>
+        </h2>
+      </div>
+      
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.brightcloud.com/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">OpenText BrightCloud: Machine Learning Threat Intel Scanning Billions of URLs & IPs</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 BrightCloud / OpenText &nbsp;|&nbsp; 📅 Current 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">OpenText BrightCloud Threat Intelligence (now under OpenText) leverages ML and a global sensor network from millions of real-world endpoints, scanning billions of IP addresses and URLs. Services cover web classification, IP reputation, anti-phishing, and streaming malware detection for OEMs and MSPs.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.sophos.com/en-us/press/press-releases/sophos-active-adversary-report-2026-identity-attacks-dominate-as-threat-groups-proliferate" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Sophos Active Adversary Report 2026 — Identity Threat Intel for IR Teams</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Sophos &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Sophos's 2026 Active Adversary Report analyzed 661 IR and MDR cases across 70 countries and 34 industries, finding 67% of incidents tied to identity attacks — actionable intelligence for threat intel consumers.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.huntress.com/resources/2026-cyber-threat-report" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Huntress 2026 Cyber Threat Report — RMM, SMB Threat Landscape Analysis</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Huntress &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Huntress's annual threat report provides MSP-focused threat intelligence. Key finding: RMM tool abuse is now the #1 threat category (25% of all incidents), followed by identity-based attacks targeting SMBs through MSP tooling.</div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://sourceforge.net/software/compare/Proofpoint-ET-Intelligence-vs-Trellix-Threat-Intelligence-Exchange-vs-Webroot-BrightCloud-Threat-Intelligence/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Proofpoint ET Intelligence vs. Webroot BrightCloud — 2026 Market Comparison</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 SourceForge &nbsp;|&nbsp; 📅 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">2026 comparisons pit Proofpoint Emerging Threat Intelligence against Webroot BrightCloud and Trellix TIE — BrightCloud's OEM-first positioning continues to differentiate from Proofpoint's enterprise-focused model.</div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="margin-top:36px;padding:20px;background:#fff;border-radius:10px;
+                text-align:center;font-size:12px;color:#94a3b8;
+                box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+      Auto-generated Competitive Intelligence Report &nbsp;|&nbsp;
+      Sources: Vendor press releases, Gartner, G2, Channel publications &nbsp;|&nbsp;
+      Generated Monday, March 23, 2026 &nbsp;|&nbsp; Delivered to ferrickj@gmail.com
+    </div>
+    <div style="height:32px;"></div>
+  </div>
+
+</body>
+</html>

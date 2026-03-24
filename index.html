@@ -3,171 +3,123 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Cybersecurity Competitive Intelligence</title>
+  <title>Cybersecurity Intel Hub</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f1f5f9; color: #1e293b; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f1f5f9; color: #1e293b; min-height: 100vh; display: flex; flex-direction: column; }
 
     /* ── HEADER ── */
     header {
-      background: linear-gradient(135deg, #1e3a5f 0%, #1a56db 100%);
-      padding: 28px 32px; color: #fff;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1a56db 100%);
+      padding: 40px 32px 36px; color: #fff; text-align: center;
     }
-    header .eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 1.8px; opacity: .7; margin-bottom: 6px; }
-    header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
-    header p { font-size: 13px; opacity: .8; }
-    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
-    .badge { background: rgba(255,255,255,.15); border-radius: 20px; padding: 3px 12px; font-size: 11px; }
-
-    /* ── LAYOUT ── */
-    .layout { display: flex; max-width: 1100px; margin: 0 auto; padding: 28px 20px; gap: 28px; align-items: flex-start; }
-
-    /* ── SIDEBAR ── */
-    .sidebar { width: 210px; flex-shrink: 0; position: sticky; top: 20px; }
-    .sidebar-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #64748b; margin-bottom: 10px; }
-
-    .search-wrap { position: relative; margin-bottom: 14px; }
-    .search-wrap input {
-      width: 100%; padding: 8px 12px 8px 30px;
-      border: 1px solid #e2e8f0; border-radius: 8px;
-      font-size: 13px; background: #fff; color: #1e293b;
-      outline: none; transition: border-color .15s;
+    header .eyebrow {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+      opacity: .6; margin-bottom: 12px;
     }
-    .search-wrap input:focus { border-color: #1a56db; }
-    .search-wrap .si { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); font-size: 12px; color: #94a3b8; }
-
-    .month-group { margin-bottom: 4px; }
-    .month-header {
-      font-size: 12px; font-weight: 700; color: #475569;
-      padding: 5px 8px; cursor: pointer; border-radius: 6px;
-      display: flex; justify-content: space-between; align-items: center;
-      transition: background .1s; user-select: none;
-    }
-    .month-header:hover { background: #e2e8f0; }
-    .month-header .ch { font-size: 9px; color: #94a3b8; transition: transform .2s; }
-    .month-header.open .ch { transform: rotate(90deg); }
-    .date-list { padding-left: 2px; }
-    .date-item {
-      display: block; padding: 4px 8px; font-size: 12px; color: #64748b;
-      border-radius: 6px; text-decoration: none; transition: background .1s, color .1s;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-    .date-item:hover { background: #e2e8f0; color: #1e293b; }
-    .date-item.active { background: #eff6ff; color: #1a56db; font-weight: 600; }
-
-    /* Suggest link in sidebar */
-    .sidebar-suggest {
-      margin-top: 20px; padding: 12px; background: #fffbeb;
-      border: 1px solid #fde68a; border-radius: 8px;
-      font-size: 12px; color: #92400e;
-    }
-    .sidebar-suggest a { color: #b45309; font-weight: 600; text-decoration: none; }
-    .sidebar-suggest a:hover { text-decoration: underline; }
+    header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+    header p { font-size: 14px; opacity: .75; max-width: 480px; margin: 0 auto 18px; line-height: 1.6; }
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .badge { background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.15); border-radius: 20px; padding: 4px 13px; font-size: 11px; letter-spacing: .3px; }
 
     /* ── MAIN ── */
-    .main { flex: 1; min-width: 0; }
+    main { flex: 1; max-width: 900px; margin: 0 auto; width: 100%; padding: 40px 20px; }
 
-    .section-label {
-      font-size: 11px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 1px; color: #64748b;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 8px; margin-bottom: 16px;
+    .section-title {
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px;
+      color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 22px;
     }
 
-    /* Category pills */
-    .categories { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; margin-bottom: 30px; }
-    .cat-pill { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 11px 13px; }
-    .cat-pill .icon { font-size: 15px; margin-bottom: 3px; }
-    .cat-pill .name { font-size: 13px; font-weight: 600; color: #334155; }
-    .cat-pill .comps { font-size: 11px; color: #94a3b8; margin-top: 2px; line-height: 1.4; }
+    /* ── HUB CARDS ── */
+    .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 44px; }
 
-    /* ── REPORTS TABLE ── */
-    .reports-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 28px; }
-
-    /* Latest report — featured */
-    .report-featured {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 20px; background: #eff6ff;
-      border-bottom: 1px solid #e2e8f0; gap: 12px;
-      text-decoration: none; color: inherit;
-      transition: background .15s;
+    .hub-card {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 14px;
+      overflow: hidden; text-decoration: none; color: inherit;
+      transition: transform .15s, box-shadow .15s;
+      display: flex; flex-direction: column;
     }
-    .report-featured:hover { background: #dbeafe; }
-    .report-featured .rf-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #1a56db; margin-bottom: 3px; }
-    .report-featured .rf-date { font-size: 15px; font-weight: 700; color: #1e293b; }
-    .report-featured .rf-day { font-size: 12px; color: #64748b; }
-    .report-featured .rf-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
-    .report-featured .rf-tag { font-size: 10px; padding: 2px 7px; border-radius: 10px; background: #1a56db; color: #fff; }
-    .report-featured .rf-arrow { font-size: 20px; color: #1a56db; flex-shrink: 0; }
+    .hub-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.10); }
 
-    /* Month group in table */
-    .month-section { border-bottom: 1px solid #f1f5f9; }
-    .month-section:last-child { border-bottom: none; }
-    .month-section-header {
-      padding: 8px 20px; background: #f8fafc;
-      font-size: 11px; font-weight: 700; color: #64748b;
-      text-transform: uppercase; letter-spacing: .8px;
-      border-bottom: 1px solid #f1f5f9;
+    .hub-card-banner {
+      padding: 24px 24px 20px;
+      position: relative;
+    }
+    .hub-card-banner.blue { background: linear-gradient(135deg, #1e3a5f 0%, #1a56db 100%); }
+    .hub-card-banner.red  { background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 100%); }
+
+    .hub-card-icon { font-size: 32px; margin-bottom: 10px; display: block; }
+    .hub-card-title { font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 5px; }
+    .hub-card-subtitle { font-size: 12px; color: rgba(255,255,255,.7); line-height: 1.5; }
+    .hub-card-freq {
+      display: inline-block; margin-top: 12px;
+      background: rgba(255,255,255,.18); border-radius: 12px;
+      padding: 3px 11px; font-size: 11px; color: rgba(255,255,255,.9); font-weight: 600;
     }
 
-    .report-row {
-      display: flex; align-items: center; padding: 11px 20px;
-      border-bottom: 1px solid #f1f5f9; text-decoration: none; color: inherit;
-      transition: background .1s; gap: 14px;
+    .hub-card-body { padding: 18px 24px 22px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+
+    .hub-card-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .hub-card-bullets li { font-size: 13px; color: #475569; display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+    .hub-card-bullets li .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+    .hub-card-bullets li .dot.blue { background: #1a56db; }
+    .hub-card-bullets li .dot.red  { background: #dc2626; }
+
+    .hub-card-cta {
+      margin-top: auto; display: flex; align-items: center; justify-content: space-between;
+      padding-top: 14px; border-top: 1px solid #f1f5f9;
     }
-    .report-row:last-child { border-bottom: none; }
-    .report-row:hover { background: #f8fafc; }
-    .report-row .rr-day { width: 28px; height: 28px; border-radius: 6px; background: #eff6ff; color: #1a56db; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .report-row .rr-date { font-size: 13px; font-weight: 600; color: #1e293b; flex: 1; }
-    .report-row .rr-dayname { font-size: 12px; color: #94a3b8; width: 70px; }
-    .report-row .rr-tags { display: flex; gap: 4px; }
-    .report-row .rr-tag { font-size: 10px; padding: 1px 6px; border-radius: 8px; background: #f1f5f9; color: #64748b; }
-    .report-row .rr-arrow { font-size: 14px; color: #cbd5e1; margin-left: 8px; }
+    .hub-card-cta .latest { font-size: 12px; color: #94a3b8; }
+    .hub-card-cta .latest strong { color: #475569; }
+    .hub-card-cta .arrow { font-size: 18px; color: #cbd5e1; }
+    .hub-card:hover .hub-card-cta .arrow { color: #1a56db; }
 
-    .no-results { text-align: center; padding: 36px; color: #94a3b8; font-size: 14px; display: none; }
+    /* ── RECENT ACTIVITY ── */
+    .recent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-    /* ── SUGGEST SECTION ── */
-    .suggest-section {
-      background: #fff; border: 1px solid #e2e8f0;
-      border-radius: 12px; padding: 24px 28px;
+    .recent-col h3 {
+      font-size: 13px; font-weight: 700; color: #1e293b;
+      display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
     }
-    .suggest-section h2 { font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
-    .suggest-section .sub { font-size: 13px; color: #64748b; margin-bottom: 22px; line-height: 1.5; }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
-    .form-group label { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: .5px; }
-    .form-group input, .form-group select, .form-group textarea {
-      padding: 9px 12px; border: 1px solid #e2e8f0; border-radius: 8px;
-      font-size: 13px; color: #1e293b; background: #f8fafc;
-      outline: none; transition: border-color .15s; font-family: inherit;
+    .recent-col h3 .pill {
+      font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 8px;
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #1a56db; background: #fff; }
-    .form-group textarea { resize: vertical; min-height: 80px; }
-    .form-full { grid-column: 1 / -1; }
+    .recent-col h3 .pill.blue { background: #eff6ff; color: #1a56db; }
+    .recent-col h3 .pill.red  { background: #fef2f2; color: #dc2626; }
 
-    .submit-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #1a56db; color: #fff; border: none; border-radius: 8px;
-      padding: 10px 22px; font-size: 13px; font-weight: 600;
-      cursor: pointer; transition: background .15s; font-family: inherit;
+    .recent-list { display: flex; flex-direction: column; gap: 4px; }
+    .recent-item {
+      display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+      text-decoration: none; color: inherit; transition: background .1s;
     }
-    .submit-btn:hover { background: #1e40af; }
-    .form-note { font-size: 11px; color: #94a3b8; margin-top: 10px; line-height: 1.5; }
+    .recent-item:hover { background: #f8fafc; }
+    .recent-item .ri-icon { font-size: 14px; flex-shrink: 0; }
+    .recent-item .ri-date { font-size: 13px; font-weight: 600; color: #334155; flex: 1; }
+    .recent-item .ri-day  { font-size: 11px; color: #94a3b8; }
+    .recent-item .ri-arrow { font-size: 12px; color: #cbd5e1; }
 
-    .success-msg {
-      display: none; background: #ecfdf5; border: 1px solid #6ee7b7;
-      border-radius: 8px; padding: 14px 18px;
-      font-size: 13px; color: #065f46; margin-top: 14px;
+    .recent-empty {
+      padding: 18px 14px; background: #fff; border: 1px dashed #e2e8f0;
+      border-radius: 8px; font-size: 13px; color: #94a3b8; text-align: center;
     }
 
-    footer { text-align: center; padding: 24px; font-size: 12px; color: #94a3b8; border-top: 1px solid #e2e8f0; margin-top: 10px; }
+    .view-all {
+      display: block; text-align: center; margin-top: 10px;
+      font-size: 12px; font-weight: 600; color: #64748b;
+      text-decoration: none; padding: 7px;
+    }
+    .view-all:hover { color: #1a56db; }
 
-    @media (max-width: 700px) {
-      .layout { flex-direction: column; }
-      .sidebar { width: 100%; position: static; }
-      .form-row { grid-template-columns: 1fr; }
-      .report-row .rr-tags, .report-row .rr-dayname { display: none; }
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 20px; font-size: 12px; color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 640px) {
+      .hub-grid, .recent-grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 22px; }
     }
   </style>
 </head>
@@ -175,10 +127,10 @@
 
 <header>
   <div class="eyebrow">Internal · PM Team Only</div>
-  <h1>🔐 Cybersecurity Competitive Intel</h1>
-  <p>Auto-generated Mon / Wed / Fri — MSP &amp; SMB security portfolio</p>
+  <h1>🔐 Cybersecurity Intel Hub</h1>
+  <p>Competitive intelligence and threat briefings for the MSP &amp; SMB cybersecurity portfolio</p>
   <div class="badge-row">
-    <span class="badge">🛡️ Endpoint Protection</span>
+    <span class="badge">🛡️ Endpoint</span>
     <span class="badge">🔍 EDR</span>
     <span class="badge">🎯 MDR</span>
     <span class="badge">🌐 DNS</span>
@@ -187,271 +139,127 @@
   </div>
 </header>
 
-<div class="layout">
+<main>
 
-  <!-- ── SIDEBAR ── -->
-  <nav class="sidebar">
-    <div class="sidebar-title">Browse by date</div>
-    <div class="search-wrap">
-      <span class="si">🔍</span>
-      <input type="text" id="date-search" placeholder="Search dates…" autocomplete="off"/>
-    </div>
-    <div id="month-nav"></div>
+  <!-- ── HUB CARDS ── -->
+  <div class="section-title" style="margin-bottom:20px;">Intelligence streams</div>
+  <div class="hub-grid">
 
-    <div class="sidebar-suggest">
-      💡 Know a competitor we should track?
-      <br/><a href="#suggest" onclick="document.getElementById('suggest').scrollIntoView({behavior:'smooth'});return false;">Submit a suggestion →</a>
-    </div>
-  </nav>
-
-  <!-- ── MAIN ── -->
-  <main class="main">
-
-    <!-- Tracked competitors -->
-    <div class="section-label" style="margin-bottom:13px;">Competitors tracked</div>
-    <div class="categories" style="margin-bottom:28px;">
-      <div class="cat-pill"><div class="icon">🛡️</div><div class="name">Endpoint Protection</div><div class="comps">SentinelOne · Sophos · MSFT · ThreatDown · Bitdefender · ESET</div></div>
-      <div class="cat-pill"><div class="icon">🔍</div><div class="name">EDR</div><div class="comps">SentinelOne · Sophos · Huntress · MSFT · Bitdefender · ESET</div></div>
-      <div class="cat-pill"><div class="icon">🎯</div><div class="name">MDR</div><div class="comps">Huntress · Sophos · BlackPoint · Arctic Wolf · ConnectWise</div></div>
-      <div class="cat-pill"><div class="icon">🌐</div><div class="name">DNS Protection</div><div class="comps">Cisco Umbrella · Cisco OpenDNS</div></div>
-      <div class="cat-pill"><div class="icon">🎓</div><div class="name">SAT</div><div class="comps">KnowBe4 · Proofpoint</div></div>
-      <div class="cat-pill"><div class="icon">⚠️</div><div class="name">Threat Intel</div><div class="comps">Proofpoint · BrightCloud · Webroot</div></div>
-    </div>
-
-    <!-- Reports -->
-    <div class="section-label">Reports archive — <span id="report-count"></span></div>
-    <div class="reports-wrap" id="reports-wrap"></div>
-    <div class="no-results" id="no-results">No reports match your search.</div>
-
-    <!-- Suggest a competitor -->
-    <div class="suggest-section" id="suggest">
-      <h2>💡 Suggest a Competitor to Track</h2>
-      <p class="sub">Fill out the form below and hit Send — your email client will open with everything pre-filled. No account needed. Submissions are automatically reviewed on the next Mon/Wed/Fri report run.</p>
-
-      <form id="suggest-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Competitor Name *</label>
-            <input type="text" id="f-name" placeholder="e.g. Guardz, Vipre, Todyl" required/>
-          </div>
-          <div class="form-group">
-            <label>Product Category *</label>
-            <select id="f-category" required>
-              <option value="">Select a category…</option>
-              <option>Endpoint Protection</option>
-              <option>Endpoint Detection &amp; Response (EDR)</option>
-              <option>Managed Detection &amp; Response (MDR)</option>
-              <option>DNS Protection</option>
-              <option>Security Awareness Training</option>
-              <option>Threat Intelligence</option>
-              <option>Multiple Categories</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Website</label>
-            <input type="url" id="f-url" placeholder="https://"/>
-          </div>
-          <div class="form-group">
-            <label>Your Name</label>
-            <input type="text" id="f-submitter" placeholder="So we know who suggested it"/>
-          </div>
-          <div class="form-group form-full">
-            <label>Why should we track them? *</label>
-            <textarea id="f-reason" placeholder="e.g. Growing fast in the MSP channel, showing up in competitive deals, recently raised Series B, launching a product that overlaps with our MDR…" required></textarea>
-          </div>
-        </div>
-        <button type="submit" class="submit-btn">📧 Send suggestion →</button>
-        <p class="form-note">Opens your email client with the suggestion pre-filled. Sends to the PM team inbox and is picked up automatically on the next report run.</p>
-      </form>
-
-      <div class="success-msg" id="success-msg">
-        ✅ <strong>Your email client should have opened</strong> with the suggestion pre-filled. Just hit Send — it'll be reviewed automatically on the next Mon, Wed, or Fri report run.
+    <!-- Competitive Intel card -->
+    <a class="hub-card" href="competitive-intel/index.html">
+      <div class="hub-card-banner blue">
+        <span class="hub-card-icon">🔐</span>
+        <div class="hub-card-title">Competitive Intelligence</div>
+        <div class="hub-card-subtitle">Competitor news, product launches, pricing, and channel moves across your full portfolio</div>
+        <span class="hub-card-freq">📅 Published Mondays</span>
       </div>
+      <div class="hub-card-body">
+        <ul class="hub-card-bullets">
+          <li><span class="dot blue"></span>Endpoint Protection &amp; EDR — SentinelOne, Sophos, Huntress, ESET, Bitdefender</li>
+          <li><span class="dot blue"></span>MDR — Arctic Wolf, BlackPoint, ConnectWise, Sophos MDR</li>
+          <li><span class="dot blue"></span>DNS, SAT, Threat Intel — Cisco, KnowBe4, Proofpoint, BrightCloud</li>
+        </ul>
+        <div class="hub-card-cta">
+          <span class="latest">Coverage: <strong>MSP &amp; SMB channel</strong></span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Threat Intel card -->
+    <a class="hub-card" href="threat-intel/index.html">
+      <div class="hub-card-banner red">
+        <span class="hub-card-icon">⚠️</span>
+        <div class="hub-card-title">Threat Intelligence</div>
+        <div class="hub-card-subtitle">Active CVEs, ransomware campaigns, MSP-targeted threats, and portfolio-relevant advisories</div>
+        <span class="hub-card-freq">📅 Published Mon &amp; Wed</span>
+      </div>
+      <div class="hub-card-body">
+        <ul class="hub-card-bullets">
+          <li><span class="dot red"></span>Top active threats &amp; CVEs affecting SMB/MSP environments</li>
+          <li><span class="dot red"></span>Ransomware &amp; malware campaign tracking</li>
+          <li><span class="dot red"></span>Portfolio impact analysis — what matters for your products</li>
+        </ul>
+        <div class="hub-card-cta">
+          <span class="latest">Sources: <strong>CISA · BleepingComputer · Krebs</strong></span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ── RECENT ACTIVITY ── -->
+  <div class="section-title">Recent reports</div>
+  <div class="recent-grid">
+
+    <div class="recent-col">
+      <h3>🔐 Competitive Intel <span class="pill blue">Mondays</span></h3>
+      <div class="recent-list" id="recent-competitive">
+        <!-- populated by script -->
+      </div>
+      <a class="view-all" href="competitive-intel/index.html">View all competitive reports →</a>
     </div>
 
-  </main>
-</div>
+    <div class="recent-col">
+      <h3>⚠️ Threat Briefings <span class="pill red">Mon &amp; Wed</span></h3>
+      <div class="recent-list" id="recent-threat">
+        <!-- populated by script -->
+      </div>
+      <a class="view-all" href="threat-intel/index.html">View all threat briefings →</a>
+    </div>
+
+  </div>
+
+</main>
 
 <footer>
-  Competitive Intelligence · Internal Use Only · Ferrick Product Management Team<br/>
-  Sources: Google News · Reddit (r/msp, r/cybersecurity, r/netsec, r/sysadmin)
+  Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+  <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;">jfer-projects.github.io/cybersec-intel</a>
 </footer>
 
 <script>
-  // ── REPORT INDEX — updated automatically on each run ──
-  const reports = [
+  // ── RECENT COMPETITIVE REPORTS ──
+  // Updated automatically by the competitive intel scheduled task
+  const competitiveReports = [
     { date: "2026-03-23" }
   ];
 
-  const MONTHS  = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-  const DAYS    = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-  const MSHORT  = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  // ── RECENT THREAT BRIEFINGS ──
+  // Updated automatically by the threat intel scheduled task
+  const threatBriefings = [
+    // e.g. { date: "2026-03-24" }
+  ];
+
+  const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const DAYS   = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
   function parseDate(str) {
     const [y, m, d] = str.split("-").map(Number);
-    const dt = new Date(y, m - 1, d);
-    return { y, m, d, monthName: MONTHS[m-1], monthShort: MSHORT[m-1], dayName: DAYS[dt.getDay()], dayShort: DAYS[dt.getDay()].slice(0,3), label: `${MONTHS[m-1]} ${d}, ${y}`, mk: `${y}-${String(m).padStart(2,"0")}` };
+    const dt = new Date(y, m-1, d);
+    return { label: `${MONTHS[m-1]} ${d}, ${y}`, day: DAYS[dt.getDay()] };
   }
 
-  const sorted = reports.map(r => ({ ...r, ...parseDate(r.date) })).sort((a, b) => b.date.localeCompare(a.date));
-
-  // ── BUILD REPORTS TABLE ──
-  const wrap       = document.getElementById("reports-wrap");
-  const countEl    = document.getElementById("report-count");
-
-  // Group by month
-  const byMonth = {};
-  sorted.forEach(r => { if (!byMonth[r.mk]) byMonth[r.mk] = []; byMonth[r.mk].push(r); });
-
-  let isFirst = true;
-  Object.entries(byMonth).forEach(([mk, items]) => {
-    const [y, m] = mk.split("-");
-    const sec = document.createElement("div");
-    sec.className = "month-section";
-    sec.dataset.mk = mk;
-
-    if (isFirst && items.length > 0) {
-      // Featured latest report
-      const latest = items[0];
-      const feat = document.createElement("a");
-      feat.className = "report-featured";
-      feat.href = `reports/${latest.date}.html`;
-      feat.dataset.date = latest.date;
-      feat.dataset.label = latest.label.toLowerCase();
-      feat.innerHTML = `
-        <div>
-          <div class="rf-label">Latest Report</div>
-          <div class="rf-date">${latest.label}</div>
-          <div class="rf-day">${latest.dayName}</div>
-          <div class="rf-tags">
-            <span class="rf-tag">🛡️ EP</span><span class="rf-tag">🔍 EDR</span><span class="rf-tag">🎯 MDR</span>
-            <span class="rf-tag">🌐 DNS</span><span class="rf-tag">🎓 SAT</span><span class="rf-tag">⚠️ TI</span>
-          </div>
-        </div>
-        <div class="rf-arrow">→</div>`;
-      wrap.appendChild(feat);
-      items = items.slice(1);
-      isFirst = false;
-      if (items.length === 0) return;
+  function renderRecent(items, containerId, pathPrefix, icon, emptyMsg) {
+    const el = document.getElementById(containerId);
+    if (!items.length) {
+      el.innerHTML = `<div class="recent-empty">${emptyMsg}</div>`;
+      return;
     }
+    const sorted = [...items].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 5);
+    el.innerHTML = sorted.map(r => {
+      const p = parseDate(r.date);
+      return `<a class="recent-item" href="${pathPrefix}/${r.date}.html">
+        <span class="ri-icon">${icon}</span>
+        <span class="ri-date">${p.label}</span>
+        <span class="ri-day">${p.day}</span>
+        <span class="ri-arrow">→</span>
+      </a>`;
+    }).join("");
+  }
 
-    const hdrEl = document.createElement("div");
-    hdrEl.className = "month-section-header";
-    hdrEl.textContent = `${MONTHS[parseInt(m)-1]} ${y}`;
-    sec.appendChild(hdrEl);
-
-    items.forEach(r => {
-      const row = document.createElement("a");
-      row.className = "report-row";
-      row.href = `reports/${r.date}.html`;
-      row.dataset.date = r.date;
-      row.dataset.label = r.label.toLowerCase();
-      row.innerHTML = `
-        <div class="rr-day">${r.dayShort}</div>
-        <div class="rr-date">${r.label}</div>
-        <div class="rr-dayname">${r.dayName}</div>
-        <div class="rr-tags">
-          <span class="rr-tag">🛡️</span><span class="rr-tag">🔍</span><span class="rr-tag">🎯</span>
-          <span class="rr-tag">🌐</span><span class="rr-tag">🎓</span><span class="rr-tag">⚠️</span>
-        </div>
-        <div class="rr-arrow">→</div>`;
-      sec.appendChild(row);
-    });
-
-    wrap.appendChild(sec);
-  });
-
-  countEl.textContent = `${sorted.length} report${sorted.length !== 1 ? "s" : ""}`;
-
-  // ── SIDEBAR MONTH NAV ──
-  const nav = document.getElementById("month-nav");
-  Object.entries(byMonth).forEach(([mk, items], i) => {
-    const [y, m] = mk.split("-");
-    const grp = document.createElement("div");
-    grp.className = "month-group";
-    const hdr = document.createElement("div");
-    hdr.className = "month-header" + (i === 0 ? " open" : "");
-    hdr.innerHTML = `<span>${MONTHS[parseInt(m)-1]} ${y}</span><span class="ch">▶</span>`;
-    const list = document.createElement("div");
-    list.className = "date-list";
-    list.style.display = i === 0 ? "block" : "none";
-    items.forEach(r => {
-      const a = document.createElement("a");
-      a.className = "date-item";
-      a.href = `reports/${r.date}.html`;
-      a.textContent = `${r.dayShort} ${r.monthShort} ${r.d}`;
-      a.dataset.date = r.date;
-      list.appendChild(a);
-    });
-    hdr.addEventListener("click", () => {
-      const open = hdr.classList.toggle("open");
-      list.style.display = open ? "block" : "none";
-    });
-    grp.appendChild(hdr); grp.appendChild(list);
-    nav.appendChild(grp);
-  });
-
-  // ── SEARCH ──
-  const searchInput = document.getElementById("date-search");
-  const noResults   = document.getElementById("no-results");
-
-  searchInput.addEventListener("input", () => {
-    const q = searchInput.value.toLowerCase().trim();
-    let visible = 0;
-
-    // Filter report rows + featured
-    document.querySelectorAll(".report-row, .report-featured").forEach(el => {
-      const match = !q || el.dataset.label.includes(q) || el.dataset.date.includes(q);
-      el.style.display = match ? "" : "none";
-      if (match) visible++;
-    });
-
-    // Show/hide month section headers
-    document.querySelectorAll(".month-section").forEach(sec => {
-      const anyVisible = [...sec.querySelectorAll(".report-row")].some(r => r.style.display !== "none");
-      sec.querySelector(".month-section-header") && (sec.querySelector(".month-section-header").style.display = anyVisible || !q ? "" : "none");
-    });
-
-    // Sidebar filter
-    document.querySelectorAll(".month-group").forEach(grp => {
-      const hdr  = grp.querySelector(".month-header");
-      const list = grp.querySelector(".date-list");
-      let any = false;
-      list.querySelectorAll(".date-item").forEach(item => {
-        const m = !q || item.textContent.toLowerCase().includes(q) || item.dataset.date.includes(q);
-        item.style.display = m ? "" : "none";
-        if (m) any = true;
-      });
-      grp.style.display = any || !q ? "" : "none";
-      if (q && any) { hdr.classList.add("open"); list.style.display = "block"; }
-    });
-
-    countEl.textContent = `${visible} report${visible !== 1 ? "s" : ""}`;
-    noResults.style.display = visible === 0 ? "block" : "none";
-  });
-
-  // ── SUGGEST FORM — opens mailto with fields pre-filled, no account required ──
-  document.getElementById("suggest-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const name      = document.getElementById("f-name").value.trim();
-    const category  = document.getElementById("f-category").value;
-    const url       = document.getElementById("f-url").value.trim();
-    const submitter = document.getElementById("f-submitter").value.trim();
-    const reason    = document.getElementById("f-reason").value.trim();
-
-    const subject = encodeURIComponent(`[Competitor Suggestion] ${name}`);
-    const body    = encodeURIComponent(
-      `Competitor Name: ${name}\n` +
-      `Product Category: ${category}\n` +
-      (url       ? `Website: ${url}\n`          : "") +
-      (submitter ? `Submitted by: ${submitter}\n` : "") +
-      `\nWhy we should track them:\n${reason}`
-    );
-
-    window.location.href = `mailto:ferrickj@gmail.com?subject=${subject}&body=${body}`;
-    document.getElementById("success-msg").style.display = "block";
-    this.reset();
-  });
+  renderRecent(competitiveReports, "recent-competitive", "competitive-intel/reports", "🔐", "No reports yet — first run is scheduled for Monday.");
+  renderRecent(threatBriefings,    "recent-threat",       "threat-intel/briefings",   "⚠️", "No briefings yet — first run is scheduled for Monday.");
 </script>
 
 </body>
