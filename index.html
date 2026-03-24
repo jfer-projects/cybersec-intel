@@ -226,7 +226,7 @@
     <!-- Suggest a competitor -->
     <div class="suggest-section" id="suggest">
       <h2>💡 Suggest a Competitor to Track</h2>
-      <p class="sub">Submit a competitor you think we should monitor. It will be automatically reviewed for inclusion in the next report run.</p>
+      <p class="sub">Fill out the form below and hit Send — your email client will open with everything pre-filled. No account needed. Submissions are automatically reviewed on the next Mon/Wed/Fri report run.</p>
 
       <form id="suggest-form">
         <div class="form-row">
@@ -252,20 +252,20 @@
             <input type="url" id="f-url" placeholder="https://"/>
           </div>
           <div class="form-group">
-            <label>Submitted by</label>
-            <input type="text" id="f-submitter" placeholder="Your name"/>
+            <label>Your Name</label>
+            <input type="text" id="f-submitter" placeholder="So we know who suggested it"/>
           </div>
           <div class="form-group form-full">
             <label>Why should we track them? *</label>
-            <textarea id="f-reason" placeholder="Growing in the MSP channel, showing up in deals, recently funded, new product launch…" required></textarea>
+            <textarea id="f-reason" placeholder="e.g. Growing fast in the MSP channel, showing up in competitive deals, recently raised Series B, launching a product that overlaps with our MDR…" required></textarea>
           </div>
         </div>
-        <button type="submit" class="submit-btn">Submit suggestion →</button>
-        <p class="form-note">Submissions open a GitHub issue for review. A GitHub account is required — your team members can sign up free at github.com.</p>
+        <button type="submit" class="submit-btn">📧 Send suggestion →</button>
+        <p class="form-note">Opens your email client with the suggestion pre-filled. Sends to the PM team inbox and is picked up automatically on the next report run.</p>
       </form>
 
       <div class="success-msg" id="success-msg">
-        ✅ <strong>Opening GitHub…</strong> Complete the submission in the new tab by clicking "Submit new issue". It will be automatically reviewed on the next scheduled report run.
+        ✅ <strong>Your email client should have opened</strong> with the suggestion pre-filled. Just hit Send — it'll be reviewed automatically on the next Mon, Wed, or Fri report run.
       </div>
     </div>
 
@@ -430,7 +430,7 @@
     noResults.style.display = visible === 0 ? "block" : "none";
   });
 
-  // ── SUGGEST FORM — opens GitHub issue with fields pre-filled ──
+  // ── SUGGEST FORM — opens mailto with fields pre-filled, no account required ──
   document.getElementById("suggest-form").addEventListener("submit", function(e) {
     e.preventDefault();
     const name      = document.getElementById("f-name").value.trim();
@@ -439,18 +439,16 @@
     const submitter = document.getElementById("f-submitter").value.trim();
     const reason    = document.getElementById("f-reason").value.trim();
 
-    const title = encodeURIComponent(`[Competitor Suggestion] ${name}`);
-    const body  = encodeURIComponent(
-      `### Competitor Name\n${name}\n\n` +
-      `### Product Category\n${category}\n\n` +
-      (url ? `### Website\n${url}\n\n` : "") +
-      (submitter ? `### Submitted by\n${submitter}\n\n` : "") +
-      `### Why should we track them?\n${reason}`
+    const subject = encodeURIComponent(`[Competitor Suggestion] ${name}`);
+    const body    = encodeURIComponent(
+      `Competitor Name: ${name}\n` +
+      `Product Category: ${category}\n` +
+      (url       ? `Website: ${url}\n`          : "") +
+      (submitter ? `Submitted by: ${submitter}\n` : "") +
+      `\nWhy we should track them:\n${reason}`
     );
 
-    const issueUrl = `https://github.com/jfer-projects/cybersec-intel/issues/new?title=${title}&body=${body}&labels=competitor-suggestion`;
-    window.open(issueUrl, "_blank");
-
+    window.location.href = `mailto:ferrickj@gmail.com?subject=${subject}&body=${body}`;
     document.getElementById("success-msg").style.display = "block";
     this.reset();
   });

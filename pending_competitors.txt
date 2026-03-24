@@ -1,0 +1,4 @@
+# Pending Competitor Suggestions
+# Format: CompetitorName | Category | Rationale
+# Add one per line. The scheduled task reviews and removes entries after processing.
+# Example: Guardz | Endpoint Protection | MSP-focused, growing in SMB market, showing up in deals
