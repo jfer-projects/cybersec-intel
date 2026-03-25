@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intel Briefing — Tuesday, March 24, 2026</title>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#7f1d1d;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#takeaways"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#top-threats" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 Threats</a>
+    <a href="#cves"        style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🐛 CVEs</a>
+    <a href="#ransomware"  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🦠 Ransomware</a>
+    <a href="#msp-alerts"  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 MSP Alerts</a>
+    <a href="#portfolio"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">💼 Portfolio</a>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        ⚠️ Threat Intelligence Briefing
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Tuesday, March 24, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:16px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.15);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>5</strong> active threats
+        </div>
+        <div style="background:rgba(255,255,255,0.15);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🐛 <strong>6</strong> notable CVEs
+        </div>
+        <div style="background:rgba(255,255,255,0.15);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🎯 <strong>3</strong> MSP/SMB alerts
+        </div>
+        <div style="background:rgba(255,255,255,0.15);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔒 Internal · PM Team Only
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="takeaways" style="background:#450a0a;border-radius:12px;padding:24px 28px;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        ⚡ Top Threats at a Glance
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🔴 <strong>CVE-2026-1603 (Ivanti EPM)</strong> — CISA KEV-listed auth bypass, CVSS 8.6, actively exploited to steal Domain Admin password hashes from MSP and enterprise endpoint management infrastructure. FCEB patch deadline was <em>yesterday</em> (March 23). Ivanti EPM is widely used by MSPs — exposure is high.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>DragonForce ransomware via SimpleHelp RMM</strong> — supply chain attack exploiting three SimpleHelp CVEs (CVE-2024-57726/27/28) to pivot from MSP to downstream clients. Double-extortion with data theft. One client was protected by MDR/XDR detection — direct validation of our MDR product story.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          💀 <strong>CVE-2025-32975 (Quest KACE SMA)</strong> — CVSS 10.0 auth bypass, actively exploited since March 9. Full admin takeover on unpatched KACE Systems Management Appliances exposed to the internet. KACE is a common SMB endpoint management tool.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🌐 <strong>CVE-2026-20127 (Cisco Catalyst SD-WAN)</strong> — CVSS 10.0, authentication bypass enabling unauthenticated remote attackers to gain admin privileges, chained with a privilege escalation to root. Actively exploited against critical infrastructure. DNS/network stack exposure risk.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          📧 <strong>Tax Season RMM Malware Campaigns</strong> — Microsoft warns of active phishing campaigns using tax-themed lures to deploy RMM malware on SMB endpoints. Elevated urgency for SAT messaging and endpoint behavioral detection through tax season (April 15).
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        High-signal items only · Full detail by section below
+      </p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div style="max-width:860px;margin:0 auto;padding:24px 16px 40px;">
+
+    <!-- ── TOP THREATS ── -->
+    <div id="top-threats" style="background:#fff;border-radius:12px;border:1px solid #e2e8f0;
+                                  margin-bottom:20px;overflow:hidden;">
+      <div style="background:#dc2626;padding:14px 22px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:16px;">🔴</span>
+        <h2 style="margin:0;font-size:15px;font-weight:700;color:#fff;">Top Active Threats</h2>
+      </div>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:18px;">
+
+        <!-- Threat 1 -->
+        <div style="background:#fef2f2;border-radius:8px;padding:16px 18px;border-left:4px solid #dc2626;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+            <strong style="font-size:14px;color:#1e293b;">CVE-2026-1603 — Ivanti Endpoint Manager Auth Bypass</strong>
+            <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">CRITICAL · CISA KEV</span>
+          </div>
+          <div style="font-size:12px;color:#64748b;margin-bottom:8px;">Platform: Ivanti EPM (all versions &lt; 2024 SU5) · CVSS: 8.6 · Patch available: Yes</div>
+          <p style="font-size:13px;color:#374151;line-height:1.6;margin:0 0 8px;">
+            A malformed header concatenation flaw allows unauthenticated attackers to bypass authentication and directly access the EPM Credential Vault, stealing Domain Administrator password hashes and service account credentials. No valid login required. CISA added to KEV on March 9; FCEB patch deadline was March 23.
+          </p>
+          <div style="font-size:12px;color:#991b1b;font-weight:600;">
+            ⚡ PM Action: Ivanti EPM is widely deployed in MSP environments. Flag to MDR team for detection coverage and push patch communications to channel partners.
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:#94a3b8;">
+            Sources: <a href="https://cybersecuritynews.com/ivanti-endpoint-manager-authentication-bypass/" style="color:#1a56db;">CybersecurityNews</a> ·
+            <a href="https://www.cisa.gov/news-events/alerts/2026/03/09/cisa-adds-three-known-exploited-vulnerabilities-catalog" style="color:#1a56db;">CISA KEV Alert</a> ·
+            <a href="https://www.securityweek.com/recent-ivanti-endpoint-manager-flaw-exploited-in-attacks/" style="color:#1a56db;">SecurityWeek</a>
+          </div>
+        </div>
+
+        <!-- Threat 2 -->
+        <div style="background:#fef2f2;border-radius:8px;padding:16px 18px;border-left:4px solid #dc2626;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+            <strong style="font-size:14px;color:#1e293b;">CVE-2025-32975 — Quest KACE SMA Authentication Bypass</strong>
+            <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">CRITICAL · CVSS 10.0</span>
+          </div>
+          <div style="font-size:12px;color:#64748b;margin-bottom:8px;">Platform: Quest KACE Systems Management Appliance · CVSS: 10.0 · Patch available: Yes</div>
+          <p style="font-size:13px;color:#374151;line-height:1.6;margin:0 0 8px;">
+            Max-severity authentication bypass allowing attackers to impersonate legitimate users without credentials, enabling complete takeover of administrative accounts on internet-exposed KACE SMA appliances. Active exploitation observed since March 9, 2026. KACE is a common endpoint management and software deployment tool in SMB environments.
+          </p>
+          <div style="font-size:12px;color:#991b1b;font-weight:600;">
+            ⚡ PM Action: SMBs running KACE SMA should patch immediately. EDR behavioral detections for post-exploitation activity (lateral movement, credential dumping) are critical in these environments.
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:#94a3b8;">
+            Sources: <a href="https://thehackernews.com/2026/03/critical-cvss-10-flaw-cve-2025-32975.html" style="color:#1a56db;">The Hacker News</a>
+          </div>
+        </div>
+
+        <!-- Threat 3 -->
+        <div style="background:#fef2f2;border-radius:8px;padding:16px 18px;border-left:4px solid #dc2626;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+            <strong style="font-size:14px;color:#1e293b;">CVE-2026-20127 — Cisco Catalyst SD-WAN Auth Bypass + Privilege Escalation</strong>
+            <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">CRITICAL · CVSS 10.0</span>
+          </div>
+          <div style="font-size:12px;color:#64748b;margin-bottom:8px;">Platform: Cisco Catalyst SD-WAN Controller & Manager · CVSS: 10.0 · Patch available: Yes (emergency)</div>
+          <p style="font-size:13px;color:#374151;line-height:1.6;margin:0 0 8px;">
+            Authentication bypass flaw allows unauthenticated remote attackers to obtain full administrative privileges. Attackers then chain with CVE-2022-20775 to escalate to root. Actively exploited against critical infrastructure. Organizations using Cisco SD-WAN for network security should treat this as a P0 patch.
+          </p>
+          <div style="font-size:12px;color:#991b1b;font-weight:600;">
+            ⚡ PM Action: DNS Protection positioning opportunity — network-layer attacks on SD-WAN underscore the value of DNS-layer inspection and policy enforcement as an independent security control.
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:#94a3b8;">
+            Sources: <a href="https://www.greenbone.net/en/blog/emergency-patch-cve-2026-20127-in-cisco-catalyst-sd-wan-actively-exploited-against-critical-infrastructure/" style="color:#1a56db;">Greenbone</a>
+          </div>
+        </div>
+
+        <!-- Threat 4 -->
+        <div style="background:#fef2f2;border-radius:8px;padding:16px 18px;border-left:4px solid #dc2626;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+            <strong style="font-size:14px;color:#1e293b;">CVE-2026-22719 — VMware Aria Operations Command Injection</strong>
+            <span style="background:#f97316;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">HIGH · CISA KEV</span>
+          </div>
+          <div style="font-size:12px;color:#64748b;margin-bottom:8px;">Platform: VMware Aria Operations · CVSS: 8.1 · Patch available: Yes</div>
+          <p style="font-size:13px;color:#374151;line-height:1.6;margin:0 0 8px;">
+            Command injection vulnerability allows an unauthenticated attacker to execute arbitrary commands on affected VMware Aria Operations instances. CISA added to KEV catalog citing active exploitation. VMware Aria is used by MSPs and enterprises for cloud and infrastructure operations management.
+          </p>
+          <div style="font-size:12px;color:#991b1b;font-weight:600;">
+            ⚡ PM Action: MSPs running VMware environments should patch immediately. EDR detections for command execution on Aria instances should be validated.
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:#94a3b8;">
+            Sources: <a href="https://thehackernews.com/2026/03/cisa-adds-actively-exploited-vmware.html" style="color:#1a56db;">The Hacker News</a> · <a href="https://www.cisa.gov/news-events/alerts/2026/03/20/cisa-adds-five-known-exploited-vulnerabilities-catalog" style="color:#1a56db;">CISA</a>
+          </div>
+        </div>
+
+        <!-- Threat 5 -->
+        <div style="background:#fef2f2;border-radius:8px;padding:16px 18px;border-left:4px solid #dc2626;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+            <strong style="font-size:14px;color:#1e293b;">Iran-Linked MuddyWater — New Dindoor Backdoor Targeting U.S. Networks</strong>
+            <span style="background:#f97316;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;">HIGH · Nation-State</span>
+          </div>
+          <div style="font-size:12px;color:#64748b;margin-bottom:8px;">Platform: Windows · Attribution: Iranian Intelligence (MOIS-linked) · Patch: N/A (behavioral)</div>
+          <p style="font-size:13px;color:#374151;line-height:1.6;margin:0 0 8px;">
+            Iran-linked MuddyWater threat group is deploying a new backdoor called Dindoor against U.S. networks. Initial access via spearphishing; Dindoor provides persistent remote access and credential harvesting capabilities. Targets include government and defense contractors but SMB supply chain exposure is a secondary risk.
+          </p>
+          <div style="font-size:12px;color:#991b1b;font-weight:600;">
+            ⚡ PM Action: SAT — update phishing awareness training to include nation-state spearphishing lures. EDR behavioral detection for backdoor persistence mechanisms is essential.
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:#94a3b8;">
+            Sources: <a href="https://thehackernews.com/2026/03/iran-linked-muddywater-hackers-target.html" style="color:#1a56db;">The Hacker News</a>
+          </div>
+        </div>
+
+      </div>
+      <div style="padding:0 22px 14px;text-align:right;">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"
+           style="font-size:11px;color:#94a3b8;text-decoration:none;">↑ Back to top</a>
+      </div>
+    </div>
+
+    <!-- ── NOTABLE CVEs ── -->
+    <div id="cves" style="background:#fff;border-radius:12px;border:1px solid #e2e8f0;
+                           margin-bottom:20px;overflow:hidden;">
+      <div style="background:#ea580c;padding:14px 22px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:16px;">🐛</span>
+        <h2 style="margin:0;font-size:15px;font-weight:700;color:#fff;">Notable CVEs</h2>
+      </div>
+      <div style="padding:20px 22px;">
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <thead>
+            <tr style="background:#fff7ed;border-bottom:2px solid #fed7aa;">
+              <th style="text-align:left;padding:9px 12px;color:#7c2d12;font-size:11px;text-transform:uppercase;letter-spacing:.5px;">CVE ID</th>
+              <th style="text-align:left;padding:9px 12px;color:#7c2d12;font-size:11px;text-transform:uppercase;letter-spacing:.5px;">Product</th>
+              <th style="text-align:center;padding:9px 12px;color:#7c2d12;font-size:11px;text-transform:uppercase;letter-spacing:.5px;">CVSS</th>
+              <th style="text-align:center;padding:9px 12px;color:#7c2d12;font-size:11px;text-transform:uppercase;letter-spacing:.5px;">Patch</th>
+              <th style="text-align:left;padding:9px 12px;color:#7c2d12;font-size:11px;text-transform:uppercase;letter-spacing:.5px;">KEV</th>
+              <th style="text-align:left;padding:9px 12px;color:#7c2d12;font-size:11px;text-transform:uppercase;letter-spacing:.5px;">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:9px 12px;font-weight:700;color:#dc2626;white-space:nowrap;"><a href="https://cybersecuritynews.com/ivanti-endpoint-manager-authentication-bypass/" style="color:#dc2626;text-decoration:none;">CVE-2026-1603</a></td>
+              <td style="padding:9px 12px;">Ivanti Endpoint Manager</td>
+              <td style="padding:9px 12px;text-align:center;"><span style="background:#fef2f2;color:#dc2626;font-weight:700;padding:2px 7px;border-radius:6px;">8.6</span></td>
+              <td style="padding:9px 12px;text-align:center;">✅ 2024 SU5</td>
+              <td style="padding:9px 12px;"><span style="background:#dc2626;color:#fff;font-size:10px;padding:2px 6px;border-radius:4px;">KEV</span></td>
+              <td style="padding:9px 12px;color:#475569;">Auth bypass → Domain Admin credential theft. Patch deadline March 23.</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+              <td style="padding:9px 12px;font-weight:700;color:#dc2626;white-space:nowrap;"><a href="https://thehackernews.com/2026/03/critical-cvss-10-flaw-cve-2025-32975.html" style="color:#dc2626;text-decoration:none;">CVE-2025-32975</a></td>
+              <td style="padding:9px 12px;">Quest KACE SMA</td>
+              <td style="padding:9px 12px;text-align:center;"><span style="background:#fef2f2;color:#dc2626;font-weight:700;padding:2px 7px;border-radius:6px;">10.0</span></td>
+              <td style="padding:9px 12px;text-align:center;">✅ Available</td>
+              <td style="padding:9px 12px;"><span style="background:#dc2626;color:#fff;font-size:10px;padding:2px 6px;border-radius:4px;">KEV</span></td>
+              <td style="padding:9px 12px;color:#475569;">Auth bypass → full admin takeover. Active since March 9.</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:9px 12px;font-weight:700;color:#dc2626;white-space:nowrap;"><a href="https://www.greenbone.net/en/blog/emergency-patch-cve-2026-20127-in-cisco-catalyst-sd-wan-actively-exploited-against-critical-infrastructure/" style="color:#dc2626;text-decoration:none;">CVE-2026-20127</a></td>
+              <td style="padding:9px 12px;">Cisco Catalyst SD-WAN</td>
+              <td style="padding:9px 12px;text-align:center;"><span style="background:#fef2f2;color:#dc2626;font-weight:700;padding:2px 7px;border-radius:6px;">10.0</span></td>
+              <td style="padding:9px 12px;text-align:center;">✅ Emergency</td>
+              <td style="padding:9px 12px;">—</td>
+              <td style="padding:9px 12px;color:#475569;">Auth bypass + root escalation. Critical infrastructure targeting.</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+              <td style="padding:9px 12px;font-weight:700;color:#dc2626;white-space:nowrap;"><a href="https://thehackernews.com/2026/03/cisa-adds-actively-exploited-vmware.html" style="color:#dc2626;text-decoration:none;">CVE-2026-22719</a></td>
+              <td style="padding:9px 12px;">VMware Aria Operations</td>
+              <td style="padding:9px 12px;text-align:center;"><span style="background:#fff7ed;color:#ea580c;font-weight:700;padding:2px 7px;border-radius:6px;">8.1</span></td>
+              <td style="padding:9px 12px;text-align:center;">✅ Available</td>
+              <td style="padding:9px 12px;"><span style="background:#dc2626;color:#fff;font-size:10px;padding:2px 6px;border-radius:4px;">KEV</span></td>
+              <td style="padding:9px 12px;color:#475569;">Command injection → RCE. MSP VMware infrastructure risk.</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f1f5f9;">
+              <td style="padding:9px 12px;font-weight:700;color:#dc2626;white-space:nowrap;"><a href="https://thehackernews.com/2026/03/critical-langflow-flaw-cve-2026-33017.html" style="color:#dc2626;text-decoration:none;">CVE-2026-33017</a></td>
+              <td style="padding:9px 12px;">Langflow (AI platform)</td>
+              <td style="padding:9px 12px;text-align:center;"><span style="background:#fef2f2;color:#dc2626;font-weight:700;padding:2px 7px;border-radius:6px;">9.3</span></td>
+              <td style="padding:9px 12px;text-align:center;">✅ Available</td>
+              <td style="padding:9px 12px;">—</td>
+              <td style="padding:9px 12px;color:#475569;">RCE exploited within 20 hrs of disclosure. AI platform risk.</td>
+            </tr>
+            <tr style="background:#fafafa;">
+              <td style="padding:9px 12px;font-weight:700;color:#dc2626;white-space:nowrap;">CVE-2026-3055</td>
+              <td style="padding:9px 12px;">Citrix NetScaler ADC/GW</td>
+              <td style="padding:9px 12px;text-align:center;"><span style="background:#fef2f2;color:#dc2626;font-weight:700;padding:2px 7px;border-radius:6px;">9.3</span></td>
+              <td style="padding:9px 12px;text-align:center;">✅ Available</td>
+              <td style="padding:9px 12px;">—</td>
+              <td style="padding:9px 12px;color:#475569;">Out-of-bounds read leaks sensitive memory. Unauthenticated.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:0 22px 14px;text-align:right;">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"
+           style="font-size:11px;color:#94a3b8;text-decoration:none;">↑ Back to top</a>
+      </div>
+    </div>
+
+    <!-- ── RANSOMWARE ── -->
+    <div id="ransomware" style="background:#fff;border-radius:12px;border:1px solid #e2e8f0;
+                                 margin-bottom:20px;overflow:hidden;">
+      <div style="background:#7c3aed;padding:14px 22px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:16px;">🦠</span>
+        <h2 style="margin:0;font-size:15px;font-weight:700;color:#fff;">Ransomware Activity</h2>
+      </div>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:18px;">
+
+        <div style="background:#f5f3ff;border-radius:8px;padding:16px 18px;border-left:4px solid #7c3aed;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+            <strong style="font-size:14px;color:#1e293b;">DragonForce — MSP Supply Chain Ransomware via SimpleHelp RMM</strong>
+            <span style="background:#7c3aed;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;">RaaS · Double Extortion</span>
+          </div>
+          <div style="font-size:12px;color:#64748b;margin-bottom:8px;">Targets: MSPs + downstream SMB clients · TTPs: RMM exploitation → lateral movement → ransomware + data theft</div>
+          <p style="font-size:13px;color:#374151;line-height:1.6;margin:0 0 8px;">
+            DragonForce ransomware group exploited a chain of three vulnerabilities in SimpleHelp RMM (CVE-2024-57726, 57727, 57728) used by a managed service provider. After gaining access to the MSP's SimpleHelp instance, attackers performed reconnaissance on downstream client environments, then deployed ransomware across multiple clients simultaneously using legitimate MSP tooling. Double extortion (encrypt + exfiltrate) was used. One victim was protected by MDR/XDR detection that caught the suspicious SimpleHelp installer push before ransomware execution.
+          </p>
+          <div style="font-size:12px;color:#5b21b6;font-weight:600;">
+            ⚡ PM Action: Strongest possible MDR case study — one client stopped, others hit. Use this as a product narrative: "MDR as the last line of defense when RMM tools become the attack vector."
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:#94a3b8;">
+            Sources: <a href="https://www.bleepingcomputer.com/news/security/dragonforce-ransomware-abuses-simplehelp-in-msp-supply-chain-attack/" style="color:#1a56db;">BleepingComputer</a> ·
+            <a href="https://www.msspalert.com/news/dragonforce-ransomware-group-exploits-msps-rmm-software-in-attacks" style="color:#1a56db;">MSSP Alert</a> ·
+            <a href="https://www.darkreading.com/application-security/dragonforce-ransomware-msp-supply-chain-attack" style="color:#1a56db;">Dark Reading</a>
+          </div>
+        </div>
+
+        <div style="background:#f5f3ff;border-radius:8px;padding:16px 18px;border-left:4px solid #7c3aed;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+            <strong style="font-size:14px;color:#1e293b;">Anubis Ransomware — AkzoNobel Double Extortion (170GB)</strong>
+            <span style="background:#7c3aed;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;">Double Extortion</span>
+          </div>
+          <div style="font-size:12px;color:#64748b;margin-bottom:8px;">Target: AkzoNobel (multinational chemical company) · Data claimed: ~170GB</div>
+          <p style="font-size:13px;color:#374151;line-height:1.6;margin:0 0 8px;">
+            The Anubis ransomware group published samples of allegedly stolen data from AkzoNobel, claiming to have exfiltrated roughly 170GB of internal corporate files. This is a continued demonstration of the double-extortion model where data theft is used as additional leverage alongside encryption. Anubis is an emerging group operating a RaaS model.
+          </p>
+          <div style="font-size:12px;color:#5b21b6;font-weight:600;">
+            ⚡ PM Action: Emerging RaaS group to add to threat monitoring. Reinforces backup, data loss prevention, and MDR story for SMB customers.
+          </div>
+        </div>
+
+      </div>
+      <div style="padding:0 22px 14px;text-align:right;">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"
+           style="font-size:11px;color:#94a3b8;text-decoration:none;">↑ Back to top</a>
+      </div>
+    </div>
+
+    <!-- ── MSP/SMB ALERTS ── -->
+    <div id="msp-alerts" style="background:#fff;border-radius:12px;border:1px solid #e2e8f0;
+                                  margin-bottom:20px;overflow:hidden;">
+      <div style="background:#0891b2;padding:14px 22px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:16px;">🎯</span>
+        <h2 style="margin:0;font-size:15px;font-weight:700;color:#fff;">MSP / SMB Specific Alerts</h2>
+      </div>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:18px;">
+
+        <div style="background:#ecfeff;border-radius:8px;padding:16px 18px;border-left:4px solid #0891b2;">
+          <strong style="font-size:14px;color:#1e293b;display:block;margin-bottom:6px;">🎯 DragonForce SimpleHelp RMM Attack — MSP Supply Chain Warning</strong>
+          <p style="font-size:13px;color:#374151;line-height:1.6;margin:0 0 8px;">
+            MSPs running SimpleHelp RMM should treat CVE-2024-57726/57727/57728 as P0 patch priorities. The DragonForce supply chain attack demonstrates that attackers are now specifically targeting MSP tooling to multiply impact across an entire client base. SimpleHelp users should rotate all credentials, audit active sessions, and review push deployment logs for anomalies.
+          </p>
+          <div style="font-size:11px;color:#94a3b8;">
+            Sources: <a href="https://www.bleepingcomputer.com/news/security/dragonforce-ransomware-abuses-simplehelp-in-msp-supply-chain-attack/" style="color:#1a56db;">BleepingComputer</a> · <a href="https://www.msspalert.com/news/dragonforce-ransomware-group-exploits-msps-rmm-software-in-attacks" style="color:#1a56db;">MSSP Alert</a>
+          </div>
+        </div>
+
+        <div style="background:#ecfeff;border-radius:8px;padding:16px 18px;border-left:4px solid #0891b2;">
+          <strong style="font-size:14px;color:#1e293b;display:block;margin-bottom:6px;">📧 Tax Season RMM Malware Campaigns — Microsoft Warning</strong>
+          <p style="font-size:13px;color:#374151;line-height:1.6;margin:0 0 8px;">
+            Microsoft has warned of active phishing campaigns leveraging U.S. tax season themes (W-2s, IRS notices, tax software updates) to deliver RMM malware onto SMB endpoint environments. Attackers use legitimate-looking tax software update lures; once installed, the RMM tool provides persistent remote access. Elevated risk through April 15 tax deadline.
+          </p>
+          <div style="font-size:12px;color:#164e63;font-weight:600;">
+            ⚡ PM Action: Immediate SAT campaign opportunity — push tax season phishing awareness content to channel partners now. Endpoint behavioral detection for unauthorized RMM installations is key.
+          </div>
+        </div>
+
+        <div style="background:#ecfeff;border-radius:8px;padding:16px 18px;border-left:4px solid #0891b2;">
+          <strong style="font-size:14px;color:#1e293b;display:block;margin-bottom:6px;">🇷🇺 Russian Intelligence Phishing — WhatsApp & Signal Compromise Campaigns</strong>
+          <p style="font-size:13px;color:#374151;line-height:1.6;margin:0 0 8px;">
+            Threat actors affiliated with Russian Intelligence Services are conducting phishing campaigns targeting commercial messaging applications (WhatsApp, Signal) to compromise high-value individuals including government officials, journalists, and political figures. While primarily targeting high-value individuals, the TTP of messaging-app phishing is increasingly being adapted for SMB business email compromise scenarios.
+          </p>
+          <div style="font-size:12px;color:#164e63;font-weight:600;">
+            ⚡ PM Action: BEC and messaging-app phishing is a growing SAT topic. Ensure training modules cover multi-channel phishing, not just traditional email.
+          </div>
+        </div>
+
+      </div>
+      <div style="padding:0 22px 14px;text-align:right;">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"
+           style="font-size:11px;color:#94a3b8;text-decoration:none;">↑ Back to top</a>
+      </div>
+    </div>
+
+    <!-- ── PORTFOLIO RELEVANCE ── -->
+    <div id="portfolio" style="background:#fff;border-radius:12px;border:1px solid #e2e8f0;
+                                 margin-bottom:20px;overflow:hidden;">
+      <div style="background:#059669;padding:14px 22px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:16px;">💼</span>
+        <h2 style="margin:0;font-size:15px;font-weight:700;color:#fff;">Portfolio Relevance</h2>
+      </div>
+      <div style="padding:20px 22px;display:flex;flex-direction:column;gap:14px;">
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;">
+
+          <div style="background:#ecfdf5;border-radius:8px;padding:14px 16px;border-left:3px solid #059669;">
+            <strong style="font-size:13px;color:#1e293b;display:block;margin-bottom:5px;">🛡️ Endpoint Protection & EDR</strong>
+            <p style="font-size:12px;color:#374151;line-height:1.6;margin:0;">
+              CVE-2026-1603 (Ivanti EPM) and CVE-2025-32975 (KACE) both target endpoint management infrastructure. This week's threat landscape strongly validates the need for EDR behavioral detection on systems running endpoint management tools — not just user workstations. Flag for detection engineering review.
+            </p>
+          </div>
+
+          <div style="background:#ecfdf5;border-radius:8px;padding:14px 16px;border-left:3px solid #059669;">
+            <strong style="font-size:13px;color:#1e293b;display:block;margin-bottom:5px;">🎯 MDR</strong>
+            <p style="font-size:12px;color:#374151;line-height:1.6;margin:0;">
+              The DragonForce/SimpleHelp supply chain attack is the strongest MDR case study in months — one MSP client stopped the attack via MDR, while others were hit. This is a direct, citable real-world example of MDR value. Prioritize for product marketing and sales enablement content.
+            </p>
+          </div>
+
+          <div style="background:#ecfdf5;border-radius:8px;padding:14px 16px;border-left:3px solid #059669;">
+            <strong style="font-size:13px;color:#1e293b;display:block;margin-bottom:5px;">🌐 DNS Protection</strong>
+            <p style="font-size:12px;color:#374151;line-height:1.6;margin:0;">
+              The Cisco SD-WAN and RMM malware campaigns both rely on command-and-control DNS communications for persistence. DNS-layer blocking of known C2 domains is a critical lightweight control. BrightCloud's threat intelligence feeds powering DNS protection have direct applicability here.
+            </p>
+          </div>
+
+          <div style="background:#ecfdf5;border-radius:8px;padding:14px 16px;border-left:3px solid #059669;">
+            <strong style="font-size:13px;color:#1e293b;display:block;margin-bottom:5px;">🎓 Security Awareness Training</strong>
+            <p style="font-size:12px;color:#374151;line-height:1.6;margin:0;">
+              Tax season phishing campaigns + Russian messaging-app targeting = a two-front SAT opportunity. Push tax-themed phishing simulations now and ensure modules cover multi-channel social engineering (WhatsApp, Signal, Teams) in addition to traditional email.
+            </p>
+          </div>
+
+          <div style="background:#ecfdf5;border-radius:8px;padding:14px 16px;border-left:3px solid #059669;">
+            <strong style="font-size:13px;color:#1e293b;display:block;margin-bottom:5px;">⚠️ BrightCloud Threat Intelligence</strong>
+            <p style="font-size:12px;color:#374151;line-height:1.6;margin:0;">
+              DragonForce C2 infrastructure, RMM malware download domains, and MuddyWater Dindoor IOCs are all active this week. BrightCloud should have threat classification coverage for these domains. Validate coverage and use as a proof point for the threat intelligence feed value proposition.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+      <div style="padding:0 22px 14px;text-align:right;">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"
+           style="font-size:11px;color:#94a3b8;text-decoration:none;">↑ Back to top</a>
+      </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <div style="text-align:center;padding:20px;font-size:12px;color:#94a3b8;border-top:1px solid #e2e8f0;margin-top:10px;">
+      Threat Intelligence Briefing · Internal Use Only · Ferrick Product Management Team<br/>
+      Sources: <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" style="color:#94a3b8;">CISA KEV</a> ·
+      <a href="https://www.bleepingcomputer.com" style="color:#94a3b8;">BleepingComputer</a> ·
+      <a href="https://krebsonsecurity.com" style="color:#94a3b8;">Krebs on Security</a> ·
+      <a href="https://thehackernews.com" style="color:#94a3b8;">The Hacker News</a> ·
+      <a href="https://www.darkreading.com" style="color:#94a3b8;">Dark Reading</a> ·
+      <a href="https://www.msspalert.com" style="color:#94a3b8;">MSSP Alert</a><br/>
+      <a href="https://jfer-projects.github.io/cybersec-intel/threat-intel/" style="color:#94a3b8;">jfer-projects.github.io/cybersec-intel/threat-intel/</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
