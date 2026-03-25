@@ -4,7 +4,14 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Threat Intelligence Briefings</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Mon & Wed threat intelligence briefings covering active CVEs, ransomware campaigns, and MSP-targeted threats for the cybersecurity portfolio."/>
+  <meta property="og:title" content="Threat Intelligence Briefings"/>
+  <meta property="og:description" content="Active CVEs, ransomware, and MSP-targeted threat briefings — Mon & Wed."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/"/>
+  <meta property="og:type" content="website"/>
   <style>
+    html { scroll-behavior: smooth; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f1f5f9; color: #1e293b; }
 
@@ -234,6 +241,7 @@
       </div>`;
     countEl.textContent = "0 briefings";
   } else {
+    const TODAY = new Date().toISOString().slice(0, 10);
     const sorted = reports.map(r => ({ ...r, ...parseDate(r.date) })).sort((a, b) => b.date.localeCompare(a.date));
     const byMonth = {};
     sorted.forEach(r => { if (!byMonth[r.mk]) byMonth[r.mk] = []; byMonth[r.mk].push(r); });
@@ -259,7 +267,7 @@
         feat.dataset.label = latest.label.toLowerCase();
         feat.innerHTML = `
           <div>
-            <div class="rf-label">Latest Briefing</div>
+            <div class="rf-label">Latest Briefing${latest.date === TODAY ? ' <span style="background:#16a34a;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;vertical-align:middle;">NEW</span>' : ''}</div>
             <div class="rf-date">${latest.label}</div>
             <div class="rf-day">${latest.dayName}</div>
             <div class="rf-tags">
@@ -287,7 +295,7 @@
           row.dataset.label = r.label.toLowerCase();
           row.innerHTML = `
             <div class="rr-day">${r.dayShort}</div>
-            <div class="rr-date">${r.label}</div>
+            <div class="rr-date">${r.label}${r.date === TODAY ? ' <span style="background:#16a34a;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;vertical-align:middle;">NEW</span>' : ''}</div>
             <div class="rr-dayname">${r.dayName}</div>
             <div class="rr-tags">
               <span class="rr-tag">🚨</span><span class="rr-tag">🦠</span>

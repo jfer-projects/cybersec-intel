@@ -4,7 +4,14 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Cybersecurity Intel Hub</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence and threat briefings for the MSP & SMB cybersecurity portfolio — Ferrick PM Team."/>
+  <meta property="og:title" content="Cybersecurity Intel Hub"/>
+  <meta property="og:description" content="Competitive intel and threat briefings for the MSP & SMB cybersecurity portfolio."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/"/>
+  <meta property="og:type" content="website"/>
   <style>
+    html { scroll-behavior: smooth; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f1f5f9; color: #1e293b; min-height: 100vh; display: flex; flex-direction: column; }
 
@@ -160,7 +167,7 @@
           <li><span class="dot blue"></span>DNS, SAT, Threat Intel — Cisco, KnowBe4, Proofpoint, BrightCloud</li>
         </ul>
         <div class="hub-card-cta">
-          <span class="latest">Coverage: <strong>MSP &amp; SMB channel</strong></span>
+          <span class="latest" id="comp-last-pub">Coverage: <strong>MSP &amp; SMB channel</strong></span>
           <span class="arrow">→</span>
         </div>
       </div>
@@ -181,7 +188,7 @@
           <li><span class="dot red"></span>Portfolio impact analysis — what matters for your products</li>
         </ul>
         <div class="hub-card-cta">
-          <span class="latest">Sources: <strong>CISA · BleepingComputer · Krebs</strong></span>
+          <span class="latest" id="threat-last-pub">Sources: <strong>CISA · BleepingComputer · Krebs</strong></span>
           <span class="arrow">→</span>
         </div>
       </div>
@@ -240,6 +247,14 @@
     return { label: `${MONTHS[m-1]} ${d}, ${y}`, day: DAYS[dt.getDay()] };
   }
 
+  const TODAY = new Date().toISOString().slice(0, 10);
+
+  function formatLastPub(date) {
+    const p = parseDate(date);
+    const isToday = date === TODAY;
+    return isToday ? `Last published: <strong style="color:#16a34a;">Today</strong>` : `Last published: <strong>${p.label}</strong>`;
+  }
+
   function renderRecent(items, containerId, pathPrefix, icon, emptyMsg) {
     const el = document.getElementById(containerId);
     if (!items.length) {
@@ -249,13 +264,25 @@
     const sorted = [...items].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 5);
     el.innerHTML = sorted.map(r => {
       const p = parseDate(r.date);
+      const isToday = r.date === TODAY;
+      const newBadge = isToday ? `<span style="background:#16a34a;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;letter-spacing:.3px;margin-left:4px;">NEW</span>` : "";
       return `<a class="recent-item" href="${pathPrefix}/${r.date}.html">
         <span class="ri-icon">${icon}</span>
-        <span class="ri-date">${p.label}</span>
+        <span class="ri-date">${p.label}${newBadge}</span>
         <span class="ri-day">${p.day}</span>
         <span class="ri-arrow">→</span>
       </a>`;
     }).join("");
+  }
+
+  // Populate last-published dates on hub cards
+  if (competitiveReports.length) {
+    const latest = [...competitiveReports].sort((a,b) => b.date.localeCompare(a.date))[0];
+    document.getElementById("comp-last-pub").innerHTML = formatLastPub(latest.date);
+  }
+  if (threatBriefings.length) {
+    const latest = [...threatBriefings].sort((a,b) => b.date.localeCompare(a.date))[0];
+    document.getElementById("threat-last-pub").innerHTML = formatLastPub(latest.date);
   }
 
   renderRecent(competitiveReports, "recent-competitive", "competitive-intel/reports", "🔐", "No reports yet — first run is scheduled for Monday.");
