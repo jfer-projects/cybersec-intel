@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🚨 Threat Briefing — Wednesday, May 14, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚨</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for May 14, 2026 — APT activity, ransomware trends, zero-day exploits."/>
+  <meta property="og:title" content="Threat Briefing — May 14, 2026"/>
+  <meta property="og:description" content="Threat landscape: MuddyWater false flags, encryptionless extortion, post-quantum ransomware, FamousSparrow targeting energy, AI-generated zero-days detected."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-05-14.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#7f1d1d;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"            style="background:#fef2f2;color:#7f1d1d;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#apt-activity"       style="background:#fef2f2;color:#7f1d1d;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 APT</a>
+    <a href="#ransomware"         style="background:#fef2f2;color:#7f1d1d;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔓 Ransomware</a>
+    <a href="#exploits"           style="background:#fef2f2;color:#7f1d1d;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">0️⃣ Zero-Days</a>
+    <span style="flex:1;"></span>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        🚨 Threat Intelligence Briefing
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Wednesday, May 14, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🎯 <strong>2</strong> APT campaigns
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔓 <strong>3</strong> ransomware trends
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          0️⃣ <strong>1</strong> AI-generated zero-day
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="summary" style="background:#7f1d1d;border-radius:12px;padding:24px 28px;
+                margin-bottom:0;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        📋 Briefing Summary
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🚩 <strong>MuddyWater false flag campaign</strong> — Masquerading as Chaos ransomware; espionage-only objective using RMM abuse + credential harvesting + MFA bypass. Validates Huntress threat data on RMM abuse +277% YoY.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          💰 <strong>Ransomware evolution</strong> — Shift from encryption to encryptionless extortion; new families adopt post-quantum cryptography; attack volumes stable but more sophisticated.
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🔬 <strong>First AI-generated zero-day</strong> — Google detects zero-day developed via AI; shortens exploit development cycles; compress patch timing and threat response windows.
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        May 1–14, 2026 threat landscape snapshot
+      </p>
+    </div>
+
+    <!-- APT ACTIVITY -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">🎯 APT Activity & Nation-State Campaigns</h2>
+
+    <div id="apt-activity" style="margin-bottom:32px;">
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.securityweek.com/iranian-apt-intrusion-masquerades-as-chaos-ransomware-attack/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#7f1d1d;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">🇮🇷 MuddyWater False Flag: Chaos Ransomware Masquerade (May 2026)</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 SecurityWeek &nbsp;|&nbsp; 📅 May 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">
+            <strong>Campaign:</strong> Iran-linked APT MuddyWater conducted intrusion disguised as Chaos ransomware attack on unnamed organization in early 2026.
+            <br/><strong>TTPs:</strong> Social engineering → RMM platform initial access → Credential harvesting → MFA bypass via Microsoft Teams screen-sharing session. Established persistent access via compromised user accounts.
+            <br/><strong>Objective:</strong> Espionage only; NO file-encrypting ransomware deployed. Data exfiltration + credential theft for long-term persistence.
+            <br/><strong>Implication:</strong> Validates RMM abuse as primary attack vector (aligns with Huntress 277% YoY finding). MFA protection insufficient without endpoint-level controls. Identity attacks dominate threat landscape (Sophos 67% finding).
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.infosecurity-magazine.com/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#7f1d1d;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">🇨🇳 FamousSparrow (UAT-9244): Energy Sector Multi-Wave Campaign (Dec 2025–Feb 2026)</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Bitdefender / Infosecurity &nbsp;|&nbsp; 📅 May 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">
+            <strong>Target:</strong> Azerbaijani oil & gas company.
+            <br/><strong>Duration:</strong> Multi-wave intrusion campaign spanning Dec 2025–Feb 2026 (2+ months).
+            <br/><strong>Attribution:</strong> Bitdefender moderate-to-high confidence attribution to FamousSparrow, China-linked APT group.
+            <br/><strong>Implication:</strong> Persistent targeting of critical infrastructure energy sector. Suggests geopolitical interest in Caucasus region energy assets. Campaign duration = advanced adversary patience and sophistication.
+          </div>
+        </div>
+    </div>
+
+    <!-- RANSOMWARE TRENDS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">🔓 Ransomware Landscape & Extortion Evolution</h2>
+
+    <div id="ransomware" style="margin-bottom:32px;">
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://industrialcyber.co/reports/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#7f1d1d;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Encryptionless Extortion — New Primary Vector (2026 Baseline)</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Industrial Cyber &nbsp;|&nbsp; 📅 May 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">
+            <strong>Trend:</strong> Ransomware attack volumes stable into 2026, but composition shifting. Encryptionless extortion now becoming primary extortion method as ransom payments decline.
+            <br/><strong>Attacker Motivation:</strong> Data exfiltration + threat of public disclosure as leverage, NOT file encryption for ransom leverage.
+            <br/><strong>Defense Implication:</strong> Data loss prevention (DLP) + data security posture management (DSPM) move from secondary to primary control layers. Detection + response against data exfiltration becomes critical.
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://securelist.com/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#7f1d1d;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">Post-Quantum Cryptography Adoption by New Ransomware Families (2026)</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 Kaspersky Securelist &nbsp;|&nbsp; 📅 May 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">
+            <strong>Evolution:</strong> New ransomware families increasingly adopting post-quantum cryptography (PQC) ciphers, signaling awareness of future decryption risk.
+            <br/><strong>Implication:</strong> Threat actors preparing for quantum computing era; reducing leverage of classical decryption tooling. MDR/SIEM strategies must evolve to handle obfuscated/PQC-encrypted payloads earlier in kill chain.
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.cyfirma.com/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#7f1d1d;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">BARADAI Ransomware Family — New Variant Emergence (May 2026)</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 CYFIRMA &nbsp;|&nbsp; 📅 May 8, 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">
+            <strong>Family:</strong> BARADAI — file-encrypting ransomware with distinct file extension signature.
+            <br/><strong>Activity:</strong> New family emergence continues trend of variant proliferation outpacing detection signature updates.
+            <br/><strong>Defense:</strong> Behavior-based detection and behavioral EDR required; signature-only approaches insufficient.
+          </div>
+        </div>
+    </div>
+
+    <!-- EXPLOITS & ZERO-DAYS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">0️⃣ Vulnerability Exploits & Zero-Days</h2>
+
+    <div id="exploits" style="margin-bottom:32px;">
+
+        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <a href="https://www.securityweek.com/google-detects-first-ai-generated-zero-day-exploit/" target="_blank"
+             style="font-weight:600;font-size:14px;color:#7f1d1d;text-decoration:none;
+                    line-height:1.4;display:block;margin-bottom:6px;">🚨 FIRST: Google Detects AI-Generated Zero-Day Exploit (May 2026)</a>
+          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+            🏷 SecurityWeek &nbsp;|&nbsp; 📅 May 2026
+          </div>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">
+            <strong>Discovery:</strong> Google confirmed first zero-day vulnerability exploit developed using AI/machine learning assistance.
+            <br/><strong>Implication:</strong> Signals emergence of new threat category: AI-assisted vulnerability research accelerating exploit development cycles.
+            <br/><strong>Defense Timeline Impact:</strong> Exploit-to-deployment window shrinks. Zero-day disclosure timelines compress. Patch velocity + vulnerability management automation become competitive advantages for vendors with rapid release cycles.
+            <br/><strong>Strategic Shift:</strong> Endpoint + EDR vendors with ML-based threat hunting and rapid response automation will outpace signature-based competitors.
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="text-align:center;padding:24px 20px;font-size:12px;color:#94a3b8;
+                 border-top:1px solid #e2e8f0;margin-top:40px;">
+    <p>🚨 Threat Intelligence Briefing — Week of May 14, 2026</p>
+    <p style="font-size:11px;margin-top:8px;">Sources: SecurityWeek, Bitdefender, Kaspersky, CYFIRMA, Google, Industrial Cyber. This briefing covers emerging threats and incident trends relevant to the MSP/SMB cybersecurity landscape.</p>
+  </footer>
+
+</body>
+</html>
