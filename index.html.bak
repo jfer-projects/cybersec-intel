@@ -196,8 +196,6 @@
 
   </div>
 
-  <!-- ── RECENT ACTIVITY ── -->
-
   <!-- ── TOP 3 THIS QUARTER ── -->
   <div style="margin-bottom: 44px; background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1a56db 100%); border-radius: 14px; padding: 28px 32px; color: #fff;">
     <div style="max-width: 860px; margin: 0;">
@@ -223,6 +221,8 @@
       <div style="margin-top: 16px; font-size: 11px; opacity: 0.6; text-align: right;">Last updated: May 14, 2026</div>
     </div>
   </div>
+
+  <!-- ── RECENT ACTIVITY ── -->
   <div class="section-title">Recent reports</div>
   <div class="recent-grid">
 
@@ -256,66 +256,4 @@
   // Updated automatically by the competitive intel scheduled task
   const competitiveReports = [
     { date: "2026-05-14" },
-    { date: "2026-03-23" }
-  ];
-
-  // ── RECENT THREAT BRIEFINGS ──
-  // Updated automatically by the threat intel scheduled task
-  const threatBriefings = [
-    { date: "2026-05-14" },
-    { date: "2026-03-24" }
-  ];
-
-  const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-  const DAYS   = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
-  function parseDate(str) {
-    const [y, m, d] = str.split("-").map(Number);
-    const dt = new Date(y, m-1, d);
-    return { label: `${MONTHS[m-1]} ${d}, ${y}`, day: DAYS[dt.getDay()] };
-  }
-
-  const TODAY = new Date().toISOString().slice(0, 10);
-
-  function formatLastPub(date) {
-    const p = parseDate(date);
-    const isToday = date === TODAY;
-    return isToday ? `Last published: <strong style="color:#16a34a;">Today</strong>` : `Last published: <strong>${p.label}</strong>`;
-  }
-
-  function renderRecent(items, containerId, pathPrefix, icon, emptyMsg) {
-    const el = document.getElementById(containerId);
-    if (!items.length) {
-      el.innerHTML = `<div class="recent-empty">${emptyMsg}</div>`;
-      return;
-    }
-    const sorted = [...items].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 5);
-    el.innerHTML = sorted.map(r => {
-      const p = parseDate(r.date);
-      const isToday = r.date === TODAY;
-      const newBadge = isToday ? `<span style="background:#16a34a;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;letter-spacing:.3px;margin-left:4px;">NEW</span>` : "";
-      return `<a class="recent-item" href="${pathPrefix}/${r.date}.html">
-        <span class="ri-icon">${icon}</span>
-        <span class="ri-date">${p.label}${newBadge}</span>
-        <span class="ri-day">${p.day}</span>
-        <span class="ri-arrow">→</span>
-      </a>`;
-    }).join("");
-  }
-
-  // Populate last-published dates on hub cards
-  if (competitiveReports.length) {
-    const latest = [...competitiveReports].sort((a,b) => b.date.localeCompare(a.date))[0];
-    document.getElementById("comp-last-pub").innerHTML = formatLastPub(latest.date);
-  }
-  if (threatBriefings.length) {
-    const latest = [...threatBriefings].sort((a,b) => b.date.localeCompare(a.date))[0];
-    document.getElementById("threat-last-pub").innerHTML = formatLastPub(latest.date);
-  }
-
-  renderRecent(competitiveReports, "recent-competitive", "competitive-intel/reports", "🔐", "No reports yet — first run is scheduled for Monday.");
-  renderRecent(threatBriefings,    "recent-threat",       "threat-intel/briefings",   "⚠️", "No briefings yet — first run is scheduled for Monday.");
-</script>
-
-</body>
-</html>
+    { date: "2026-03

@@ -38,6 +38,8 @@
     <a href="#sat"                  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎓 SAT</a>
     <a href="#threat-intel"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚠️ Threat Intel</a>
     <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+    <span style="color:#cbd5e1;font-size:12px;padding:5px 10px;margin-left:8px;">|</span>
     <span style="color:#cbd5e1;font-size:12px;padding:5px 10px;">← Prev</span>
     <span style="color:#cbd5e1;font-size:12px;padding:5px 10px;">Next →</span>
   </nav>
@@ -49,7 +51,7 @@
       <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
         🔐 Competitive Intelligence Report
       </h1>
-      <div style="font-size:15px;opacity:.85;">Wednesday, May 14, 2026</div>
+      <div style="font-size:15px;opacity:.85;">Wednesday, May 14, 2026 <span style="opacity:.6;"> • Published 1 day after research window</span> <span style="opacity:.6;"> • Published 1 day after research window</span></div>
       <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
         <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
           📰 <strong>27</strong> news items
@@ -74,21 +76,45 @@
       <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
         <li style="font-size:14px;line-height:1.6;padding-left:4px;">
           📊 <strong>SentinelOne Q1 momentum</strong> — Latest quarter: $271.2M revenue (20% YoY growth). Stock price recovered after Q1 AI concerns; continued expansion despite competitive pressure from CrowdStrike.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#eff6ff;color:#1a56db;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 Monitor Only</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Validates market recovery; competitive pressure ongoing</span>
+          </div>
         </li>
         <li style="font-size:14px;line-height:1.6;padding-left:4px;">
           🤝 <strong>Ericsson + Sandfly partnership</strong> — Agentless EDR for telecom/critical infrastructure. New vendor entry point targeting CSPs; commercial availability ramping through 2026.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fef2f2;color:#dc2626;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟠 Monitor Only</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Early signal in CSP vertical; not yet SMB/MSP threat</span>
+          </div>
         </li>
         <li style="font-size:14px;line-height:1.6;padding-left:4px;">
           🏆 <strong>Arctic Wolf Gartner Customers' Choice 2026</strong> — 4.9/5.0 from 241 reviews with 99% NPS. Validates value proposition; positions against Huntress in SMB/MSP MDR competition.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fef3c7;color:#b45309;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Parity Needed</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Customer validation threat; validates MDR category strength vs. our roadmap</span>
+          </div>
         </li>
         <li style="font-size:14px;line-height:1.6;padding-left:4px;">
           ⚠️ <strong>Infoblox gains on Cisco DNS</strong> — Testing: Cisco Secure Access blocks only 39.3% of threats vs. Infoblox coverage. Market share shift: Infoblox +0.2pp (4.6%→4.8%), Cisco -4.3pp (25.1%→20.8%). Migration offer (15mo/12mo) expires July 31.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#d1fae5;color:#047857;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Differentiation Opportunity</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Cisco weakness in threat blocking; narrative for our DNS advantage</span>
+          </div>
         </li>
         <li style="font-size:14px;line-height:1.6;padding-left:4px;">
           🎓 <strong>KnowBe4 SAT tier split + AI agents</strong> — Launched SAT Advanced/Foundation on May 6. New Content Creation Agent (GenAI-powered custom training, 30 languages) directly addresses SMB cost concerns. Market repositioning from SAT → HRM continues.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#d1fae5;color:#047857;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Differentiation Opportunity</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 GenAI capabilities in SAT; evaluate custom content gap in our roadmap</span>
+          </div>
         </li>
         <li style="font-size:14px;line-height:1.6;padding-left:4px;">
           🚨 <strong>Ransomware "new normal"</strong> — Shift to encryptionless extortion; post-quantum cryptography adoption by new families; Iranian APT false flags; first AI-generated zero-day detected by Google.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fecaca;color:#991b1b;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Action Required</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Threat vector shift; roadmap impact for endpoint + EDR + MDR automation</span>
+          </div>
         </li>
       </ul>
       <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
@@ -394,40 +420,4 @@
           <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
             🏷 Infosecurity &nbsp;|&nbsp; 📅 May 2026
           </div>
-          <div style="font-size:13px;color:#475569;line-height:1.5;">Bitdefender attributes multi-wave intrusion on Azerbaijani oil/gas company (Dec 2025–Feb 2026) to China-linked FamousSparrow (UAT-9244) with moderate-to-high confidence. Extended campaign duration indicates persistent APT focus on critical infrastructure energy sector.</div>
-        </div>
-
-        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
-                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-          <a href="https://www.securityweek.com/google-detects-first-ai-generated-zero-day-exploit/" target="_blank"
-             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
-                    line-height:1.4;display:block;margin-bottom:6px;">🚨 FIRST: Google Detects AI-Generated Zero-Day Exploit (May 2026)</a>
-          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
-            🏷 SecurityWeek &nbsp;|&nbsp; 📅 May 2026
-          </div>
-          <div style="font-size:13px;color:#475569;line-height:1.5;">Google confirmed first zero-day exploit generated by AI. Signals emerging threat category: AI-assisted vulnerability research accelerating exploit development cycles. IMPACT: Exploit availability window shrinks; zero-day disclosure timelines compress; patch velocity becomes critical competitive advantage.</div>
-        </div>
-
-        <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
-                    border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-          <a href="https://securelist.com/state-of-ransomware-in-2026/119761/" target="_blank"
-             style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
-                    line-height:1.4;display:block;margin-bottom:6px;">Ransomware Trends 2026 — Post-Quantum Cryptography Adoption Accelerating</a>
-          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
-            🏷 Kaspersky Securelist &nbsp;|&nbsp; 📅 2026
-          </div>
-          <div style="font-size:13px;color:#475569;line-height:1.5;">New ransomware families increasingly adopting post-quantum cryptography ciphers. Threat evolution: New variant families outpacing traditional detection signatures. MDR/SIEM response strategies require updated deobfuscation and decryption tooling.</div>
-        </div>
-    </div>
-
-  </div>
-
-  <!-- FOOTER -->
-  <footer style="text-align:center;padding:24px 20px;font-size:12px;color:#94a3b8;
-                 border-top:1px solid #e2e8f0;margin-top:40px;">
-    <p>📊 Cybersecurity Competitive Intelligence Hub — Week of May 14, 2026</p>
-    <p style="font-size:11px;margin-top:8px;">Sources: Vendor press releases, analyst reports, threat feeds, and industry research. This report contains forward-looking analysis intended for strategic product and positioning decisions.</p>
-  </footer>
-
-</body>
-</html>
+          <div style="font-size:13px;color:#475569;line-height:1.5;">Bitdefender attributes multi-wave intrusion on Azerbaijani oil/gas company (Dec 2025–Feb 2026) to China-linked FamousSparrow (UAT-9244

@@ -35,6 +35,8 @@
     <a href="#ransomware"         style="background:#fef2f2;color:#7f1d1d;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔓 Ransomware</a>
     <a href="#exploits"           style="background:#fef2f2;color:#7f1d1d;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">0️⃣ Zero-Days</a>
     <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
   </nav>
 
   <!-- HEADER -->
@@ -44,7 +46,7 @@
       <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
         🚨 Threat Intelligence Briefing
       </h1>
-      <div style="font-size:15px;opacity:.85;">Wednesday, May 14, 2026</div>
+      <div style="font-size:15px;opacity:.85;">Wednesday, May 14, 2026 <span style="opacity:.6;"> • Published same-day (0-day monitoring)</span> <span style="opacity:.6;"> • Published same-day (0-day monitoring)</span></div>
       <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
         <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
           🎯 <strong>2</strong> APT campaigns
@@ -69,12 +71,36 @@
       <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
         <li style="font-size:14px;line-height:1.6;padding-left:4px;">
           🚩 <strong>MuddyWater false flag campaign</strong> — Masquerading as Chaos ransomware; espionage-only objective using RMM abuse + credential harvesting + MFA bypass. Validates Huntress threat data on RMM abuse +277% YoY.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fecaca;color:#991b1b;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Action Required</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 RMM abuse threat; relevant to EDR/MDR customer conversations</span>
+          </div>
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fecaca;color:#991b1b;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Action Required</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 RMM abuse threat; relevant to EDR/MDR customer conversations</span>
+          </div>
         </li>
         <li style="font-size:14px;line-height:1.6;padding-left:4px;">
           💰 <strong>Ransomware evolution</strong> — Shift from encryption to encryptionless extortion; new families adopt post-quantum cryptography; attack volumes stable but more sophisticated.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fecaca;color:#991b1b;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Action Required</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Evolving attack method; impacts all endpoint + detection products</span>
+          </div>
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fecaca;color:#991b1b;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Action Required</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Evolving attack method; impacts all endpoint + detection products</span>
+          </div>
         </li>
         <li style="font-size:14px;line-height:1.6;padding-left:4px;">
           🔬 <strong>First AI-generated zero-day</strong> — Google detects zero-day developed via AI; shortens exploit development cycles; compress patch timing and threat response windows.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fecaca;color:#991b1b;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Action Required</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 AI-driven exploits change threat response timeline; roadmap priority</span>
+          </div>
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fecaca;color:#991b1b;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Action Required</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 AI-driven exploits change threat response timeline; roadmap priority</span>
+          </div>
         </li>
       </ul>
       <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
@@ -186,26 +212,4 @@
           <a href="https://www.securityweek.com/google-detects-first-ai-generated-zero-day-exploit/" target="_blank"
              style="font-weight:600;font-size:14px;color:#7f1d1d;text-decoration:none;
                     line-height:1.4;display:block;margin-bottom:6px;">🚨 FIRST: Google Detects AI-Generated Zero-Day Exploit (May 2026)</a>
-          <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
-            🏷 SecurityWeek &nbsp;|&nbsp; 📅 May 2026
-          </div>
-          <div style="font-size:13px;color:#475569;line-height:1.5;">
-            <strong>Discovery:</strong> Google confirmed first zero-day vulnerability exploit developed using AI/machine learning assistance.
-            <br/><strong>Implication:</strong> Signals emergence of new threat category: AI-assisted vulnerability research accelerating exploit development cycles.
-            <br/><strong>Defense Timeline Impact:</strong> Exploit-to-deployment window shrinks. Zero-day disclosure timelines compress. Patch velocity + vulnerability management automation become competitive advantages for vendors with rapid release cycles.
-            <br/><strong>Strategic Shift:</strong> Endpoint + EDR vendors with ML-based threat hunting and rapid response automation will outpace signature-based competitors.
-          </div>
-        </div>
-    </div>
-
-  </div>
-
-  <!-- FOOTER -->
-  <footer style="text-align:center;padding:24px 20px;font-size:12px;color:#94a3b8;
-                 border-top:1px solid #e2e8f0;margin-top:40px;">
-    <p>🚨 Threat Intelligence Briefing — Week of May 14, 2026</p>
-    <p style="font-size:11px;margin-top:8px;">Sources: SecurityWeek, Bitdefender, Kaspersky, CYFIRMA, Google, Industrial Cyber. This briefing covers emerging threats and incident trends relevant to the MSP/SMB cybersecurity landscape.</p>
-  </footer>
-
-</body>
-</html>
+          <div style="font-size:
