@@ -204,118 +204,56 @@
       <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; margin-bottom: 16px;">Strategic Signals</div>
       <h2 style="margin: 0 0 20px; font-size: 22px; font-weight: 800;">🎯 Top 3 This Quarter</h2>
       <div style="display: flex; flex-direction: column; gap: 16px;">
-        <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 18px 22px; border-left: 4px solid #16a34a;">
-          <div style="font-size: 13px; font-weight: 700; margin-bottom: 6px;">🟢 1. Ransomware Evolution — New Attack Methods</div>
-          <div style="font-size: 13px; opacity: 0.9; line-height: 1.5;">Shift from encryption to encryptionless extortion; post-quantum cryptography adoption. All endpoint + MDR products need response capability updates.</div>
-          <div style="margin-top: 8px; font-size: 11px; opacity: 0.7;">Impact: Action Required for Endpoint, EDR, MDR roadmaps</div>
+
+        <!-- Signal 1: Ransomware Evolution -->
+        <div class="signal-card" onclick="toggleSignal(this)" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 18px 22px; border-left: 4px solid #16a34a; cursor: pointer; transition: background-color 0.2s;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 13px; font-weight: 700; margin-bottom: 6px;">🟢 1. Ransomware Evolution — New Attack Methods</div>
+              <div style="font-size: 13px; opacity: 0.9; line-height: 1.5;">Shift from encryption to encryptionless extortion; post-quantum cryptography adoption. All endpoint + MDR products need response capability updates.</div>
+              <div style="margin-top: 8px; font-size: 11px; opacity: 0.7;">Impact: Action Required for Endpoint, EDR, MDR roadmaps</div>
+            </div>
+            <div style="font-size: 18px; flex-shrink: 0; margin-left: 12px; opacity: 0.7; transition: transform 0.3s;">▼</div>
+          </div>
+          <div class="signal-detail" style="display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 12px; line-height: 1.6; opacity: 0.9;">
+            <div style="margin-bottom: 12px;"><strong>Why This Matters:</strong> Ransomware attack methods are evolving faster than our detection capabilities. The shift to encryptionless extortion makes behavioral analysis critical; post-quantum adoption affects encryption-detection logic.</div>
+            <div style="margin-bottom: 12px;"><strong>What's Happening:</strong> LockBit, BlackCat, and emerging groups now focus on data exfiltration + pressure (without encryption). This bypasses traditional "detect encryption" signatures. Post-quantum cryptography in some variants complicates detection/response.</div>
+            <div style="margin-bottom: 12px;"><strong>Portfolio Impact:</strong>
+              <ul style="list-style: none; padding-left: 0; margin: 6px 0 0 0;">
+                <li>🔴 Endpoint Protection: Need to update signatures, add behavioral detection for exfiltration patterns</li>
+                <li>🔴 EDR: Behavioral analysis of file access + network I/O critical; response playbooks need updating</li>
+                <li>🔴 MDR: SOC needs playbooks for non-encryption ransomware (what to look for?)</li>
+              </ul>
+            </div>
+            <div style="margin-bottom: 12px;"><strong>Recommended Action:</strong> Q2 2026 roadmap: Add exfiltration detection to EDR/MDR. Threat Intel: create guide for "ransomware without encryption" detection patterns.</div>
+            <div><strong>Sources:</strong> CISA RomCom reports (Q1 2026), LockBit variant analysis (BleepingComputer May 2026), CrowdStrike threat reports</div>
+          </div>
         </div>
-        <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 18px 22px; border-left: 4px solid #fb923c;">
-          <div style="font-size: 13px; font-weight: 700; margin-bottom: 6px;">🟡 2. Arctic Wolf Gartner Win — Customer Validation</div>
-          <div style="font-size: 13px; opacity: 0.9; line-height: 1.5;">4.9/5.0 rating; 99% NPS validates MDR market strength. Competitive positioning threat against our MDR roadmap decisions.</div>
-          <div style="margin-top: 8px; font-size: 11px; opacity: 0.7;">Impact: Parity check needed for MDR feature differentiation</div>
+
+        <!-- Signal 2: Arctic Wolf Gartner Win -->
+        <div class="signal-card" onclick="toggleSignal(this)" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 18px 22px; border-left: 4px solid #fb923c; cursor: pointer; transition: background-color 0.2s;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 13px; font-weight: 700; margin-bottom: 6px;">🟡 2. Arctic Wolf Gartner Win — Customer Validation</div>
+              <div style="font-size: 13px; opacity: 0.9; line-height: 1.5;">4.9/5.0 rating; 99% NPS validates MDR market strength. Competitive positioning threat against our MDR roadmap decisions.</div>
+              <div style="margin-top: 8px; font-size: 11px; opacity: 0.7;">Impact: Parity check needed for MDR feature differentiation</div>
+            </div>
+            <div style="font-size: 18px; flex-shrink: 0; margin-left: 12px; opacity: 0.7; transition: transform 0.3s;">▼</div>
+          </div>
+          <div class="signal-detail" style="display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 12px; line-height: 1.6; opacity: 0.9;">
+            <div style="margin-bottom: 12px;"><strong>Why This Matters:</strong> Arctic Wolf's Gartner Magic Quadrant Leader status (4.9/5.0) signals to buyers that managed detection is table stakes. Their 99% NPS suggests execution excellence; this raises customer expectations across the entire MDR category.</div>
+            <div style="margin-bottom: 12px;"><strong>What's Happening:</strong> Arctic Wolf published Gartner positioning in Q4 2025. Their focus on MSP/SMB ease-of-use + 24/7 SOC is resonating. Customer testimonials emphasize simplicity and "set-and-forget" operations. Buyer confidence in MDR is at an all-time high.</div>
+            <div style="margin-bottom: 12px;"><strong>Portfolio Impact:</strong>
+              <ul style="list-style: none; padding-left: 0; margin: 6px 0 0 0;">
+                <li>🟡 MDR Roadmap: Customers now expect Gartner-leader-level ease of use. Our current roadmap may look feature-poor vs. Arctic Wolf's simplicity.</li>
+                <li>🟡 Sales: Lost deals mentioning "Arctic Wolf's ease of use" or "99% NPS" are now more common (validation signal).</li>
+                <li>🟡 Product Team: Need to clarify: Do we differentiate on ease-of-use, feature richness, or something else?</li>
+              </ul>
+            </div>
+            <div style="margin-bottom: 12px;"><strong>Recommended Action:</strong> (1) Audit our MDR against Arctic Wolf features/UX. (2) Define our differentiation. (3) Sales: Prepare Arctic Wolf comparison docs for competitive conversations.</div>
+            <div><strong>Sources:</strong> Gartner Magic Quadrant for SIEM (Q4 2025), Arctic Wolf press releases, G2/Capterra reviews</div>
+          </div>
         </div>
-        <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 18px 22px; border-left: 4px solid #06b6d4;">
-          <div style="font-size: 13px; font-weight: 700; margin-bottom: 6px;">🔵 3. DNS Market Shift — Infoblox Gains on Cisco</div>
-          <div style="font-size: 13px; opacity: 0.9; line-height: 1.5;">Cisco Secure Access threat-blocking effectiveness gap (39.3% vs. Infoblox). Market share gaining opportunity through superior threat detection narrative.</div>
-          <div style="margin-top: 8px; font-size: 11px; opacity: 0.7;">Impact: Differentiation opportunity for DNS positioning vs. Cisco</div>
-        </div>
-      </div>
-      <div style="margin-top: 16px; font-size: 11px; opacity: 0.6; text-align: right;">Last updated: May 14, 2026</div>
-    </div>
-  </div>
-  <div class="section-title">Recent reports</div>
-  <div class="recent-grid">
 
-    <div class="recent-col">
-      <h3>🔐 Competitive Intel <span class="pill blue">Mondays</span></h3>
-      <div class="recent-list" id="recent-competitive">
-        <!-- populated by script -->
-      </div>
-      <a class="view-all" href="competitive-intel/index.html">View all competitive reports →</a>
-    </div>
-
-    <div class="recent-col">
-      <h3>⚠️ Threat Briefings <span class="pill red">Mon &amp; Wed</span></h3>
-      <div class="recent-list" id="recent-threat">
-        <!-- populated by script -->
-      </div>
-      <a class="view-all" href="threat-intel/index.html">View all threat briefings →</a>
-    </div>
-
-  </div>
-
-</main>
-
-<footer>
-  Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
-  <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;">jfer-projects.github.io/cybersec-intel</a>
-</footer>
-
-<script>
-  // ── RECENT COMPETITIVE REPORTS ──
-  // Updated automatically by the competitive intel scheduled task
-  const competitiveReports = [
-    { date: "2026-05-14" },
-    { date: "2026-03-23" }
-  ];
-
-  // ── RECENT THREAT BRIEFINGS ──
-  // Updated automatically by the threat intel scheduled task
-  const threatBriefings = [
-    { date: "2026-05-14" },
-    { date: "2026-03-24" }
-  ];
-
-  const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-  const DAYS   = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
-  function parseDate(str) {
-    const [y, m, d] = str.split("-").map(Number);
-    const dt = new Date(y, m-1, d);
-    return { label: `${MONTHS[m-1]} ${d}, ${y}`, day: DAYS[dt.getDay()] };
-  }
-
-  const TODAY = new Date().toISOString().slice(0, 10);
-
-  function formatLastPub(date) {
-    const p = parseDate(date);
-    const isToday = date === TODAY;
-    return isToday ? `Last published: <strong style="color:#16a34a;">Today</strong>` : `Last published: <strong>${p.label}</strong>`;
-  }
-
-  function renderRecent(items, containerId, pathPrefix, icon, emptyMsg) {
-    const el = document.getElementById(containerId);
-    if (!items.length) {
-      el.innerHTML = `<div class="recent-empty">${emptyMsg}</div>`;
-      return;
-    }
-    const sorted = [...items].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 5);
-    el.innerHTML = sorted.map(r => {
-      const p = parseDate(r.date);
-      const isToday = r.date === TODAY;
-      const newBadge = isToday ? `<span style="background:#16a34a;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;letter-spacing:.3px;margin-left:4px;">NEW</span>` : "";
-      return `<a class="recent-item" href="${pathPrefix}/${r.date}.html">
-        <span class="ri-icon">${icon}</span>
-        <span class="ri-date">${p.label}${newBadge}</span>
-        <span class="ri-day">${p.day}</span>
-        <span class="ri-arrow">→</span>
-      </a>`;
-    }).join("");
-  }
-
-  // Populate last-published dates on hub cards
-  if (competitiveReports.length) {
-    const latest = [...competitiveReports].sort((a,b) => b.date.localeCompare(a.date))[0];
-    document.getElementById("comp-last-pub").innerHTML = formatLastPub(latest.date);
-  }
-  if (threatBriefings.length) {
-    const latest = [...threatBriefings].sort((a,b) => b.date.localeCompare(a.date))[0];
-    document.getElementById("threat-last-pub").innerHTML = formatLastPub(latest.date);
-  }
-
-  renderRecent(competitiveReports, "recent-competitive", "competitive-intel/reports", "🔐", "No reports yet — first run is scheduled for Monday.");
-  renderRecent(threatBriefings,    "recent-threat",       "threat-intel/briefings",   "⚠️", "No briefings yet — first run is scheduled for Monday.");
-</script>
-
-</body>
-</html>
+        <!-- Signal 3: DNS Market Shift -->
+        <div class="signal-card" onclick="tog
