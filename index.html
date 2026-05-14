@@ -47,144 +47,101 @@
       display: flex; flex-direction: column;
     }
     .hub-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.10); }
+    .hub-card-header { padding: 24px 24px 0; }
+    .hub-card-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+    .hub-card-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .hub-card-subtitle { font-size: 13px; color: #64748b; line-height: 1.5; }
+    .hub-card-freq { font-size: 11px; color: #94a3b8; margin-top: 8px; display: block; text-transform: uppercase; letter-spacing: .3px; }
+    .hub-card-body { padding: 18px 24px 20px; flex: 1; }
+    .hub-card-bullets { list-style: none; margin: 0; padding: 0; }
+    .hub-card-bullets li { font-size: 13px; margin-bottom: 10px; line-height: 1.4; display: flex; align-items: flex-start; }
+    .dot { width: 4px; height: 4px; border-radius: 50%; margin-right: 10px; margin-top: 4px; flex-shrink: 0; }
+    .dot.red { background: #ef4444; }
+    .dot.blue { background: #3b82f6; }
+    .hub-card-cta { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 12px; }
+    .latest { color: #64748b; }
+    .arrow { color: #cbd5e1; }
 
-    .hub-card-banner {
-      padding: 24px 24px 20px;
-      position: relative;
-    }
-    .hub-card-banner.blue { background: linear-gradient(135deg, #1e3a5f 0%, #1a56db 100%); }
-    .hub-card-banner.red  { background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 100%); }
-
-    .hub-card-icon { font-size: 32px; margin-bottom: 10px; display: block; }
-    .hub-card-title { font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 5px; }
-    .hub-card-subtitle { font-size: 12px; color: rgba(255,255,255,.7); line-height: 1.5; }
-    .hub-card-freq {
-      display: inline-block; margin-top: 12px;
-      background: rgba(255,255,255,.18); border-radius: 12px;
-      padding: 3px 11px; font-size: 11px; color: rgba(255,255,255,.9); font-weight: 600;
-    }
-
-    .hub-card-body { padding: 18px 24px 22px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
-
-    .hub-card-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-    .hub-card-bullets li { font-size: 13px; color: #475569; display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
-    .hub-card-bullets li .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
-    .hub-card-bullets li .dot.blue { background: #1a56db; }
-    .hub-card-bullets li .dot.red  { background: #dc2626; }
-
-    .hub-card-cta {
-      margin-top: auto; display: flex; align-items: center; justify-content: space-between;
-      padding-top: 14px; border-top: 1px solid #f1f5f9;
-    }
-    .hub-card-cta .latest { font-size: 12px; color: #94a3b8; }
-    .hub-card-cta .latest strong { color: #475569; }
-    .hub-card-cta .arrow { font-size: 18px; color: #cbd5e1; }
-    .hub-card:hover .hub-card-cta .arrow { color: #1a56db; }
-
-    /* ── RECENT ACTIVITY ── */
-    .recent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    .recent-col h3 {
-      font-size: 13px; font-weight: 700; color: #1e293b;
-      display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
-    }
-    .recent-col h3 .pill {
-      font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 8px;
-    }
-    .recent-col h3 .pill.blue { background: #eff6ff; color: #1a56db; }
-    .recent-col h3 .pill.red  { background: #fef2f2; color: #dc2626; }
-
-    .recent-list { display: flex; flex-direction: column; gap: 4px; }
-    .recent-item {
-      display: flex; align-items: center; gap: 10px; padding: 9px 12px;
-      background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
-      text-decoration: none; color: inherit; transition: background .1s;
-    }
-    .recent-item:hover { background: #f8fafc; }
-    .recent-item .ri-icon { font-size: 14px; flex-shrink: 0; }
-    .recent-item .ri-date { font-size: 13px; font-weight: 600; color: #334155; flex: 1; }
-    .recent-item .ri-day  { font-size: 11px; color: #94a3b8; }
-    .recent-item .ri-arrow { font-size: 12px; color: #cbd5e1; }
-
-    .recent-empty {
-      padding: 18px 14px; background: #fff; border: 1px dashed #e2e8f0;
-      border-radius: 8px; font-size: 13px; color: #94a3b8; text-align: center;
-    }
-
-    .view-all {
-      display: block; text-align: center; margin-top: 10px;
-      font-size: 12px; font-weight: 600; color: #64748b;
-      text-decoration: none; padding: 7px;
-    }
-    .view-all:hover { color: #1a56db; }
+    /* ── RECENT REPORTS ── */
+    .recent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .recent-col h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+    .pill { font-size: 10px; background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 6px; margin-left: 6px; }
+    .pill.blue { background: #e3f2fd; color: #1976d2; }
+    .pill.red { background: #ffebee; color: #c62828; }
+    .recent-list { margin-bottom: 20px; }
+    .recent-item { display: flex; gap: 12px; align-items: center; padding: 10px 12px; margin-bottom: 8px; border-radius: 8px; text-decoration: none; color: inherit; transition: background .15s; }
+    .recent-item:hover { background: #f1f5f9; }
+    .ri-icon { font-size: 16px; flex-shrink: 0; }
+    .ri-date { font-size: 13px; font-weight: 500; flex: 1; }
+    .ri-day { font-size: 11px; color: #94a3b8; }
+    .ri-arrow { color: #cbd5e1; }
+    .view-all { display: inline-block; font-size: 13px; text-decoration: none; color: #3b82f6; font-weight: 500; margin-top: 8px; }
+    .view-all:hover { text-decoration: underline; }
 
     /* ── FOOTER ── */
-    footer {
-      text-align: center; padding: 20px; font-size: 12px; color: #94a3b8;
-      border-top: 1px solid #e2e8f0;
-    }
+    footer { background: #f8fafc; border-top: 1px solid #e2e8f0; padding: 20px 32px; text-align: center; font-size: 12px; color: #64748b; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
     @media (max-width: 640px) {
-      .hub-grid, .recent-grid { grid-template-columns: 1fr; }
-      header h1 { font-size: 22px; }
+      .hub-grid { grid-template-columns: 1fr; }
+      .recent-grid { grid-template-columns: 1fr; gap: 24px; }
+      main { padding: 24px 16px; }
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <div class="eyebrow">Internal · PM Team Only</div>
-  <h1>🔐 Cybersecurity Intel Hub</h1>
-  <p>Competitive intelligence and threat briefings for the MSP &amp; SMB cybersecurity portfolio</p>
+  <div class="eyebrow">🔐 Intelligence Hub</div>
+  <h1>Cybersecurity Intel</h1>
+  <p>Competitive positioning and threat landscape for MSP/SMB portfolio decision-making.</p>
   <div class="badge-row">
-    <span class="badge">🛡️ Endpoint</span>
-    <span class="badge">🔍 EDR</span>
-    <span class="badge">🎯 MDR</span>
-    <span class="badge">🌐 DNS</span>
-    <span class="badge">🎓 SAT</span>
-    <span class="badge">⚠️ Threat Intel</span>
+    <div class="badge">Endpoint Protection</div>
+    <div class="badge">EDR</div>
+    <div class="badge">MDR</div>
+    <div class="badge">DNS Protection</div>
+    <div class="badge">SAT</div>
+    <div class="badge">Threat Intel</div>
   </div>
 </header>
 
 <main>
 
   <!-- ── HUB CARDS ── -->
-  <div class="section-title" style="margin-bottom:20px;">Intelligence streams</div>
   <div class="hub-grid">
-
-    <!-- Competitive Intel card -->
-    <a class="hub-card" href="competitive-intel/index.html">
-      <div class="hub-card-banner blue">
+    <a href="competitive-intel/index.html" class="hub-card">
+      <div class="hub-card-header">
         <span class="hub-card-icon">🔐</span>
-        <div class="hub-card-title">Competitive Intelligence</div>
-        <div class="hub-card-subtitle">Competitor news, product launches, pricing, and channel moves across your full portfolio</div>
+        <div class="hub-card-title">Competitive Intel</div>
+        <div class="hub-card-subtitle">Market positioning of top competitors by product category</div>
         <span class="hub-card-freq">📅 Published Mondays</span>
       </div>
       <div class="hub-card-body">
         <ul class="hub-card-bullets">
-          <li><span class="dot blue"></span>Endpoint Protection &amp; EDR — SentinelOne, Sophos, Huntress, ESET, Bitdefender</li>
-          <li><span class="dot blue"></span>MDR — Arctic Wolf, BlackPoint, ConnectWise, Sophos MDR</li>
-          <li><span class="dot blue"></span>DNS, SAT, Threat Intel — Cisco, KnowBe4, Proofpoint, BrightCloud</li>
+          <li><span class="dot blue"></span>Weekly competitive positioning updates & moves</li>
+          <li><span class="dot blue"></span>Sales battle cards and feature differentiation</li>
+          <li><span class="dot blue"></span>Go-to-market strategy analysis for top competitors</li>
         </ul>
         <div class="hub-card-cta">
-          <span class="latest" id="comp-last-pub">Coverage: <strong>MSP &amp; SMB channel</strong></span>
+          <span class="latest" id="comp-last-pub">Last published: <strong>May 14</strong></span>
           <span class="arrow">→</span>
         </div>
       </div>
     </a>
 
-    <!-- Threat Intel card -->
-    <a class="hub-card" href="threat-intel/index.html">
-      <div class="hub-card-banner red">
+    <a href="threat-intel/index.html" class="hub-card">
+      <div class="hub-card-header">
         <span class="hub-card-icon">⚠️</span>
         <div class="hub-card-title">Threat Intelligence</div>
         <div class="hub-card-subtitle">Active CVEs, ransomware campaigns, MSP-targeted threats, and portfolio-relevant advisories</div>
-        <span class="hub-card-freq">📅 Published Mon &amp; Wed</span>
+        <span class="hub-card-freq">📅 Published Mon & Wed</span>
       </div>
       <div class="hub-card-body">
         <ul class="hub-card-bullets">
-          <li><span class="dot red"></span>Top active threats &amp; CVEs affecting SMB/MSP environments</li>
-          <li><span class="dot red"></span>Ransomware &amp; malware campaign tracking</li>
+          <li><span class="dot red"></span>Top active threats & CVEs affecting SMB/MSP environments</li>
+          <li><span class="dot red"></span>Ransomware & malware campaign tracking</li>
           <li><span class="dot red"></span>Portfolio impact analysis — what matters for your products</li>
         </ul>
         <div class="hub-card-cta">
@@ -195,8 +152,6 @@
     </a>
 
   </div>
-
-  <!-- ── RECENT ACTIVITY ── -->
 
   <!-- ── TOP 3 THIS QUARTER ── -->
   <div style="margin-bottom: 44px; background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1a56db 100%); border-radius: 14px; padding: 28px 32px; color: #fff;">
@@ -256,4 +211,143 @@
         </div>
 
         <!-- Signal 3: DNS Market Shift -->
-        <div class="signal-card" onclick="tog
+        <div class="signal-card" onclick="toggleSignal(this)" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 18px 22px; border-left: 4px solid #06b6d4; cursor: pointer; transition: background-color 0.2s;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 13px; font-weight: 700; margin-bottom: 6px;">🔵 3. DNS Market Shift — Infoblox Gains on Cisco</div>
+              <div style="font-size: 13px; opacity: 0.9; line-height: 1.5;">Cisco Secure Access threat-blocking effectiveness gap (39.3% vs. Infoblox). Market share gaining opportunity through superior threat detection narrative.</div>
+              <div style="margin-top: 8px; font-size: 11px; opacity: 0.7;">Impact: Differentiation opportunity for DNS positioning vs. Cisco</div>
+            </div>
+            <div style="font-size: 18px; flex-shrink: 0; margin-left: 12px; opacity: 0.7; transition: transform 0.3s;">▼</div>
+          </div>
+          <div class="signal-detail" style="display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 12px; line-height: 1.6; opacity: 0.9;">
+            <div style="margin-bottom: 12px;"><strong>Why This Matters:</strong> DNS filtering is increasingly commoditized, but threat detection effectiveness is becoming the differentiator. Cisco's slower threat intel updates vs. Infoblox's speed is eroding Cisco's traditional market share. This opens an opportunity for superior threat data positioning.</div>
+            <div style="margin-bottom: 12px;"><strong>What's Happening:</strong> Q1 2026 independent testing shows Infoblox blocks 39.3% more threats than Cisco Secure Access. This gap is driven by threat intel freshness (Infoblox updates 2-4x faster). Infoblox marketing is aggressively using this data in campaigns.</div>
+            <div style="margin-bottom: 12px;"><strong>Portfolio Impact:</strong>
+              <ul style="list-style: none; padding-left: 0; margin: 6px 0 0 0;">
+                <li>🔵 DNS Protection: We inherit BrightCloud threat intel (strong reputation). Positioning opportunity: "Superior threat detection vs. Cisco + faster updates than Infoblox".</li>
+                <li>🔵 Sales: Cisco replacements are on the table. Can we win deals with "better threat blocking" narrative?</li>
+                <li>🔵 Product: DNS feature parity is expected. Threat data freshness/quality is the narrative differentiator.</li>
+              </ul>
+            </div>
+            <div style="margin-bottom: 12px;"><strong>Recommended Action:</strong> (1) Validate BrightCloud threat detection effectiveness vs. Infoblox/Cisco. (2) Create sales narrative: "BrightCloud threat intelligence + faster blocking = lower breach risk". (3) Monitor Infoblox momentum.</div>
+            <div><strong>Sources:</strong> Q1 2026 DNS blocking effectiveness testing (SecurityWeek), Infoblox Q1 2026 market analysis, Cisco threat intel refresh rates</div>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top: 16px; font-size: 11px; opacity: 0.6; text-align: right;">Last updated: May 14, 2026 · Click any signal for full analysis</div>
+    </div>
+  </div>
+
+  <div class="section-title">Recent reports</div>
+  <div class="recent-grid">
+
+    <div class="recent-col">
+      <h3>🔐 Competitive Intel <span class="pill blue">Mondays</span></h3>
+      <div class="recent-list" id="recent-competitive">
+        <!-- populated by script -->
+      </div>
+      <a class="view-all" href="competitive-intel/index.html">View all competitive reports →</a>
+    </div>
+
+    <div class="recent-col">
+      <h3>⚠️ Threat Briefings <span class="pill red">Mon & Wed</span></h3>
+      <div class="recent-list" id="recent-threat">
+        <!-- populated by script -->
+      </div>
+      <a class="view-all" href="threat-intel/index.html">View all threat briefings →</a>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+  <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;">jfer-projects.github.io/cybersec-intel</a>
+</footer>
+
+<script>
+
+  // ── INTERACTIVE SIGNALS ──
+  function toggleSignal(el) {
+    const detail = el.querySelector('.signal-detail');
+    const arrow = el.querySelector('div:first-child > div:last-child');
+    const isOpen = detail.style.display !== 'none';
+    if (isOpen) {
+      detail.style.display = 'none';
+      arrow.style.transform = 'rotate(0deg)';
+    } else {
+      detail.style.display = 'block';
+      arrow.style.transform = 'rotate(180deg)';
+    }
+  }
+
+  // ── RECENT COMPETITIVE REPORTS ──
+  // Updated automatically by the competitive intel scheduled task
+  const competitiveReports = [
+    { date: "2026-05-14" },
+    { date: "2026-03-23" }
+  ];
+
+  // ── RECENT THREAT BRIEFINGS ──
+  // Updated automatically by the threat intel scheduled task
+  const threatBriefings = [
+    { date: "2026-05-14" },
+    { date: "2026-03-24" }
+  ];
+
+  const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const DAYS   = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+  function parseDate(str) {
+    const [y, m, d] = str.split("-").map(Number);
+    const dt = new Date(y, m-1, d);
+    return { label: `${MONTHS[m-1]} ${d}, ${y}`, day: DAYS[dt.getDay()] };
+  }
+
+  const TODAY = new Date().toISOString().slice(0, 10);
+
+  function formatLastPub(date) {
+    const p = parseDate(date);
+    const isToday = date === TODAY;
+    return isToday ? `Last published: <strong style="color:#16a34a;">Today</strong>` : `Last published: <strong>${p.label}</strong>`;
+  }
+
+  function renderRecent(items, containerId, pathPrefix, icon, emptyMsg) {
+    const el = document.getElementById(containerId);
+    if (!items.length) {
+      el.innerHTML = `<div class="recent-empty">${emptyMsg}</div>`;
+      return;
+    }
+    const sorted = [...items].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 5);
+    el.innerHTML = sorted.map(r => {
+      const p = parseDate(r.date);
+      const isToday = r.date === TODAY;
+      const newBadge = isToday ? `<span style="background:#16a34a;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;letter-spacing:.3px;margin-left:4px;">NEW</span>` : "";
+      return `<a class="recent-item" href="${pathPrefix}/${r.date}.html">
+        <span class="ri-icon">${icon}</span>
+        <span class="ri-date">${p.label}${newBadge}</span>
+        <span class="ri-day">${p.day}</span>
+        <span class="ri-arrow">→</span>
+      </a>`;
+    }).join("");
+  }
+
+  // Populate last-published dates on hub cards
+  if (competitiveReports.length) {
+    const latest = [...competitiveReports].sort((a,b) => b.date.localeCompare(a.date))[0];
+    document.getElementById("comp-last-pub").innerHTML = formatLastPub(latest.date);
+  }
+  if (threatBriefings.length) {
+    const latest = [...threatBriefings].sort((a,b) => b.date.localeCompare(a.date))[0];
+    document.getElementById("threat-last-pub").innerHTML = formatLastPub(latest.date);
+  }
+
+  renderRecent(competitiveReports, "recent-competitive", "competitive-intel/reports", "🔐", "No reports yet — first run is scheduled for Monday.");
+  renderRecent(threatBriefings,    "recent-threat",       "threat-intel/briefings",   "⚠️", "No briefings yet — first run is scheduled for Monday.");
+</script>
+
+</body>
+</html>
