@@ -270,6 +270,8 @@
 
 <script>
 
+  console.log("=== CYBERSEC INTEL HUB: Script initialization started ===");
+
   // ── INTERACTIVE SIGNALS ──
   function toggleSignal(el) {
     const detail = el.querySelector('.signal-detail');
@@ -318,13 +320,27 @@
   }
 
   function renderRecent(items, containerId, pathPrefix, icon, emptyMsg) {
+    console.log(`[renderRecent] Called with containerId="${containerId}", items.length=${items.length}, pathPrefix="${pathPrefix}"`);
+
     const el = document.getElementById(containerId);
+    console.log(`[renderRecent] Element lookup for "${containerId}":`, el);
+
+    if (!el) {
+      console.error(`[renderRecent] CRITICAL: Element with id "${containerId}" NOT FOUND in DOM!`);
+      console.log("[renderRecent] Available elements with 'recent' in id:", Array.from(document.querySelectorAll('[id*="recent"]')));
+      return;
+    }
+
     if (!items.length) {
+      console.log(`[renderRecent] No items, setting empty message`);
       el.innerHTML = `<div class="recent-empty">${emptyMsg}</div>`;
       return;
     }
+
     const sorted = [...items].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 5);
-    el.innerHTML = sorted.map(r => {
+    console.log(`[renderRecent] Sorted items:`, sorted);
+
+    const html = sorted.map(r => {
       const p = parseDate(r.date);
       const isToday = r.date === TODAY;
       const newBadge = isToday ? `<span style="background:#16a34a;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;letter-spacing:.3px;margin-left:4px;">NEW</span>` : "";
@@ -335,21 +351,6 @@
         <span class="ri-arrow">→</span>
       </a>`;
     }).join("");
-  }
 
-  // Populate last-published dates on hub cards
-  if (competitiveReports.length) {
-    const latest = [...competitiveReports].sort((a,b) => b.date.localeCompare(a.date))[0];
-    document.getElementById("comp-last-pub").innerHTML = formatLastPub(latest.date);
-  }
-  if (threatBriefings.length) {
-    const latest = [...threatBriefings].sort((a,b) => b.date.localeCompare(a.date))[0];
-    document.getElementById("threat-last-pub").innerHTML = formatLastPub(latest.date);
-  }
-
-  renderRecent(competitiveReports, "recent-competitive", "competitive-intel/reports", "🔐", "No reports yet — first run is scheduled for Monday.");
-  renderRecent(threatBriefings,    "recent-threat",       "threat-intel/briefings",   "⚠️", "No briefings yet — first run is scheduled for Monday.");
-</script>
-
-</body>
-</html>
+    console.log(`[renderRecent] Generated HTML (${html.length} chars):`, html.substring(0, 200) + "...");
+    el.innerHTML = html
