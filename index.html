@@ -236,7 +236,7 @@
         </div>
 
       </div>
-      <div style="margin-top: 16px; font-size: 11px; opacity: 0.6; text-align: right;">Last updated: May 14, 2026 · Click any signal for full analysis</div>
+      <div style="margin-top: 16px; font-size: 11px; opacity: 0.6; text-align: right;">Last updated: May 18, 2026 · Click any signal for full analysis</div>
     </div>
   </div>
 
@@ -287,6 +287,7 @@
   // ── RECENT COMPETITIVE REPORTS ──
   // Updated automatically by the competitive intel scheduled task
   const competitiveReports = [
+    { date: "2026-05-18" },
     { date: "2026-05-14" },
     { date: "2026-03-23" }
   ];
@@ -294,6 +295,7 @@
   // ── RECENT THREAT BRIEFINGS ──
   // Updated automatically by the threat intel scheduled task
   const threatBriefings = [
+    { date: "2026-05-18" },
     { date: "2026-05-14" },
     { date: "2026-03-24" }
   ];
@@ -346,8 +348,4 @@
   }
 
   renderRecent(competitiveReports, "recent-competitive", "competitive-intel/reports", "🔐", "No reports yet — first run is scheduled for Monday.");
-  renderRecent(threatBriefings,    "recent-threat",       "threat-intel/briefings",   "⚠️", "No briefings yet — first run is scheduled for Monday.");
-</script>
-
-</body>
-</html>
+  renderRecent(threatBriefings,    "recent-threat",       "threat-intel/briefings",   "⚠️", "No briefings yet — first run

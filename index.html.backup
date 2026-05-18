@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Cybersecurity Intel Hub</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence and threat briefings for the MSP & SMB cybersecurity portfolio — Ferrick PM Team."/>
+  <meta property="og:title" content="Cybersecurity Intel Hub"/>
+  <meta property="og:description" content="Competitive intel and threat briefings for the MSP & SMB cybersecurity portfolio."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/"/>
+  <meta property="og:type" content="website"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f1f5f9; color: #1e293b; min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1a56db 100%);
+      padding: 40px 32px 36px; color: #fff; text-align: center;
+    }
+    header .eyebrow {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+      opacity: .6; margin-bottom: 12px;
+    }
+    header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+    header p { font-size: 14px; opacity: .75; max-width: 480px; margin: 0 auto 18px; line-height: 1.6; }
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .badge { background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.15); border-radius: 20px; padding: 4px 13px; font-size: 11px; letter-spacing: .3px; }
+
+    /* ── MAIN ── */
+    main { flex: 1; max-width: 900px; margin: 0 auto; width: 100%; padding: 40px 20px; }
+
+    .section-title {
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px;
+      color: #64748b; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 22px;
+    }
+
+    /* ── HUB CARDS ── */
+    .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 44px; }
+
+    .hub-card {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 14px;
+      overflow: hidden; text-decoration: none; color: inherit;
+      transition: transform .15s, box-shadow .15s;
+      display: flex; flex-direction: column;
+    }
+    .hub-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.10); }
+
+    .hub-card-banner {
+      padding: 24px 24px 20px;
+      position: relative;
+    }
+    .hub-card-banner.blue { background: linear-gradient(135deg, #1e3a5f 0%, #1a56db 100%); }
+    .hub-card-banner.red  { background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 100%); }
+
+    .hub-card-icon { font-size: 32px; margin-bottom: 10px; display: block; }
+    .hub-card-title { font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 5px; }
+    .hub-card-subtitle { font-size: 12px; color: rgba(255,255,255,.7); line-height: 1.5; }
+    .hub-card-freq {
+      display: inline-block; margin-top: 12px;
+      background: rgba(255,255,255,.18); border-radius: 12px;
+      padding: 3px 11px; font-size: 11px; color: rgba(255,255,255,.9); font-weight: 600;
+    }
+
+    .hub-card-body { padding: 18px 24px 22px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+
+    .hub-card-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .hub-card-bullets li { font-size: 13px; color: #475569; display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+    .hub-card-bullets li .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+    .hub-card-bullets li .dot.blue { background: #1a56db; }
+    .hub-card-bullets li .dot.red  { background: #dc2626; }
+
+    .hub-card-cta {
+      margin-top: auto; display: flex; align-items: center; justify-content: space-between;
+      padding-top: 14px; border-top: 1px solid #f1f5f9;
+    }
+    .hub-card-cta .latest { font-size: 12px; color: #94a3b8; }
+    .hub-card-cta .latest strong { color: #475569; }
+    .hub-card-cta .arrow { font-size: 18px; color: #cbd5e1; }
+    .hub-card:hover .hub-card-cta .arrow { color: #1a56db; }
+
+    /* ── RECENT ACTIVITY ── */
+    .recent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .recent-col h3 {
+      font-size: 13px; font-weight: 700; color: #1e293b;
+      display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+    }
+    .recent-col h3 .pill {
+      font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 8px;
+    }
+    .recent-col h3 .pill.blue { background: #eff6ff; color: #1a56db; }
+    .recent-col h3 .pill.red  { background: #fef2f2; color: #dc2626; }
+
+    .recent-list { display: flex; flex-direction: column; gap: 4px; }
+    .recent-item {
+      display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+      text-decoration: none; color: inherit; transition: background .1s;
+    }
+    .recent-item:hover { background: #f8fafc; }
+    .recent-item .ri-icon { font-size: 14px; flex-shrink: 0; }
+    .recent-item .ri-date { font-size: 13px; font-weight: 600; color: #334155; flex: 1; }
+    .recent-item .ri-day  { font-size: 11px; color: #94a3b8; }
+    .recent-item .ri-arrow { font-size: 12px; color: #cbd5e1; }
+
+    .recent-empty {
+      padding: 18px 14px; background: #fff; border: 1px dashed #e2e8f0;
+      border-radius: 8px; font-size: 13px; color: #94a3b8; text-align: center;
+    }
+
+    .view-all {
+      display: block; text-align: center; margin-top: 10px;
+      font-size: 12px; font-weight: 600; color: #64748b;
+      text-decoration: none; padding: 7px;
+    }
+    .view-all:hover { color: #1a56db; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 20px; font-size: 12px; color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 640px) {
+      .hub-grid, .recent-grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Internal · PM Team Only</div>
+  <h1>🔐 Cybersecurity Intel Hub</h1>
+  <p>Competitive intelligence and threat briefings for the MSP &amp; SMB cybersecurity portfolio</p>
+  <div class="badge-row">
+    <span class="badge">🛡️ Endpoint</span>
+    <span class="badge">🔍 EDR</span>
+    <span class="badge">🎯 MDR</span>
+    <span class="badge">🌐 DNS</span>
+    <span class="badge">🎓 SAT</span>
+    <span class="badge">⚠️ Threat Intel</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── HUB CARDS ── -->
+  <div class="section-title" style="margin-bottom:20px;">Intelligence streams</div>
+  <div class="hub-grid">
+
+    <!-- Competitive Intel card -->
+    <a class="hub-card" href="competitive-intel/index.html">
+      <div class="hub-card-banner blue">
+        <span class="hub-card-icon">🔐</span>
+        <div class="hub-card-title">Competitive Intelligence</div>
+        <div class="hub-card-subtitle">Competitor news, product launches, pricing, and channel moves across your full portfolio</div>
+        <span class="hub-card-freq">📅 Published Mondays</span>
+      </div>
+      <div class="hub-card-body">
+        <ul class="hub-card-bullets">
+          <li><span class="dot blue"></span>Endpoint Protection &amp; EDR — SentinelOne, Sophos, Huntress, ESET, Bitdefender</li>
+          <li><span class="dot blue"></span>MDR — Arctic Wolf, BlackPoint, ConnectWise, Sophos MDR</li>
+          <li><span class="dot blue"></span>DNS, SAT, Threat Intel — Cisco, KnowBe4, Proofpoint, BrightCloud</li>
+        </ul>
+        <div class="hub-card-cta">
+          <span class="latest" id="comp-last-pub">Coverage: <strong>MSP &amp; SMB channel</strong></span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Threat Intel card -->
+    <a class="hub-card" href="threat-intel/index.html">
+      <div class="hub-card-banner red">
+        <span class="hub-card-icon">⚠️</span>
+        <div class="hub-card-title">Threat Intelligence</div>
+        <div class="hub-card-subtitle">Active CVEs, ransomware campaigns, MSP-targeted threats, and portfolio-relevant advisories</div>
+        <span class="hub-card-freq">📅 Published Mon &amp; Wed</span>
+      </div>
+      <div class="hub-card-body">
+        <ul class="hub-card-bullets">
+          <li><span class="dot red"></span>Top active threats &amp; CVEs affecting SMB/MSP environments</li>
+          <li><span class="dot red"></span>Ransomware &amp; malware campaign tracking</li>
+          <li><span class="dot red"></span>Portfolio impact analysis — what matters for your products</li>
+        </ul>
+        <div class="hub-card-cta">
+          <span class="latest" id="threat-last-pub">Sources: <strong>CISA · BleepingComputer · Krebs</strong></span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ── TOP 3 THIS QUARTER ── -->
+  <div style="margin-bottom: 44px; background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1a56db 100%); border-radius: 14px; padding: 28px 32px; color: #fff;">
+    <div style="max-width: 860px; margin: 0;">
+      <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; margin-bottom: 16px;">Strategic Signals</div>
+      <h2 style="margin: 0 0 20px; font-size: 22px; font-weight: 800;">🎯 Top 3 This Quarter</h2>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <!-- Signal 1: Ransomware Evolution -->
+        <div class="signal-card" onclick="toggleSignal(this)" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 18px 22px; border-left: 4px solid #16a34a; cursor: pointer; transition: background-color 0.2s;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 13px; font-weight: 700; margin-bottom: 6px;">🟢 1. Ransomware Evolution — New Attack Methods</div>
+              <div style="font-size: 13px; opacity: 0.9; line-height: 1.5;">Shift from encryption to encryptionless extortion; post-quantum cryptography adoption. All endpoint + MDR products need response capability updates.</div>
+              <div style="margin-top: 8px; font-size: 11px; opacity: 0.7;">Impact: Action Required for Endpoint, EDR, MDR roadmaps</div>
+            </div>
+            <div style="font-size: 18px; flex-shrink: 0; margin-left: 12px; opacity: 0.7; transition: transform 0.3s;">▼</div>
+          </div>
+          <div class="signal-detail" style="display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 12px; line-height: 1.6; opacity: 0.9;">
+            <div style="margin-bottom: 12px;"><strong>Why This Matters:</strong> Ransomware attack methods are evolving faster than our detection capabilities. The shift to encryptionless extortion makes behavioral analysis critical; post-quantum adoption affects encryption-detection logic.</div>
+            <div style="margin-bottom: 12px;"><strong>What's Happening:</strong> LockBit, BlackCat, and emerging groups now focus on data exfiltration + pressure (without encryption). This bypasses traditional "detect encryption" signatures. Post-quantum cryptography in some variants complicates detection/response.</div>
+            <div style="margin-bottom: 12px;"><strong>Portfolio Impact:</strong>
+              <ul style="list-style: none; padding-left: 0; margin: 6px 0 0 0;">
+                <li>🔴 Endpoint Protection: Need to update signatures, add behavioral detection for exfiltration patterns</li>
+                <li>🔴 EDR: Behavioral analysis of file access + network I/O critical; response playbooks need updating</li>
+                <li>🔴 MDR: SOC needs playbooks for non-encryption ransomware (what to look for?)</li>
+              </ul>
+            </div>
+            <div style="margin-bottom: 12px;"><strong>Recommended Action:</strong> Q2 2026 roadmap: Add exfiltration detection to EDR/MDR. Threat Intel: create guide for "ransomware without encryption" detection patterns.</div>
+            <div><strong>Sources:</strong> CISA RomCom reports (Q1 2026), LockBit variant analysis (BleepingComputer May 2026), CrowdStrike threat reports</div>
+          </div>
+        </div>
+
+        <!-- Signal 2: Arctic Wolf Gartner Win -->
+        <div class="signal-card" onclick="toggleSignal(this)" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 18px 22px; border-left: 4px solid #fb923c; cursor: pointer; transition: background-color 0.2s;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 13px; font-weight: 700; margin-bottom: 6px;">🟡 2. Arctic Wolf Gartner Win — Customer Validation</div>
+              <div style="font-size: 13px; opacity: 0.9; line-height: 1.5;">4.9/5.0 rating; 99% NPS validates MDR market strength. Competitive positioning threat against our MDR roadmap decisions.</div>
+              <div style="margin-top: 8px; font-size: 11px; opacity: 0.7;">Impact: Parity check needed for MDR feature differentiation</div>
+            </div>
+            <div style="font-size: 18px; flex-shrink: 0; margin-left: 12px; opacity: 0.7; transition: transform 0.3s;">▼</div>
+          </div>
+          <div class="signal-detail" style="display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 12px; line-height: 1.6; opacity: 0.9;">
+            <div style="margin-bottom: 12px;"><strong>Why This Matters:</strong> Arctic Wolf's Gartner Magic Quadrant Leader status (4.9/5.0) signals to buyers that managed detection is table stakes. Their 99% NPS suggests execution excellence; this raises customer expectations across the entire MDR category.</div>
+            <div style="margin-bottom: 12px;"><strong>What's Happening:</strong> Arctic Wolf published Gartner positioning in Q4 2025. Their focus on MSP/SMB ease-of-use + 24/7 SOC is resonating. Customer testimonials emphasize simplicity and "set-and-forget" operations. Buyer confidence in MDR is at an all-time high.</div>
+            <div style="margin-bottom: 12px;"><strong>Portfolio Impact:</strong>
+              <ul style="list-style: none; padding-left: 0; margin: 6px 0 0 0;">
+                <li>🟡 MDR Roadmap: Customers now expect Gartner-leader-level ease of use. Our current roadmap may look feature-poor vs. Arctic Wolf's simplicity.</li>
+                <li>🟡 Sales: Lost deals mentioning "Arctic Wolf's ease of use" or "99% NPS" are now more common (validation signal).</li>
+                <li>🟡 Product Team: Need to clarify: Do we differentiate on ease-of-use, feature richness, or something else?</li>
+              </ul>
+            </div>
+            <div style="margin-bottom: 12px;"><strong>Recommended Action:</strong> (1) Audit our MDR against Arctic Wolf features/UX. (2) Define our differentiation. (3) Sales: Prepare Arctic Wolf comparison docs for competitive conversations.</div>
+            <div><strong>Sources:</strong> Gartner Magic Quadrant for SIEM (Q4 2025), Arctic Wolf press releases, G2/Capterra reviews</div>
+          </div>
+        </div>
+
+        <!-- Signal 3: DNS Market Shift -->
+        <div class="signal-card" onclick="toggleSignal(this)" style="background: rgba(2

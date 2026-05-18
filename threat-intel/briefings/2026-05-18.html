@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — May 18, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for May 18, 2026 — EDR evasion, ransomware trends, active threats."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — May 18, 2026"/>
+  <meta property="og:description" content="GhostLocker EDR bypass, ransomware ecosystem fragmentation, threat landscape consolidation."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-05-18.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"     style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#edr-evasion" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🛡️ EDR Evasion</a>
+    <a href="#ransomware"  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">💰 Ransomware</a>
+    <a href="#active"      style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🚨 Active Threats</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        ⚠️ Threat Intelligence Briefing
+      </h1>
+      <div style="font-size:15px;opacity:.85;">May 18, 2026 · Week of May 11-18</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>3</strong> critical signals
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📊 Focus: EDR Evasion + Ecosystem Shifts
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Sources: CISA, Check Point, CYFIRMA
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;letter-spacing:-.2px;">
+        📋 This Week's Threat Summary
+      </h2>
+      <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">
+        <strong>Major development:</strong> GhostLocker EDR bypass tool emerged, revealing systemic vulnerability in endpoint detection architectures. Windows AppLocker weaponization allows complete neutralization while management consoles report false "online" status. Simultaneously, ransomware ecosystem continues fragmentation with smaller groups adopting proven attack playbooks. Threat actor shift to encryptionless extortion remains primary vector as payments continue declining.
+      </p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>EDR Evasion:</strong> GhostLocker + BYOVD techniques advancing rapidly; kernel-level detection critical
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>Ransomware:</strong> Encryptionless extortion dominant; data exfiltration detection + MFA bypass counters mandatory
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>Fragmentation:</strong> Threat ecosystem splitting into smaller, faster-moving groups; traditional syndicates declining
+        </li>
+      </ul>
+    </div>
+
+    <!-- EDR EVASION -->
+    <div id="edr-evasion" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🛡️ EDR Evasion Techniques Advancing</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 GhostLocker: Windows AppLocker EDR Bypass (Critical)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          New tool weaponizes native Windows AppLocker to neutralize endpoint detection and response systems. Testing revealed complete EDR neutralization in multiple commercial products. Critical architectural weakness: management consoles continue reporting agents as "online" and "protected" despite compromise. Threat actors gain blind spot for response automation + investigation activity.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);border-bottom:1px solid rgba(220,38,38,.2);margin:10px 0;">
+          <strong>Portfolio Impact:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🔴 EDR: Userland-based monitoring insufficient; kernel-level behavioral analysis mandatory</li>
+            <li>🔴 Endpoint Protection: Out-of-band management signaling required to detect response evasion</li>
+            <li>🔴 MDR: SOC response playbooks must account for "false online" status; independent verification critical</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">⚙️ BYOVD (Bring Your Own Vulnerable Driver) Ecosystem Growing</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Analysis of EDR killer tools reveals 54 variants exploiting 35 signed vulnerable drivers for kernel access. Once granted kernel access via legitimate signed driver, threat actors: terminate EDR processes, disable security tools, tamper with kernel callbacks, undermine endpoint protections. Signed driver legitimacy defeats standard application whitelisting.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);">
+          <strong>Recommended Response:</strong> Driver signing policy enforcement, kernel callback hardening, out-of-band threat detection
+        </div>
+      </div>
+    </div>
+
+    <!-- RANSOMWARE -->
+    <div id="ransomware" style="margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">💰 Ransomware Ecosystem: Fragmentation & Encryptionless Shift</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">📉 Era of Mega-Syndicates Fading</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Global law enforcement and coordinated disruption campaigns continued targeting major ransomware syndicates throughout Q1-Q2 2026. Ecosystem response: Rapid fragmentation into smaller groups. Smaller threat groups quickly adopt proven playbooks and launch attacks with enterprise-grade efficiency. Pattern: Ransomware-as-a-Service (RaaS) model decentralization; affiliate networks growing while central command structures shrink.
+        </p>
+      </div>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">📊 Encryptionless Extortion Remains Primary Vector</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          As ransom payments declined in 2025 (28% payment rate), encryptionless extortion campaigns accelerated. Attack pattern: Data exfiltration + extortion threat replaces encryption-based attacks. Threat actors prioritize speed + recovery avoidance over encryption complexity. Detection challenge: Traditional "encrypt-then-detect" signatures ineffective; behavioral analysis of data access + network I/O patterns critical.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);border-bottom:1px solid rgba(220,38,38,.2);margin:10px 0;">
+          <strong>Portfolio Implications:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🔴 Data Loss Prevention: Exfiltration detection becomes primary defense narrative vs. decryption tools</li>
+            <li>🔴 EDR: Response automation for lateral movement + data staging detection required</li>
+            <li>🔴 Endpoint: Behavioral heuristics for unusual file access + network I/O patterns critical</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🔝 Top Ransomware Groups: Gentlemen Continues Dominance</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          The Gentlemen ransomware group appears consistently in top 10 ransomware rankings and likely surpassed 1,500 victims milestone. Employs dual-extortion (data theft + file encryption) tactics; globally distributed attacks; adaptive operational security. Other active groups: BlackCat, LockBit variants, emerging encryptionless families.
+        </p>
+      </div>
+    </div>
+
+    <!-- ACTIVE THREATS -->
+    <div id="active" style="margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🚨 Active Threats This Week (May 11-18)</h2>
+
+      <div style="margin-bottom:12px;padding:14px 16px;background:#fff;border-left:4px solid #dc2626;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-weight:600;font-size:13px;color:#1e3a5f;margin-bottom:4px;">Check Point Weekly Report (May 11, 2026)</div>
+        <div style="font-size:12px;color:#475569;line-height:1.5;">Weekly threat intelligence from Check Point Research covering May 11 period. Focus on active APT campaigns, emerging vulnerabilities, and malware families.</div>
+      </div>
+
+      <div style="margin-bottom:12px;padding:14px 16px;background:#fff;border-left:4px solid #dc2626;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-weight:600;font-size:13px;color:#1e3a5f;margin-bottom:4px;">CYFIRMA May 15 Intelligence Report</div>
+        <div style="font-size:12px;color:#475569;line-height:1.5;">CYFIRMA threat intelligence for May 15 period covering ransomware families, APT activity, and emerging threat vectors across critical infrastructure and enterprise sectors.</div>
+      </div>
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+    <div style="background:#ecfdf5;border-left:4px solid #16a34a;border-radius:8px;padding:20px;margin-top:32px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">✅ Recommended Actions for Product Teams</h3>
+      <ul style="margin:0;padding-left:20px;font-size:13px;color:#475569;line-height:1.7;">
+        <li><strong>EDR/Endpoint:</strong> Prioritize kernel-level behavioral detection, out-of-band management signaling, driver signing enforcement</li>
+        <li><strong>MDR:</strong> Update response playbooks for "false online" scenarios; implement independent agent health verification</li>
+        <li><strong>Data Loss Prevention:</strong> Shift from encryption-detection to behavioral exfiltration detection; integrate file access + network I/O analysis</li>
+        <li><strong>Threat Intel:</strong> Monitor BYOVD driver ecosystem; track GhostLocker adoption; benchmark EDR bypass techniques for defensive research</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
