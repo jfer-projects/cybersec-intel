@@ -217,6 +217,8 @@
 <script>
   // ── BRIEFING INDEX — updated automatically on each run ──
   const reports = [
+    { date: "2026-05-18" },
+    { date: "2026-05-14" },
     { date: "2026-03-24" }
   ];
 
@@ -367,5 +369,4 @@
         if (q && any) { hdr.classList.add("open"); list.style.display = "block"; }
       });
       countEl.textContent = `${visible} briefing${visible !== 1 ? "s" : ""}`;
-      noResults.style.display = visible === 0 ? "block" : "none";
-  
+      noResu
