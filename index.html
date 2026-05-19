@@ -325,7 +325,7 @@
       el.innerHTML = `<div class="recent-empty">${emptyMsg}</div>`;
       return;
     }
-    const sorted = [...items].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 5);
+    const sorted = [...items].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 4);
     el.innerHTML = sorted.map(r => {
       const p = parseDate(r.date);
       const isToday = r.date === TODAY;
