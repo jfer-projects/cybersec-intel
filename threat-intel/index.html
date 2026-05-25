@@ -10,7 +10,7 @@
   <meta property="og:description" content="Active CVEs, ransomware, and MSP-targeted threat briefings — Mon & Wed."/>
   <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/"/>
   <meta property="og:type" content="website"/>
-  <!-- Cache bust: 2026-05-18T01 -->
+  <!-- Cache bust: 2026-05-25T01 -->
   <style>
     html { scroll-behavior: smooth; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -217,6 +217,7 @@
 <script>
   // ── BRIEFING INDEX — updated automatically on each run ──
   const reports = [
+    { date: "2026-05-25" },
     { date: "2026-05-18" },
     { date: "2026-05-14" },
     { date: "2026-03-24" }
@@ -369,4 +370,4 @@
         if (q && any) { hdr.classList.add("open"); list.style.display = "block"; }
       });
       countEl.textContent = `${visible} briefing${visible !== 1 ? "s" : ""}`;
-      noResu
+      noResults.style.display = visible 
