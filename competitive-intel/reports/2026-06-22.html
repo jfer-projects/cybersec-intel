@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🔐 Competitive Intel — Monday, June 22, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence report for June 22, 2026 — Huntress distribution expansion, Infoblox vs. Cisco Umbrella pricing offer, Klue OAuth breach hits MDR vendors."/>
+  <meta property="og:title" content="Competitive Intel — June 22, 2026"/>
+  <meta property="og:description" content="Weekly competitor tracking: Huntress expands via Ingram Micro distribution, Infoblox 15-for-12 offer targets Cisco Umbrella customers, Klue breach exposes Huntress Salesforce data."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/competitive-intel/reports/2026-06-22.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Reports</a>
+    <a href="#takeaways"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#mdr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 MDR</a>
+    <a href="#dns"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🌐 DNS</a>
+    <a href="#threat-context" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 Breach Context</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#0f2849 0%,#1a56db 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        🔐 Competitive Intelligence Report
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Monday, June 22, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📰 <strong>4</strong> high-signal items
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📦 <strong>3</strong> product categories
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Focus: MDR Distribution + DNS Pricing + Supply Chain Breach
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="takeaways" style="background:#0f2849;border-radius:12px;padding:24px 28px;
+                margin-bottom:0;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        ⚡ This Week's Key Takeaways
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>Huntress Expands via Major Distribution Partners (May 5, 2026)</strong> — Huntress added Ingram Micro, Vertosoft, Liquid PC, and QBS Software as distribution partners, accelerating reach into mid-market, public sector, and EMEA. Ingram Micro alone gives Huntress access to the world's largest MSP/VAR distribution ecosystem. IMPACT: Huntress, already the top MDR choice for MSPs under 1,000 users, is now scaling past its direct-channel roots. Distribution reach that previously required years of relationship-building becomes available immediately.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fef3c7;color:#b45309;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Channel Expansion</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Huntress moving upmarket; MSP-native MDR now available through mainstream distribution channels</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🌐 <strong>Infoblox Launches 15-Months-for-12 Migration Offer Targeting Cisco Umbrella Customers (deadline July 31, 2026)</strong> — Infoblox is offering 15 months of Infoblox Threat Defense for the price of 12 to organizations migrating away from Cisco Umbrella (now Cisco Secure Access – DNS Defense). Cisco has been retiring the standalone Umbrella brand and migrating customers toward its broader SASE platform. IMPACT: Cisco's DNS product is consolidating; a migration window is open. Infoblox is aggressively filling the gap.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 Pricing / Promotion</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Cisco Umbrella customer churn window open through July 31; DNS vendor displacement actively underway</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🔴 <strong>Klue/Icarus OAuth Supply Chain Breach Exposes Huntress Salesforce Data (June 11–22, 2026)</strong> — Market intelligence platform Klue was compromised by Icarus extortion group via a dormant OAuth credential, exposing Salesforce customer data for Huntress, Recorded Future, Tanium, Jamf, Sprout Social, and others. Huntress published its own breach investigation post. IMPACT: SaaS-to-SaaS OAuth trust chains now a proven exfiltration vector. Competitive signal: Even well-resourced MDR vendors are vulnerable to third-party SaaS supply chain compromises.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Breach / Incident</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Huntress (MDR competitor) directly impacted; SaaS supply chain posture now a differentiation opportunity</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>Huntress Product Updates: SIEM AI Search GA + Managed Phishing International Expansion (June 2026)</strong> — Huntress AI Search for Managed SIEM went generally available, enabling natural-language queries over SIEM log data (no ESQL required). Managed Phishing now supports AU and UK-specific campaigns alongside global scenarios. IMPACT: Huntress continues deepening its all-in-one security platform for MSPs — AI-assisted log analysis reduces analyst skill requirements, strengthening its SMB/MSP value proposition.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Product Update</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Huntress AI SIEM search lowers barrier for MSPs without SIEM expertise; phishing simulation expands internationally</span>
+          </div>
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        New material from June 16–22 · Complements June 16 baseline report
+      </p>
+    </div>
+
+    <!-- CATEGORY SECTIONS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">📊 Intelligence by Product Category</h2>
+
+    <!-- MDR -->
+    <div id="mdr" style="margin-bottom:32px;">
+      <div style="background:#f0fdf4;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #16a34a;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#16a34a;font-weight:700;">
+          🎯 Managed Detection &amp; Response (MDR)
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (3 new items)</span>
+        </h2>
+      </div>
+
+      <!-- Huntress Distribution -->
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #16a34a;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.huntress.com/press-release/huntress-expands-channel-ecosystem-with-new-distribution-partners-to-accelerate-mid-market-public-sector-and-emea-growth" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Huntress Adds Ingram Micro, Vertosoft, Liquid PC &amp; QBS Software as Distribution Partners (May 5, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Huntress &nbsp;|&nbsp; 📅 May 5, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Huntress, the MSP-native MDR platform purpose-built for SMBs under 1,000 users, announced four new distribution partnerships: Ingram Micro (world's largest technology distributor, dominant in MSP/VAR ecosystems), Vertosoft (public sector specialist), Liquid PC (UK-focused), and QBS Software (European EMEA software distribution). These partnerships are explicitly designed to accelerate Huntress' reach into mid-market, public sector, and EMEA regions — markets it historically reached only through direct MSP relationships. IMPACT: Huntress moves from a pure direct-to-MSP GTM motion to a full distribution-backed channel model. This dramatically increases deal velocity and geographic coverage. Previously, Huntress' strongest advantage was depth of integration with MSP tooling (RMMs, PSAs); distribution access adds breadth. Ingram Micro's MSP install base is among the largest in the world — this is a meaningful accelerant for competitive reach. PORTFOLIO ANGLE: Huntress (MDR competitor for SMBs) gains distribution infrastructure comparable to incumbent vendors. Competitive differentiation must focus on depth of response capability, platform integration, and BrightCloud intelligence quality — not just channel availability. Watch for Huntress entering enterprise distribution programs where purpose-built MSP MDR was previously less visible.</div>
+      </div>
+
+      <!-- Huntress product updates -->
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #16a34a;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.huntress.com/blog/klue-breach-investigation" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Huntress SIEM AI Search Goes GA + Managed Phishing Expands to Australia &amp; UK (June 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Huntress &nbsp;|&nbsp; 📅 June 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Two product updates from Huntress this week: (1) AI Search for Huntress Managed SIEM is now generally available. The feature allows security analysts to query SIEM logs in plain English rather than requiring ESQL or the built-in Query Builder — significantly lowering the skill floor for MSPs without dedicated SIEM expertise. (2) Huntress Managed Phishing expanded to include Australia- and UK-specific phishing simulation campaigns alongside its global templates, with June's lineup including two AU-specific, two UK-specific, and two global scenarios. IMPACT: AI-assisted log analysis is becoming a competitive standard in MSP-focused platforms, reducing reliance on specialist analysts. International phishing simulation coverage expansion signals Huntress' deliberate push into EMEA markets (aligned with its new distribution partnerships). PORTFOLIO ANGLE: Huntress continues building the "all-in-one SMB security platform" narrative for MSPs — SIEM + MDR + phishing simulation under one tool, now with AI-assisted usability. Competitive pressure to match AI-assisted workflows in our own MDR and SAT platforms.</div>
+      </div>
+
+      <!-- Klue breach / Huntress impacted -->
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.bleepingcomputer.com/news/security/klue-oauth-breach-victim-list-grows-as-icarus-hackers-claim-attack/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🔴 Klue/Icarus SaaS Supply Chain Breach Exposes Huntress Salesforce Data (June 11–22, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Klue / Icarus Threat Actor &nbsp;|&nbsp; 📅 June 11–22, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Klue, a market intelligence SaaS platform used by many cybersecurity vendors, was compromised by Icarus — an extortion group that emerged in April 2026. The attack exploited a long-dormant OAuth credential originally created to test a third-party integration that was never deployed. On June 11, threat actors used this credential to push malicious code into Klue's backend, harvesting live OAuth tokens for all connected customer integrations. The stolen tokens were used to exfiltrate data from customers' Salesforce environments. Confirmed victims include Huntress, Recorded Future, Tanium, Jamf, Sprout Social, Gong, and others. Klue deactivated all OAuth integrations (Salesforce, HubSpot, SharePoint, Zoom, Slack, etc.) on June 12. Icarus listed Klue on its leak site June 21–22. Huntress independently disclosed the incident on its blog. IMPACT: SaaS-to-SaaS OAuth trust chains are an established, scalable exfiltration vector. This incident demonstrates that even mature, security-aware organizations (Huntress is itself an MDR vendor) are vulnerable when a trusted third-party SaaS integration is compromised. PORTFOLIO ANGLE: Third-party SaaS integrations represent a growing blind spot; this is a direct SAT/MDR conversation opportunity — phishing simulation and MDR detection coverage for SaaS integration anomalies. Competitive note: Huntress (MDR competitor) suffered a third-party data breach; sales teams may encounter this in customer conversations.</div>
+      </div>
+    </div>
+
+    <!-- DNS PROTECTION -->
+    <div id="dns" style="margin-bottom:32px;">
+      <div style="background:#f0f9ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #0284c7;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#0284c7;font-weight:700;">
+          🌐 DNS Protection
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #0284c7;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.infoblox.com/explore/cisco-umbrella-vs-infoblox-threat-defense/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Infoblox Offers 15 Months for 12 to Cisco Umbrella Customers — Migration Incentive Ends July 31, 2026</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Infoblox &nbsp;|&nbsp; 📅 June 2026 (offer expires July 31, 2026)
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Infoblox is offering 15 months of Infoblox Threat Defense for the price of 12 months to organizations migrating from Cisco Umbrella (now rebranded Cisco Secure Access – DNS Defense). Context: Cisco has been discontinuing the standalone Umbrella DNS product, folding customers into its broader SASE platform — Cisco Secure Access. The standalone DNS defense positioning is eroding. Cisco Secure Access – DNS Defense was benchmarked blocking only 39.3% of threats in recent independent testing, including gaps in DNS exfiltration, DGA, and lookalike domain detection. Infoblox is positioning its Threat Defense as a higher-efficacy, DNS-specialist alternative. The 15-for-12 promotion ends July 31, 2026, creating a time-bound displacement window. IMPACT: Cisco's DNS product consolidation is creating measurable churn opportunity in the DNS protection market. Infoblox is executing an aggressive pricing campaign to capture displaced Umbrella customers in this window. PORTFOLIO ANGLE: The DNS protection competitive landscape is actively shifting — Cisco is de-prioritizing standalone DNS, and Infoblox is capitalizing. Key evaluation window is open now through July 31. MSPs with Cisco Umbrella in their stack should be aware of the migration incentive their customers may encounter. Competitive implication for DNS positioning: Differentiation must emphasize efficacy metrics (threat detection rates, DGA coverage, DNS exfiltration detection) rather than brand recognition alone.</div>
+      </div>
+    </div>
+
+    <!-- BREACH CONTEXT -->
+    <div id="threat-context" style="margin-bottom:32px;">
+      <div style="background:#fef2f2;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #dc2626;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#dc2626;font-weight:700;">
+          🔴 Competitive Threat Context: GentleKiller EDR Killer Targets 48 Security Vendors
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 strategic note)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.helpnetsecurity.com/2026/06/18/eset-gentlemen-edr-killers/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🔴 GentleKiller Ransomware Framework Targets CrowdStrike, SentinelOne, Microsoft, ESET, Kaspersky — 400+ Processes (June 18–21, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 ESET Research &nbsp;|&nbsp; 📅 June 18–21, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">ESET Research published an analysis of Gentlemen ransomware-as-a-service (RaaS) and its GentleKiller EDR killer framework — a suite of 8 variants specifically designed to disable endpoint detection and response tools before ransomware deployment. GentleKiller abuses the BYOVD (Bring Your Own Vulnerable Driver) technique to terminate 400+ security processes across 48 vendors, including CrowdStrike Falcon, SentinelOne Singularity, Microsoft Defender, ESET, and Kaspersky. Notably, Gentlemen has operationalized newly published PoC (proof-of-concept) BYOVD exploits from GitHub within days of public disclosure — demonstrating a highly agile, well-resourced development pipeline. The framework also integrates third-party tools (HexKiller, ThrottleBlood, HavocKiller). Unlike most RaaS operators who outsource EDR killing to affiliates, Gentlemen centralizes this capability to lower affiliate entry barriers. COMPETITIVE IMPLICATION: Ransomware actors are explicitly targeting the most prominent endpoint security vendors (our category) as technical obstacles to bypass. This validates the value of cloud-native, behavioral detection approaches that do not rely solely on process-level defense — and the need for MDR layers that can detect pre-encryption attacker behavior even if endpoint agents are killed. PORTFOLIO ANGLE: Prospect questions about "what happens if your agent gets killed" are becoming more frequent. This is a direct sales differentiator for MDR with 24/7 behavioral monitoring that operates independently of the endpoint agent. See Threat Intel briefing 2026-06-22 for full technical details.</div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC CONTEXT NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#f0fdf4;border-left:4px solid #16a34a;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#16a34a;font-weight:700;">📌 Strategic Context: MDR Consolidation + DNS Displacement Window</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">Three signals this week converge on channel and market structure shifts. Huntress is scaling from a boutique MSP-direct MDR vendor into a mainstream distribution-backed platform — a transition that historically signals the beginning of competitive commoditization in a category. Meanwhile, Cisco Umbrella's retreat from standalone DNS creates an active customer displacement window that Infoblox is aggressively targeting. Finally, the Klue/Icarus breach demonstrates that even security-focused SaaS vendors have SaaS supply chain exposure — a topic that opens direct sales conversations about third-party risk coverage in SAT and MDR. For an MSP-focused portfolio: this week favors conversations around third-party risk visibility, DNS protection efficacy benchmarks, and MDR behavioral detection depth beyond the endpoint agent.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>

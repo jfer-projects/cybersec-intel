@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — June 22, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for June 22, 2026 — GentleKiller EDR killer targets 400+ security processes, FortiBleed hits 86K Fortinet devices, Klue/Icarus SaaS supply chain breach."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — June 22, 2026"/>
+  <meta property="og:description" content="Critical: Gentlemen/GentleKiller EDR killer framework (400+ processes, 48 vendors); FortiBleed — 86,644 Fortinet devices compromised; Klue/Icarus OAuth supply chain breach."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-06-22.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"       style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#gentlekiller"  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 GentleKiller</a>
+    <a href="#fortibleed"    style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 FortiBleed</a>
+    <a href="#klue"          style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟠 Klue/Icarus</a>
+    <a href="#cisa-kev"      style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 CISA KEV</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        ⚠️ Threat Intelligence Briefing
+      </h1>
+      <div style="font-size:15px;opacity:.85;">June 22, 2026 · Week of June 16–22</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>1</strong> EDR killer framework (400+ processes)
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>1</strong> credential leak campaign (86K devices)
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🟠 <strong>1</strong> SaaS supply chain breach + CISA KEV updates
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;letter-spacing:-.2px;">
+        📋 This Week's Threat Summary
+      </h2>
+      <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">
+        <strong>Critical developments June 16–22:</strong> ESET Research exposed Gentlemen ransomware's GentleKiller framework — a purpose-built EDR killer suite targeting 400+ processes across 48 security vendors (CrowdStrike, SentinelOne, Microsoft, ESET, Kaspersky and more) via 8 BYOVD variants. GentleKiller operationalizes new PoC exploits within days of GitHub disclosure, representing a rapid-response offensive development capability. CISA issued a June 18 emergency advisory after FortiBleed — a credential exposure campaign — compromised 86,644 Fortinet firewall and VPN devices across 194 countries. Icarus extortion group claimed the Klue SaaS supply chain breach, which exposed Salesforce data of Huntress, Recorded Future, Tanium, Jamf, and others via OAuth token theft. CISA added new KEVs including an actively exploited Cisco SD-WAN Manager zero-day.
+      </p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>GentleKiller EDR Killer (June 18–21):</strong> 8 BYOVD variants; 400+ processes; 48 vendors; Gentlemen RaaS centralizes EDR killing for affiliates; PoC-to-weaponization in days
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>FortiBleed (CISA June 18):</strong> 86,644 Fortinet FortiGate credentials compromised; 194 countries; Russian-speaking threat actors; config extraction + credential cracking
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(249,115,22,0.08);border-left:3px solid #f97316;border-radius:4px;color:#475569;">
+          <strong>Klue/Icarus SaaS Supply Chain (June 11–22):</strong> OAuth token theft via dormant credential; Huntress, Recorded Future, Tanium, Jamf Salesforce data exfiltrated; Icarus extortion group
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(234,179,8,0.08);border-left:3px solid #ca8a04;border-radius:4px;color:#475569;">
+          <strong>CISA KEV additions (June 16–22):</strong> Cisco SD-WAN Manager CVE-2026-20262 (zero-day, actively exploited); LiteSpeed cPanel CVE-2026-54420 (2-day patch deadline)
+        </li>
+      </ul>
+    </div>
+
+    <!-- GENTLEKILLER -->
+    <div id="gentlekiller" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 Gentlemen RaaS / GentleKiller: BYOVD EDR Killer Targeting 400+ Processes Across 48 Vendors</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 ESET Research: GentleKiller Framework — Modular EDR Killer Suite Embedded in Gentlemen RaaS (June 18–21, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          ESET Research published a detailed analysis of the Gentlemen ransomware-as-a-service (RaaS) operation and its GentleKiller EDR killer framework — a suite of at least 8 BYOVD (Bring Your Own Vulnerable Driver) variants designed to terminate endpoint detection and response processes before ransomware payload deployment. The framework targets 400+ security processes across 48 endpoint security vendors, including CrowdStrike Falcon, SentinelOne Singularity, Microsoft Defender for Endpoint, ESET Endpoint Security, and Kaspersky. GentleKiller abuses legitimate but vulnerable signed drivers — including those from Kaspersky (eb.sys), FACEIT Anti-Cheat (nseckrnl.sys), Valorant (GameDriverX64.sys), Javelin/Safetica (stpm_old.sys/stpm_new.sys), Zemana WatchDog (dmx.sys), Qihoo 360 (360netmon_wfp.sys), and IObit (IMFForceDelete) — to elevate privileges and kill security engine processes. Additionally, the Gentlemen operator incorporates third-party or leaked tools (HexKiller, ThrottleBlood, HavocKiller) alongside GentleKiller variants.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);border-bottom:1px solid rgba(220,38,38,.2);margin:10px 0;">
+          <strong>Key Technical Characteristics:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li><strong>BYOVD technique:</strong> Imports legitimate signed drivers with known vulnerabilities → exploits kernel-level access to kill EDR processes from ring-0</li>
+            <li><strong>8 GentleKiller variants:</strong> Each impersonates a different legitimate security product to avoid detection-by-name heuristics</li>
+            <li><strong>Rapid PoC weaponization:</strong> Gentlemen incorporated UnknownKiller and PoisonKiller tools within days of their public GitHub PoC disclosure — demonstrating an operationally agile offensive R&D pipeline</li>
+            <li><strong>Centralized RaaS model:</strong> Unlike most RaaS operators who leave EDR killing to affiliates, Gentlemen provides GentleKiller as a standardized, ready-to-use suite — lowering affiliate skill floor and accelerating attack consistency</li>
+            <li><strong>Scope:</strong> 400+ security processes; 48 named vendors including CrowdStrike, SentinelOne, Microsoft, ESET, Kaspersky, Sophos</li>
+          </ul>
+        </div>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);">
+          <strong>Portfolio Impact:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🔴 <strong>Endpoint/EDR (Critical):</strong> EDR agents on Windows endpoints are now explicit, named targets. BYOVD attacks operate at kernel level — standard process-protection is insufficient. Require tamper-protection that survives driver-level attacks and kernel-level agent protection. Validate agent tamper-protection capabilities against BYOVD scenarios.</li>
+            <li>🔴 <strong>MDR (Critical):</strong> If endpoint agents are killed pre-encryption, MDR behavioral detection must operate independently of the local agent — network-level telemetry, cloud-side SIEM correlation, and identity-based anomaly detection become the last line of defense. Validate MDR detection coverage for the "agent-killed" scenario.</li>
+            <li>🟠 <strong>Threat Intel (BrightCloud):</strong> Gentlemen RaaS IOCs: C2 infrastructure, GentleKiller driver hashes, and post-compromise data exfiltration destinations require classification and reputation enrichment.</li>
+            <li>🟡 <strong>SAT/HRM:</strong> Ransomware deployment typically follows a phishing/credential compromise initial access step — SAT training remains the first-line prevention layer before GentleKiller reaches the endpoint.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">⚠️ Trend Signal: EDR Killing as a RaaS Feature</h3>
+        <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">
+          Gentlemen's decision to centralize and standardize EDR killing represents an industrialization of a capability that was previously a differentiator for only the most sophisticated threat actors. By embedding GentleKiller into the RaaS platform and providing it to all affiliates, Gentlemen lowers the skill floor for ransomware operators significantly. The rapid PoC-to-production cadence (days, not weeks) indicates dedicated offensive R&D — a development pipeline with engineering resources comparable to enterprise security companies. The security industry implication is clear: relying on endpoint agent presence as a detection assumption is no longer viable. Detection and response must operate across multiple redundant telemetry sources — endpoint agent, network, identity, cloud — so that agent termination does not create a blind spot.
+        </p>
+      </div>
+    </div>
+
+    <!-- FORTIBLEED -->
+    <div id="fortibleed" style="margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 FortiBleed: 86,644 Fortinet Device Credentials Compromised — CISA Emergency Alert June 18</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 FortiBleed Campaign: Russian-Speaking Threat Actors Extract Credentials from 86K+ Fortinet FortiGate Devices (CISA Alert June 18, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          On June 18, 2026, CISA issued an emergency advisory after the FortiBleed campaign surfaced: threat actors have systematically extracted configuration files from approximately 74,000–86,644 internet-facing Fortinet FortiGate firewalls and SSL VPN gateways. The actors cracked the stored administrative credential hashes from these configs, resulting in verified working administrator credentials for a massive pool of network perimeter devices. The campaign spans 194 countries, affecting both government and private-sector organizations. Security researchers attribute the operation to Russian-speaking threat actors leveraging weak passwords, reused credentials, and outdated Fortinet firmware. The credentials were then compiled and distributed in threat actor communities. Arctic Wolf published independent analysis confirming active exploitation across all 194 countries as of June 19.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);border-bottom:1px solid rgba(220,38,38,.2);margin:10px 0;">
+          <strong>Attack Profile and Scope:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>Devices affected: 74,000–86,644 Fortinet FortiGate firewalls and SSL VPN gateways</li>
+            <li>Method: Configuration file extraction from internet-accessible management interfaces → credential hash cracking</li>
+            <li>Scope: 194 countries; government + private sector</li>
+            <li>Attribution: Russian-speaking threat actors (financially motivated, possible pre-positioning for ransomware)</li>
+            <li>Risk: Active exploitation — threat actors possess working admin credentials for affected devices</li>
+            <li>CISA action (June 18): Emergency advisory; urges immediate credential reset and session termination</li>
+            <li>Specific note: Affects both FortiGate firewalls AND Fortinet Spark firewalls (SMB-targeted product line)</li>
+          </ul>
+        </div>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);">
+          <strong>Portfolio Impact:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🔴 <strong>MDR (Immediate):</strong> Organizations with Fortinet perimeter devices should treat all admin sessions as potentially compromised pending credential rotation. Threat hunt for lateral movement originating from FortiGate management interfaces; new admin accounts; VPN session anomalies; configuration changes</li>
+            <li>🔴 <strong>DNS Protection:</strong> Compromised FortiGate = compromised network perimeter; DNS exfiltration and C2 beaconing through perimeter devices becomes viable. Ensure DNS monitoring covers traffic originating through FortiGate interfaces</li>
+            <li>🟠 <strong>Endpoint/EDR:</strong> Perimeter compromise is a common lateral movement precursor; correlate FortiGate anomalies with endpoint behavioral signals across MSP customer environments</li>
+            <li>🟠 <strong>Threat Intel (BrightCloud):</strong> Fortinet FortiBleed actor infrastructure should be classified; credential dumps used in downstream attacks need IOC enrichment</li>
+            <li>🟡 <strong>SAT/HRM:</strong> Fortinet Spark is an SMB-targeted product — MSP customers with Spark firewalls in client environments need urgent communication</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- KLUE / ICARUS -->
+    <div id="klue" style="margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟠 Klue/Icarus SaaS Supply Chain Breach — OAuth Token Theft Exposes Salesforce Data of Security Vendors</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fff7ed;border-left:4px solid #f97316;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#c2410c;font-weight:700;">🆕 Icarus Extortion Group Exploits Dormant Klue OAuth Credential to Steal Salesforce Data from Huntress, Recorded Future, Tanium &amp; Others (June 11–22, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Klue, a competitive intelligence SaaS platform, was compromised by Icarus — a financially motivated extortion group that emerged in April 2026. On June 11, threat actors used a long-dormant OAuth credential (originally created to test an integration that was never deployed) to access Klue's backend infrastructure, push malicious code, and harvest live OAuth tokens for all connected customer SaaS integrations. The harvested tokens were used to access and exfiltrate data from customers' Salesforce environments. Klue confirmed the breach and deactivated all OAuth integrations (Salesforce, HubSpot, SharePoint, Zoom, Gong, Chorus, Clari, Google Drive, Slack) on June 12. Victims include Huntress, Recorded Future, Tanium, Jamf, Sprout Social, Gong, and Insurity. Icarus listed Klue on its extortion leak site on June 21. Huntress independently disclosed the incident and published its own investigation on June 22.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(249,115,22,.2);border-bottom:1px solid rgba(249,115,22,.2);margin:10px 0;">
+          <strong>Attack Chain and Key Facts:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>Initial access: Dormant OAuth credential from an abandoned integration test (Klue's own failure, not a phishing attack)</li>
+            <li>Lateral movement: Backend code injection → harvest live OAuth tokens for all active customer integrations</li>
+            <li>Exfiltration target: Salesforce CRM instances of Klue customers</li>
+            <li>Confirmed victims: Huntress, Recorded Future, Tanium, Jamf, Sprout Social, Gong, Insurity (and likely others)</li>
+            <li>Extortion: Icarus demanded payment; Huntress received "mr bean" alias extortion communication pointing to Icarus Session Messenger ID</li>
+            <li>Response: Klue notified customers June 12; all OAuth tokens deactivated; integrations disabled</li>
+            <li>Pattern: Icarus is a new extortion group (April 2026) demonstrating sophisticated SaaS supply chain attack methodology</li>
+          </ul>
+        </div>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(249,115,22,.2);">
+          <strong>Portfolio Impact:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🟠 <strong>MDR (High):</strong> SaaS-to-SaaS OAuth token chains are now a proven, scalable exfiltration vector. MDR telemetry needs to cover OAuth grant anomalies, unexpected Salesforce API calls from third-party integrations, and high-volume record exports from CRM systems</li>
+            <li>🟠 <strong>SAT/HRM:</strong> Dormant credential hygiene is a human risk management issue — abandoned integrations and unused credentials are an underappreciated attack surface. Directly relevant to SAT content around credential lifecycle management and SaaS sprawl</li>
+            <li>🟡 <strong>Threat Intel (BrightCloud):</strong> Icarus extortion group infrastructure (C2, leak site URLs, Icarus actor aliases) requires classification and enrichment</li>
+            <li>🟡 <strong>Endpoint/EDR:</strong> Post-exfiltration endpoint indicators of compromise; watch for data staging activity on developer workstations at affected organizations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CISA KEV -->
+    <div id="cisa-kev" style="margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟡 CISA Known Exploited Vulnerabilities (KEV) — New Additions This Week</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fffbeb;border-left:4px solid #ca8a04;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#92400e;font-weight:700;">🆕 Cisco SD-WAN Manager CVE-2026-20262 — Actively Exploited Zero-Day; LiteSpeed cPanel CVE-2026-54420 (Week of June 16–22)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          CISA added two new vulnerabilities to the Known Exploited Vulnerabilities (KEV) catalog during the week of June 16–22: (1) <strong>Cisco SD-WAN Manager CVE-2026-20262</strong> — an actively exploited zero-day in Cisco's SD-WAN Manager (vManage) product, confirmed in wild exploitation with an urgent patch deadline; (2) <strong>LiteSpeed Technologies cPanel CVE-2026-54420</strong> — a high-severity flaw in the LiteSpeed web server cPanel integration, issued with a 2-day federal remediation deadline. Additionally, multiple prior KEVs including Oracle PeopleSoft CVE-2026-35273 and Ivanti deadline reminders carried overdue status this week, bringing the total overdue KEV count to 7 as of June 19.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(202,138,4,.2);">
+          <strong>Portfolio Impact:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🟡 <strong>MDR:</strong> Cisco SD-WAN Manager is deployed at enterprise and MSP-level environments; actively exploited zero-day warrants immediate threat hunt for SD-WAN lateral movement indicators and unusual management plane activity</li>
+            <li>🟡 <strong>Threat Intel (BrightCloud):</strong> KEV catalog updates signal active exploitation; prioritize classification of Cisco SD-WAN Manager exploit infrastructure</li>
+            <li>🟡 <strong>Endpoint/EDR:</strong> LiteSpeed/cPanel servers hosting MSP customer websites are potential initial access targets — correlate web server exploitation attempts with endpoint compromise activity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+    <div style="background:#ecfdf5;border-left:4px solid #16a34a;border-radius:8px;padding:20px;margin-top:32px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">✅ Recommended Actions for Product Teams</h3>
+      <ul style="margin:0;padding-left:20px;font-size:13px;color:#475569;line-height:1.7;">
+        <li><strong>Endpoint/EDR (Immediate):</strong> Validate agent tamper-protection against BYOVD kernel-level attacks; audit driver allowlist/blocklist coverage against GentleKiller's known driver signatures (eb.sys, nseckrnl.sys, GameDriverX64.sys, stpm_old.sys, dmx.sys, 360netmon_wfp.sys); ensure detection fires even if agent process is killed</li>
+        <li><strong>MDR (Immediate):</strong> Verify MDR detection coverage for "agent-killed" scenario using network and cloud telemetry alone; add Gentlemen/GentleKiller C2 and driver IOCs; threat hunt FortiGate lateral movement for customers with Fortinet perimeter devices; alert MSP customers to rotate all Fortinet admin credentials immediately</li>
+        <li><strong>DNS Protection:</strong> Ensure DNS monitoring explicitly covers outbound traffic from FortiGate management interfaces (FortiBleed lateral movement vector); add Gentlemen RaaS DNS C2 domains to blocklists</li>
+        <li><strong>SAT/HRM:</strong> Develop/surface content on credential lifecycle hygiene (dormant OAuth credentials — Klue breach root cause); SaaS integration security awareness; add Icarus-style extortion phishing scenario (initial contact mimicking "mr bean" extortion communication style)</li>
+        <li><strong>Threat Intel (BrightCloud):</strong> Enrich: Gentlemen RaaS C2 infrastructure; GentleKiller driver hashes; FortiBleed credential dump actor infrastructure; Icarus extortion group sites and aliases; Cisco SD-WAN Manager CVE-2026-20262 exploit infrastructure</li>
+        <li><strong>Product/GTM (Opportunity):</strong> GentleKiller explicitly names 48 vendor products including major competitors — this is a direct sales conversation opener about agent tamper-protection and multi-source MDR telemetry. Develop a one-pager on "What happens when the endpoint agent is killed?" for sales team use.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>

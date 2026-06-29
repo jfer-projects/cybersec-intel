@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — June 1, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for June 1, 2026 — AI-generated zero-days, supply chain compromises."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — June 1, 2026"/>
+  <meta property="og:description" content="AI-powered zero-day exploits, 2FA bypasses, TeamPCP supply chain attacks, state-sponsored AI vulnerability discovery."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-06-01.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"     style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#ai-zero-day" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🤖 AI Exploits</a>
+    <a href="#supply-chain" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔗 Supply Chain</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        ⚠️ Threat Intelligence Briefing
+      </h1>
+      <div style="font-size:15px;opacity:.85;">June 1, 2026 · Week of May 26–June 1</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>3</strong> critical signals
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📊 Focus: AI-Driven Exploits + Supply Chain
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Sources: Google, SecurityWeek, ThreatX
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;letter-spacing:-.2px;">
+        📋 This Week's Threat Summary
+      </h2>
+      <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">
+        <strong>Critical developments:</strong> Google detected first-ever AI-generated zero-day exploit in May 2026 — threat actors leveraged AI to develop zero-day 2FA bypass for mass exploitation on web-based administration tools. Simultaneously, TeamPCP cybercriminal group compromised multiple GitHub repositories (Trivy, Checkmarx, LiteLLM, BerriAI); stolen credentials monetized through partnerships with ransomware/data-theft extortion groups. State-sponsored actors (China, North Korea) increasingly adopting AI for vulnerability discovery. CRITICAL TREND: AI-driven threat landscape accelerating; vulnerability discovery, exploit development, and supply chain compromise no longer requiring human expertise. Zero-day exploitation transitioning from elite attacker domain to commoditized threat operation.
+      </p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>AI-Driven Exploits:</strong> First AI-generated zero-day (2FA bypass); threat actors leveraging AI for exploit development
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>Supply Chain Compromise:</strong> TeamPCP GitHub repository breaches; credential theft monetized via ransomware partnerships
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>State-Sponsored AI:</strong> China and North Korea actors deploying agentic AI tools (Strix, Hexstrike) for vulnerability discovery
+        </li>
+      </ul>
+    </div>
+
+    <!-- AI-DRIVEN ZERO-DAYS -->
+    <div id="ai-zero-day" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🤖 AI-Generated Zero-Days: First Confirmed Case</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 Google Detects First AI-Generated Zero-Day Exploit (May 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          For the first time, Google identified a zero-day exploit believed to have been developed using artificial intelligence. A prominent cybercriminal group leveraged AI to develop a zero-day exploit designed to bypass two-factor authentication (2FA) on an open-source web-based system administration tool. Google worked with the impacted vendor to prevent mass exploitation, which appeared to be the threat actor's plan.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);border-bottom:1px solid rgba(220,38,38,.2);margin:10px 0;">
+          <strong>Attack Profile:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>Target: Open-source web-based system administration tool (specific vendor/name redacted by Google for responsible disclosure)</li>
+            <li>Vulnerability Type: 2FA bypass zero-day</li>
+            <li>Threat Actor: Unnamed prominent cybercriminal group</li>
+            <li>Exploitation Intent: Mass exploitation campaign (preempted by Google/vendor coordination)</li>
+            <li>Development Method: AI-assisted exploitation (human + machine learning optimization)</li>
+          </ul>
+        </div>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);">
+          <strong>Portfolio Impact:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🔴 Endpoint Protection: 2FA bypasses require out-of-band authentication verification; single-factor endpoint solutions insufficient</li>
+            <li>🔴 MDR: Zero-day exploitation cycles accelerating; 0-day → mass exploitation timeline compressing</li>
+            <li>🔴 EDR: Behavioral detection mandatory (zero-day signatures unavailable); behavioral + kernel-level protection critical</li>
+            <li>🔴 Threat Intel: AI-generated exploits lack traditional OSINT signatures; vulnerability intelligence lag widening</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🔑 Strategic Implications for Portfolio</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          CRITICAL SHIFT: Vulnerability discovery and exploit development no longer bottlenecked by human expertise. AI-assisted zero-day exploitation entering threat landscape. Implication: Vulnerability intelligence TTL (time-to-live) collapsing; 0-day → mass exploitation cycle accelerating. Detection-centric approaches (signature-based EDR, vulnerability scanning) losing effectiveness. Emphasis required on: (1) Out-of-band verification for authentication systems; (2) Behavioral endpoint detection (no signatures for 0-days); (3) Real-time supply chain integrity monitoring; (4) Autonomous incident response (human review lag unacceptable). MSP/SMB positioning: Highlight autonomous threat response + behavioral detection + supply chain hardening as answer to AI-accelerated threat landscape.
+        </p>
+      </div>
+    </div>
+
+    <!-- SUPPLY CHAIN -->
+    <div id="supply-chain" style="margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔗 Supply Chain Compromise: TeamPCP GitHub Breaches</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 TeamPCP Supply Chain Compromise: GitHub Repositories (March-May 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Cybercriminal group "TeamPCP" (aka UNC6780) claimed responsibility for multiple supply chain compromises of popular open-source GitHub repositories between March–May 2026. Targets include: Trivy (vulnerability scanner), Checkmarx (SAST tool), LiteLLM (LLM library), and BerriAI (AI inference platform). Attack vector: Account compromise via credential theft; repositories modified to inject malicious code or backdoors. Stolen credentials subsequently monetized through partnerships with ransomware groups and data-theft extortion operators.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);border-bottom:1px solid rgba(220,38,38,.2);margin:10px 0;">
+          <strong>Attack Chain:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>1. Credential theft (methodology not specified; credential reuse likely)</li>
+            <li>2. GitHub account compromise</li>
+            <li>3. Repository modification (code injection, backdoor installation)</li>
+            <li>4. Credential monetization via ransomware/extortion partnerships</li>
+            <li>5. Downstream impact: Dependencies pull compromised code into downstream projects</li>
+          </ul>
+        </div>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);">
+          <strong>Portfolio Impact:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🔴 MDR/Endpoint: Dependency supply chain integrity verification required; code provenance critical</li>
+            <li>🔴 Threat Intel: Supply chain compromise detection requires GitHub/repository monitoring</li>
+            <li>🔴 SAT/HRM: Credential hygiene critical; developer account compromise risk elevated</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 State-Sponsored AI Vulnerability Discovery (China, North Korea)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Chinese and North Korean state-sponsored threat actors increasingly adopting AI-driven vulnerability discovery and exploit development. Observed deployments of agentic AI tools: Strix (automated vulnerability scanner) and Hexstrike (exploit generation platform). Confirmed use cases: Japanese tech firm and major East Asian cybersecurity company (targets indicating geopolitical espionage objectives). IMPLICATION: State actors moving beyond traditional APT TTPs; AI-assisted vulnerability discovery enabling rapid exploitation of emerging zero-days with minimal human analyst involvement.
+        </p>
+      </div>
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+    <div style="background:#ecfdf5;border-left:4px solid #16a34a;border-radius:8px;padding:20px;margin-top:32px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">✅ Recommended Actions for Product Teams</h3>
+      <ul style="margin:0;padding-left:20px;font-size:13px;color:#475569;line-height:1.7;">
+        <li><strong>Endpoint/EDR:</strong> Behavioral detection mandatory (zero-day signatures unavailable); out-of-band authentication verification critical; kernel-level protection non-negotiable</li>
+        <li><strong>MDR:</strong> Real-time supply chain integrity monitoring; GitHub/repository compromise detection; zero-day exploitation timeline compression requires 24/7 autonomous response</li>
+        <li><strong>Threat Intel:</strong> AI-assisted exploit detection (behavioral patterns, not signatures); supply chain dependency analysis; geopolitical threat actor monitoring</li>
+        <li><strong>SAT/HRM:</strong> Credential hygiene for developer accounts; supply chain risk awareness training; AI-assisted threat reconnaissance awareness</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>

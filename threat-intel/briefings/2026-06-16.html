@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — June 16, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for June 16, 2026 — Record Patch Tuesday 206 CVEs, ShinyHunters PeopleSoft zero-day, Shai-Hulud Red Hat npm supply chain attack."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — June 16, 2026"/>
+  <meta property="og:description" content="Critical: Record-breaking Patch Tuesday 206 CVEs, ShinyHunters breaches 100+ orgs via PeopleSoft zero-day, Red Hat npm supply chain worm."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-06-16.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"       style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#patch-tuesday" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 Patch Tuesday</a>
+    <a href="#shinyhunters"  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 ShinyHunters</a>
+    <a href="#supply-chain"  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟠 Supply Chain</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        ⚠️ Threat Intelligence Briefing
+      </h1>
+      <div style="font-size:15px;opacity:.85;">June 16, 2026 · Week of June 8–16</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>1</strong> record-breaking Patch Tuesday
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>1</strong> active zero-day campaign (100+ orgs)
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🟠 <strong>1</strong> supply chain worm resurgence
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;letter-spacing:-.2px;">
+        📋 This Week's Threat Summary
+      </h2>
+      <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">
+        <strong>Critical developments June 8–16:</strong> Microsoft's June 9 Patch Tuesday shattered all-time records with 198–206 CVEs patched in a single release — including a GreenPlasma Windows zero-day (CVE-2026-45586) actively exploited before the patch dropped, a BitLocker bypass, and a cluster of 11 Remote Desktop RCE flaws. ShinyHunters disclosed exploitation of Oracle PeopleSoft CVE-2026-35273 — a critical zero-day gadget chain — that compromised 300+ PeopleSoft instances at 100+ organizations globally between May 27 and June 9. Education sector hit hardest. Open-source supply chain threats resurged with a new Shai-Hulud Mini variant targeting @redhat-cloud-services npm packages, with self-propagating worm behavior bypassing 2FA.
+      </p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>Patch Tuesday June 9:</strong> All-time record 198–206 CVEs; GreenPlasma/CVE-2026-45586 CTFMON EoP actively exploited; BitLocker bypass; 11 RDP RCEs
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>ShinyHunters PeopleSoft Campaign:</strong> CVE-2026-35273 zero-day; 100+ orgs breached; 40 GB data stolen; Oracle issued emergency out-of-band patch June 11
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>Shai-Hulud Mini — Red Hat npm:</strong> 32 @redhat-cloud-services npm packages backdoored; credential-stealing worm; 80K–117K avg weekly downloads; npm 2FA bypass
+        </li>
+      </ul>
+    </div>
+
+    <!-- PATCH TUESDAY -->
+    <div id="patch-tuesday" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 Microsoft June 2026 Patch Tuesday: All-Time Record 198–206 CVEs</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 CVE-2026-45586 (GreenPlasma): Windows CTFMON Elevation of Privilege — Actively Exploited Zero-Day (June 9, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Microsoft's June 9, 2026 Patch Tuesday set an all-time record with 198–206 CVEs addressed in a single release, surpassing the previous record of 167 CVEs (October 2025). The headline zero-day: CVE-2026-45586, dubbed "GreenPlasma" by researcher Nightmare Eclipse, exploits an improper link resolution vulnerability in the Windows Collaborative Translation Framework (CTFMON). Successful exploitation gives an attacker a SYSTEM shell via local privilege escalation. Actively exploited before the patch was available. Patch: included in June 9 cumulative update. Affected: Windows 10, Windows 11, Windows Server 2016–2026.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);border-bottom:1px solid rgba(220,38,38,.2);margin:10px 0;">
+          <strong>Other Notable CVEs in June 2026 Patch Tuesday:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li><strong>CVE-2026-50507</strong> — Windows BitLocker Security Feature Bypass (Important): Physical/local access enables circumventing full-disk encryption. Patched.</li>
+            <li><strong>CVE-2026-44801, CVE-2026-44799, CVE-2026-42992, CVE-2026-42985</strong> — Remote Desktop Client RCE cluster (Critical): 11 total RDP CVEs addressed this cycle; 4 rated Critical. Risks remote code execution from a malicious RDP server.</li>
+            <li><strong>CVE-2026-41091</strong> — Microsoft Defender for Endpoint Elevation of Privilege (Important): Patched in this cycle.</li>
+            <li><strong>Scope:</strong> 33 Critical-rated CVEs total; 28 are RCE; 4 EoP; 1 information disclosure.</li>
+          </ul>
+        </div>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);">
+          <strong>Portfolio Impact:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🔴 <strong>Endpoint/EDR:</strong> GreenPlasma actively exploited — CTFMON EoP detection required immediately; SYSTEM-level compromise indicators</li>
+            <li>🔴 <strong>MDR:</strong> 33 Critical CVEs, 28 RCE — prioritize RDP exposure monitoring; BitLocker bypass detection on physical-access threat vectors</li>
+            <li>🔴 <strong>Endpoint Protection:</strong> Defender for Endpoint CVE-2026-41091 EoP patched — ensure update deployment complete for all managed endpoints</li>
+            <li>🟠 <strong>Threat Intel:</strong> Record patch volume = expanded attack surface for unpatched orgs; prioritize Windows CTFMON, RDP, BitLocker in threat modeling</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">⚠️ Trend Signal: Patch Volume as Attack Surface Indicator</h3>
+        <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">
+          The all-time record 198–206 CVEs in a single Microsoft Patch Tuesday signals accelerating vulnerability discovery — driven by AI-assisted code auditing and increased security researcher activity. CRITICAL IMPLICATION: Orgs that can't patch at Patch Tuesday velocity are increasingly exposed between cycles. The gap between zero-day disclosure and weaponization is narrowing. GreenPlasma was already being exploited before the patch dropped. MDR providers must assume active exploitation of high-severity CVEs before customers can patch. Recommendation: Treat unpatched critical Windows endpoints as actively compromised in threat modeling until update verification is confirmed.
+        </p>
+      </div>
+    </div>
+
+    <!-- SHINYHUNTERS PEOPLESOFT -->
+    <div id="shinyhunters" style="margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 ShinyHunters Oracle PeopleSoft Zero-Day: CVE-2026-35273 — 100+ Orgs Breached</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 CVE-2026-35273: Oracle PeopleSoft Environment Management RCE — ShinyHunters Extortion Campaign (June 10–11, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          ShinyHunters exploited CVE-2026-35273, a critical remote code execution flaw in Oracle PeopleSoft's Environment Management component, via a "gadget chain" combining known vulnerabilities with previously undisclosed flaws. Google Threat Intelligence and Mandiant confirmed malicious activity between May 27 and June 9, notifying 100+ global organizations. Over 300 PeopleSoft instances were compromised. Oracle issued an emergency out-of-band patch on June 11 — four days after silently applying a server-side fix. Education sector bore the brunt: universities and higher education institutions were primary victims. One confirmed victim had 40 GB of data — covering ~500,000 current and former students — published on ShinyHunters' extortion site.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);border-bottom:1px solid rgba(220,38,38,.2);margin:10px 0;">
+          <strong>Attack Profile:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>Vulnerability: CVE-2026-35273 (Critical RCE, CVSS 10.0 per CISA KEV listing)</li>
+            <li>Exploitation window: May 27 – June 9, 2026 (13 days before public disclosure)</li>
+            <li>Scope: 300+ PeopleSoft instances; 100+ organizations worldwide</li>
+            <li>Data impact: 40 GB confirmed stolen (education sector); extortion demands reported</li>
+            <li>Patch: Oracle out-of-band patch June 11, 2026 (previously silently applied server-side June 5)</li>
+            <li>CISA action: CVE-2026-35273 added to Known Exploited Vulnerabilities (KEV) catalog</li>
+          </ul>
+        </div>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(220,38,38,.2);">
+          <strong>Portfolio Impact:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🔴 <strong>MDR:</strong> Critical: Oracle PeopleSoft now active attack vector; detect PeopleSoft lateral movement to endpoint environment; data exfiltration monitoring</li>
+            <li>🔴 <strong>Threat Intel (BrightCloud):</strong> ShinyHunters IP ranges and C2 infrastructure classification priority; extortion campaign IOC enrichment</li>
+            <li>🟠 <strong>EDR:</strong> Post-PeopleSoft compromise: endpoint lateral movement from compromised PeopleSoft server; LSASS dump and credential harvesting patterns</li>
+            <li>🟠 <strong>SAT:</strong> Education sector phishing risk elevated (500K student data in ShinyHunters hands); spear-phishing secondary wave likely</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHAI-HULUD SUPPLY CHAIN -->
+    <div id="supply-chain" style="margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟠 Shai-Hulud Mini: Red Hat npm Supply Chain Worm Resurges</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fff7ed;border-left:4px solid #f97316;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#c2410c;font-weight:700;">🆕 32 @redhat-cloud-services npm Packages Backdoored with Self-Propagating Credential-Stealing Worm (June 2, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          On June 2, 2026, 32 packages published under the @redhat-cloud-services npm namespace were compromised and republished with a new variant of the Shai-Hulud supply chain worm. The malicious payload — a new variant of TeamPCP's Mini Shai-Hulud (open-sourced May 2026) — extracts developer credentials, API keys, and cloud configurations, encrypts them with AES-256-GCM, and uploads them to public GitHub repositories accessible only to the threat actor's private key. The worm uses npm's bypass_2fa publish parameter to republish itself even from accounts with 2FA enabled, making it self-propagating. Affected packages serve 80,000–117,000 average weekly downloads.
+        </p>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(249,115,22,.2);border-bottom:1px solid rgba(249,115,22,.2);margin:10px 0;">
+          <strong>Attack Chain:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>Targeted namespace: @redhat-cloud-services (32 packages, 96 malicious versions)</li>
+            <li>Propagation: npm bypass_2fa parameter bypasses two-factor authentication on publish</li>
+            <li>Payload: Extracts keys, credentials, cloud configs → encrypts AES-256-GCM → uploads encrypted to public GitHub</li>
+            <li>Scope: 80K–117K avg weekly downloads at risk; developer CI/CD pipelines targeted</li>
+            <li>Attribution: Linked to TeamPCP's Mini Shai-Hulud malware (open-sourced May 12, 2026)</li>
+            <li>Also targeting: Bitwarden CLI package (@bitwarden/cli) for key extraction</li>
+          </ul>
+        </div>
+        <div style="padding:10px 0;font-size:12px;color:#64748b;border-top:1px solid rgba(249,115,22,.2);">
+          <strong>Portfolio Impact:</strong>
+          <ul style="margin:8px 0 0 0;padding-left:20px;">
+            <li>🟠 <strong>Endpoint/EDR:</strong> Developer workstations primary infection vector; detect npm postinstall script execution with network exfiltration activity</li>
+            <li>🟠 <strong>MDR:</strong> Cloud credential exfiltration to GitHub; monitor for unusual cloud API usage following npm install events</li>
+            <li>🟠 <strong>Threat Intel:</strong> Open-source worm tooling democratizes supply chain attacks; expect more campaigns using TeamPCP toolset</li>
+            <li>🟠 <strong>SAT:</strong> Developer-targeted social engineering likely as follow-on to credential theft; targeted phishing with harvested org context</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+    <div style="background:#ecfdf5;border-left:4px solid #16a34a;border-radius:8px;padding:20px;margin-top:32px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">✅ Recommended Actions for Product Teams</h3>
+      <ul style="margin:0;padding-left:20px;font-size:13px;color:#475569;line-height:1.7;">
+        <li><strong>Endpoint/EDR (Immediate):</strong> Verify June 9 Patch Tuesday deployment on all managed endpoints; prioritize CVE-2026-45586 (GreenPlasma/CTFMON EoP) detection; add CTFMON privilege escalation to behavioral detection rules</li>
+        <li><strong>MDR (Immediate):</strong> Threat hunt for PeopleSoft lateral movement indicators; add ShinyHunters C2 IOCs; monitor for BitLocker bypass attempts on physical-access scenarios; add RDP session anomaly detection (11 new RDP CVEs)</li>
+        <li><strong>Threat Intel (BrightCloud):</strong> Enrich ShinyHunters infrastructure IPs/domains; flag Shai-Hulud GitHub exfiltration endpoints; add CVE-2026-35273 PeopleSoft exploitation indicators</li>
+        <li><strong>Developer Security / Supply Chain:</strong> Alert MSP customers with developer teams to audit @redhat-cloud-services and @bitwarden/cli npm packages; npm 2FA bypass via bypass_2fa parameter — cannot rely on 2FA alone for publish security</li>
+        <li><strong>SAT/HRM:</strong> Education sector customers in ShinyHunters spear-phishing crosshairs — escalate phishing simulation frequency; add credential stuffing scenario using breach data</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
