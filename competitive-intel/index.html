@@ -244,6 +244,7 @@
     </div>
 
     <!-- Reports -->
+    <div class="checked-banner" id="checked-banner" style="display:none;margin-bottom:14px;padding:10px 14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:12px;color:#166534;"></div>
     <div class="section-label">Reports archive — <span id="report-count"></span></div>
     <div class="reports-wrap" id="reports-wrap"></div>
     <div class="no-results" id="no-results">No reports match your search.</div>
@@ -315,6 +316,11 @@
     { date: "2026-05-14" },
     { date: "2026-03-23" }
   ];
+  // Most recent Monday the research step actually ran, whether or not it produced
+  // a new report. Update this every run — when nothing new is found, only bump
+  // this date (leave `reports` untouched) so this page shows "checked, no new
+  // moves" instead of looking stale or broken.
+  const lastChecked = "2026-07-06";
 
   const MONTHS  = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   const DAYS    = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -328,6 +334,13 @@
 
   const TODAY = new Date().toISOString().slice(0, 10);
   const sorted = reports.map(r => ({ ...r, ...parseDate(r.date) })).sort((a, b) => b.date.localeCompare(a.date));
+
+  if (sorted.length && lastChecked > sorted[0].date) {
+    const banner = document.getElementById("checked-banner");
+    const when = lastChecked === TODAY ? "today" : parseDate(lastChecked).label;
+    banner.textContent = `✓ Checked ${when} — no genuinely new competitive moves found this week. The ${sorted[0].label} report below remains current.`;
+    banner.style.display = "block";
+  }
 
   // ── BUILD REPORTS TABLE ──
   const wrap       = document.getElementById("reports-wrap");
