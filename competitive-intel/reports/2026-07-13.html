@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🔐 Competitive Intel — Monday, July 13, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence report for July 13, 2026 — Huntress expands MSP/MDR reach across EMEA via Giacom and MSP Nordics; Infoblox to acquire Kentik; KnowBe4 CTO promotion and phishing benchmark data; CrowdStrike 4-for-1 stock split with AIDR revenue surge."/>
+  <meta property="og:title" content="Competitive Intel — July 13, 2026"/>
+  <meta property="og:description" content="Weekly competitor tracking: Huntress signs Giacom + MSP Nordics distribution deals (6,000+ MSPs); Infoblox to acquire Kentik for network observability; KnowBe4 promotes new CTO and publishes phishing benchmarking data; CrowdStrike splits stock 4-for-1 on AIDR growth."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/competitive-intel/reports/2026-07-13.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Reports</a>
+    <a href="#takeaways"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#mdr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 MDR</a>
+    <a href="#dns"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🌐 DNS</a>
+    <a href="#sat"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎓 SAT/HRM</a>
+    <a href="#edr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔍 EDR</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#0f2849 0%,#1a56db 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        🔐 Competitive Intelligence Report
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Monday, July 13, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📰 <strong>5</strong> high-signal items
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📦 <strong>4</strong> product categories
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Focus: MSP Channel Expansion + DNS/Observability M&amp;A + SAT Leadership
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="takeaways" style="background:#0f2849;border-radius:12px;padding:24px 28px;
+                margin-bottom:0;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        ⚡ This Week's Key Takeaways
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>Huntress Signs Giacom + MSP Nordics Distribution Deals, Expands Microsoft Integration — 6,000+ MSPs Gain Direct Platform Access (July 7–8, 2026)</strong> — Huntress struck new distribution partnerships with UK marketplace Giacom and MSP Nordics (Denmark, Finland, Iceland, Norway, Sweden), giving roughly 6,000 European MSPs direct access to its Agentic Security Platform, 24/7 SOC, MDR, ITDR, and managed SIEM. In parallel, Huntress deepened its Microsoft integration, connecting its tools directly into Defender and Microsoft 365 Business Premium, and took Managed ISPM and AI Search for Managed SIEM to general availability. IMPACT: This is the most MSP-relevant move of the week — Huntress is the closest purpose-built analog to our own MDR positioning, and it is simultaneously expanding channel reach in EMEA and deepening the Microsoft-stack integration story that most SMB-focused MSPs already run on.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Channel Expansion</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Huntress is out-executing on both distribution reach and Microsoft-stack depth — the two axes MSP buyers weigh most heavily for MDR selection</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🌐 <strong>Infoblox to Acquire Kentik — Bundling DNS Threat Intelligence with Network Observability (July 8, 2026)</strong> — Infoblox announced a definitive agreement to acquire Kentik, a network intelligence and observability platform, aiming to combine Infoblox's preemptive DNS-based threat intelligence with Kentik's flow data to speed triage and confirm affected assets during incident response. IMPACT: Infoblox — already the primary beneficiary of Cisco Umbrella's standalone-DNS retreat — is now moving beyond DNS-only positioning toward a broader network visibility platform, raising the bar for what "DNS protection" needs to include in competitive conversations.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 M&amp;A</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 DNS protection category is expanding in scope toward network observability; pure-play DNS filtering may look thin against this bundle in 12–18 months</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎓 <strong>KnowBe4 Promotes New CTO, Publishes Phishing Benchmarking Report Showing 79% Reduction After One Year of Training (July 7, 2026)</strong> — KnowBe4 elevated nine-year engineering veteran Alex Callihan to CTO, reporting to CEO Bryan Palma, following the recent Agent Risk Manager and AI Defense Agents launches. The same week, KnowBe4 released its 2026 Phishing by Industry Benchmarking Report — 42 million simulations across 14.8 million users at 64,000 organizations — showing a 79% drop in phishing susceptibility after one year of consistent SAT. IMPACT: A credible, large-sample efficacy data point (79% reduction) is a useful external reference for any SAT/HRM ROI conversation, regardless of vendor; the CTO promotion signals continuity in KnowBe4's AI-agent product direction rather than a strategic pivot.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#ede9fe;color:#6d28d9;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟣 Leadership + Data</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 79% efficacy figure is citable in SAT ROI conversations independent of which vendor a prospect is evaluating</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🔍 <strong>CrowdStrike Executes 4-for-1 Stock Split as AIDR ARR Grows 250% Quarter-over-Quarter, Raises FY27 Guidance to ~$5.9B (July 1, 2026)</strong> — CrowdStrike completed a 4-for-1 stock split (share price dropped from ~$767 to ~$194), reported record net-new ARR of $256.0M, and raised full-year revenue guidance, driven substantially by its AI Detection and Response (AIDR) product, which posted 250% ARR growth quarter-over-quarter. CrowdStrike was also named Frost &amp; Sullivan's 2026 Global Enabling Technology Leader in Zero Trust Browser Security the same day. IMPACT: CrowdStrike remains enterprise-weighted rather than MSP/SMB-native, but its AIDR growth rate is a leading indicator of where buyer budget is shifting within the EDR category — AI-driven detection and response is now a growth-rate story, not just a feature checkbox.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fef3c7;color:#b45309;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Financial Milestone</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 AIDR's 250% QoQ growth is a category-level signal worth tracking even though CrowdStrike itself skews enterprise, not MSP/SMB</span>
+          </div>
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        New material from July 7–13 · Complements June 29 baseline report
+      </p>
+    </div>
+
+    <!-- CATEGORY SECTIONS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">📊 Intelligence by Product Category</h2>
+
+    <!-- MDR -->
+    <div id="mdr" style="margin-bottom:32px;">
+      <div style="background:#f0fdf4;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #16a34a;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#15803d;font-weight:700;">
+          🎯 Managed Detection &amp; Response
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #16a34a;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.itsecurityguru.org/2026/07/07/huntress-partners-with-giacom-to-expand-mdr-access-for-uk-msps/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Huntress Signs Giacom + MSP Nordics Distribution Deals, Expands Microsoft Defender Integration (July 7–8, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Huntress &nbsp;|&nbsp; 📅 July 7–8, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Huntress announced two distribution partnerships in the same week: one with UK channel marketplace Giacom, giving MSPs on Giacom's Cloud Market platform direct access to Huntress' Agentic Security Platform and 24/7 AI-centric SOC; and a parallel agreement with MSP Nordics covering Denmark, Finland, Iceland, Norway, and Sweden. Combined, the deals extend MDR, ITDR, and managed SIEM access to roughly 6,000 MSPs across the UK and Nordics. Separately, Huntress expanded its Microsoft collaboration to connect its tools directly into Defender and Microsoft 365 Business Premium — targeted at businesses that already run the Microsoft stack but lack the staff to fully operationalize it. Huntress also took Managed Identity Security Posture Management (ISPM) to general availability (continuously hardening Microsoft 365 configurations) and shipped AI Search for Managed SIEM, letting analysts query logs in plain English instead of ESQL or a query builder. COMPETITIVE IMPLICATION: Huntress is executing on two fronts simultaneously that matter most to MSP buyers — channel distribution reach and native depth on the Microsoft 365/Defender stack most SMB clients already run. The AI Search and ISPM GA releases also reduce the operational burden on lean MSP SOC teams, a differentiator that resonates directly with our own purpose-built-for-MSP positioning. PORTFOLIO ANGLE: Huntress remains the closest MDR competitor to track for feature parity and channel reach; the EMEA distribution expansion (6,000 MSPs) and Microsoft-native integration depth are the two most important threads to monitor going into Q3 planning.</div>
+      </div>
+    </div>
+
+    <!-- DNS PROTECTION -->
+    <div id="dns" style="margin-bottom:32px;">
+      <div style="background:#eff6ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #1d4ed8;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#1d4ed8;font-weight:700;">
+          🌐 DNS Protection
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #1d4ed8;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.infoblox.com/news/news-events/press-releases/infoblox-to-acquire-kentik-uniting-authoritative-dns-and-asset-visibility-with-network-observability-to-power-agenticops/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Infoblox to Acquire Kentik — Bundling DNS Threat Intelligence with Network Observability (July 8, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Infoblox / Kentik &nbsp;|&nbsp; 📅 July 8, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Infoblox entered a definitive agreement to acquire Kentik, a network intelligence and observability platform, uniting Infoblox's authoritative DNS and preemptive, DNS-based threat intelligence with Kentik's network flow data. Per Infoblox CEO Scott Harrell, the combined platform is intended to give networking, cloud, and security teams real-time hybrid-cloud intelligence, compressing triage time by correlating DNS-layer threat signals with asset connections and data-volume anomalies detected via flow data. This is Infoblox's second notable acquisition this year, following the May 18 Axur deal. COMPETITIVE IMPLICATION: Infoblox is using its position as the primary beneficiary of Cisco Umbrella's standalone-DNS wind-down to build out a broader network-visibility platform rather than staying a DNS-only point solution. This raises the long-term bar for what "DNS protection" competitively needs to include — bundled network observability, not just domain filtering and threat-intel freshness. PORTFOLIO ANGLE: Two Infoblox acquisitions in under two months (Axur in May, Kentik in July) signal an aggressive platform-expansion strategy while the Cisco Umbrella migration window remains open. DNS protection positioning conversations should increasingly account for adjacent visibility/observability capability, not just detection-rate benchmarks.</div>
+      </div>
+    </div>
+
+    <!-- SAT / HRM -->
+    <div id="sat" style="margin-bottom:32px;">
+      <div style="background:#faf5ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #7c3aed;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#7c3aed;font-weight:700;">
+          🎓 Security Awareness Training / Human Risk Management
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (2 new items)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #7c3aed;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://theaisoftwarereport.com/knowbe4-promotes-nine-year-engineering-veteran-alex-callihan-to-chief-technology-officer/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 KnowBe4 Promotes Nine-Year Engineering Veteran Alex Callihan to Chief Technology Officer (July 7, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 KnowBe4 &nbsp;|&nbsp; 📅 July 7, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">KnowBe4 promoted Alex Callihan, previously SVP of Engineering for more than nine years, to Chief Technology Officer, reporting directly to CEO Bryan Palma and taking over all research and development. The move follows the recent launches of Agent Risk Manager and the AI Defense Agents (AIDA) suite, which target deepfakes, prompt injection, shadow AI, and AI-driven social engineering. COMPETITIVE IMPLICATION: An internal promotion (rather than external hire) into the CTO seat signals continuity — KnowBe4's AI-agent product roadmap is expected to proceed on the trajectory set under Callihan's engineering leadership rather than pivot under new technical direction. PORTFOLIO ANGLE: Track whether Callihan's promotion accelerates the "Human + Agent Security" roadmap surfaced in the June 29 report; management continuity generally means faster execution on an already-announced strategy rather than a reset.</div>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #7c3aed;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://finance.yahoo.com/technology/ai/articles/knowbe4-research-finds-global-phishing-120000242.html" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 KnowBe4 2026 Phishing by Industry Benchmarking Report: 79% Susceptibility Drop After One Year of Training (July 7, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 KnowBe4 &nbsp;|&nbsp; 📅 July 7, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">KnowBe4 published its 2026 Phishing by Industry Benchmarking Report, analyzing 42 million phishing simulations across 14.8 million users at 64,000 organizations worldwide. Headline finding: organizations that ran consistent security awareness training for one full year saw a 79% reduction in phishing susceptibility. COMPETITIVE IMPLICATION: Large-sample, vendor-published efficacy data like this becomes a reference point in SAT/HRM sales conversations industry-wide, whether or not the prospect is evaluating KnowBe4 specifically — buyers will ask "can you show similar numbers?" PORTFOLIO ANGLE: Useful external benchmark to cite (or beat) in SAT ROI conversations; also worth checking whether our own phishing-simulation reporting can produce a comparable industry-benchmarked efficacy figure for sales enablement.</div>
+      </div>
+    </div>
+
+    <!-- EDR -->
+    <div id="edr" style="margin-bottom:32px;">
+      <div style="background:#fef2f2;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #dc2626;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#dc2626;font-weight:700;">
+          🔍 Endpoint Detection &amp; Response
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #dc2626;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://ir.crowdstrike.com/press-releases" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 CrowdStrike Completes 4-for-1 Stock Split as AIDR Revenue Grows 250% QoQ, FY27 Guidance Raised to ~$5.9B (July 1, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 CrowdStrike &nbsp;|&nbsp; 📅 July 1, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">CrowdStrike executed a 4-for-1 stock split effective July 1, reducing its share price from roughly $767 to $194, alongside record net-new ARR of $256.0M and raised full-year FY2027 revenue guidance to approximately $5.9B. Growth is increasingly driven by AI Detection and Response (AIDR), which posted 250% ARR growth quarter-over-quarter. CrowdStrike was also named Frost &amp; Sullivan's 2026 Global Enabling Technology Leader in Zero Trust Browser Security the same day. COMPETITIVE IMPLICATION: CrowdStrike remains primarily an enterprise-tier vendor rather than an MSP/SMB-native one, so this is more relevant as a category-trend indicator than a direct MSP-channel threat. The 250% QoQ AIDR growth rate signals that AI-native detection and response is becoming the primary growth vector within EDR, not merely a differentiator. PORTFOLIO ANGLE: Track how quickly AI-native detection/response claims propagate down-market into MSP-focused EDR competitors (Huntress, SentinelOne, Sophos) — CrowdStrike's growth rate here is likely to accelerate marketing claims across the category within two to three quarters.</div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC CONTEXT NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#f0fdf4;border-left:4px solid #16a34a;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">📌 Strategic Context: Platform Consolidation Is the Week's Common Thread</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">Every item this week points toward the same underlying dynamic: point-solution vendors are bundling adjacent capability to defend or expand share. Huntress is bundling channel reach (Giacom, MSP Nordics) with Microsoft-native depth (Defender/M365 integration, ISPM, AI Search) rather than competing on MDR detection alone. Infoblox is bundling DNS threat intelligence with network observability (Kentik, following May's Axur deal) rather than staying a DNS-only play. CrowdStrike's growth is increasingly an AI-native detection and response story rather than a traditional EDR one. Even KnowBe4's CTO promotion reinforces continuity on its "Human + Agent Security" bundling strategy flagged in the June 29 report. PORTFOLIO IMPLICATION: Point-solution positioning within any single category (MDR-only, DNS-only, EDR-only) is getting harder to defend against vendors bundling adjacent capability — worth a explicit discussion of where our six-product portfolio's cross-sell story can be sharpened to match this trend, particularly MDR + DNS + SAT bundling for MSP buyers who increasingly expect single-vendor coverage.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>

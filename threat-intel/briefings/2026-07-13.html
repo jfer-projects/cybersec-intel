@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — July 13, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for July 13, 2026 — Oracle E-Business Suite CVE-2026-46817 mass unauthenticated exploitation; DHS HSIN federal information-sharing platform breach; Langflow becomes first AI agent platform added to CISA KEV; Bad Epoll Linux/Android kernel privilege escalation PoC released."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — July 13, 2026"/>
+  <meta property="og:description" content="Critical: Oracle E-Business Suite unauthenticated RCE actively exploited (950+ exposed instances); DHS HSIN information-sharing platform breached via SharePoint; Langflow AI agent platform added to CISA KEV — a first; Bad Epoll Linux kernel privesc PoC hits Android too."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-07-13.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"     style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#oracle"      style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 Oracle EBS</a>
+    <a href="#hsin"        style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 DHS HSIN</a>
+    <a href="#langflow"    style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟠 Langflow</a>
+    <a href="#epoll"       style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 Bad Epoll</a>
+    <a href="#watchlist"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 Watchlist</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        ⚠️ Threat Intelligence Briefing
+      </h1>
+      <div style="font-size:15px;opacity:.85;">July 13, 2026 · Week of July 7 – 13</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>2</strong> critical incidents — Oracle EBS mass exploitation + federal platform breach
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🟠 <strong>1</strong> first-of-kind AI agent platform added to CISA KEV
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🟡 Linux/Android kernel privesc PoC + ransomware law-enforcement actions
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;letter-spacing:-.2px;">
+        📋 This Week's Threat Summary
+      </h2>
+      <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">
+        <strong>Critical developments July 7 – 13:</strong> A critical, unauthenticated remote code execution / arbitrary file read flaw in Oracle E-Business Suite Payments (CVE-2026-46817, CVSS 9.8) is under active mass exploitation, with honeypot infrastructure recording 456 attack attempts in a single 24-hour window and roughly 950 internet-exposed EBS instances identified by Shadowserver; Oracle patched the bug in late May, meaning this is another patch-lag failure rather than a novel zero-day. Separately, DHS confirmed that hackers breached the Homeland Security Information Network (HSIN) — a sensitive but unclassified federal/state/local/private-sector information-sharing platform — between late May and early June, with intrusion activity reportedly touching an internal SharePoint collaboration system, echoing the SharePoint RCE exploitation theme covered in the July 6 briefing. On the AI-infrastructure front, CISA added Langflow — a popular drag-and-drop AI agent development platform — to its Known Exploited Vulnerabilities catalog on July 7, marking the first time an AI agent platform has appeared in KEV; the underlying IDOR flaw (CVE-2026-55255) lets authenticated attackers hijack other users' AI pipelines and harvest embedded credentials. Finally, researchers released a working, 99%-reliable proof-of-concept for "Bad Epoll" (CVE-2026-46242), a Linux kernel use-after-free that grants root to an unprivileged local user and reaches beyond servers into Android devices.
+      </p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>Oracle E-Business Suite CVE-2026-46817 (mass exploitation observed late June–July):</strong> CVSS 9.8; unauthenticated RCE/file-read in Oracle Payments; ~950 exposed instances; patched May 28, exploited within ~4 weeks
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>DHS HSIN breach (confirmed July 2; intrusion window late May–early June):</strong> Federal info-sharing platform used by government, state/local, and private-sector partners; SharePoint system reportedly involved; attribution unconfirmed
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(234,88,12,0.08);border-left:3px solid #ea580c;border-radius:4px;color:#475569;">
+          <strong>Langflow added to CISA KEV (July 7):</strong> First AI agent platform ever listed; CVE-2026-55255 IDOR allows hijacking of other users' AI pipelines and credential harvesting; BOD 26-04 deadline July 10
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(234,179,8,0.08);border-left:3px solid #ca8a04;border-radius:4px;color:#475569;">
+          <strong>Bad Epoll Linux kernel privesc (PoC released early July):</strong> CVE-2026-46242; use-after-free in epoll subsystem; 99% reliable root exploit; affects Linux 5.10–6.11 and Android; patch available, no confirmed in-the-wild use yet
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(234,179,8,0.08);border-left:3px solid #ca8a04;border-radius:4px;color:#475569;">
+          <strong>Ransomware law enforcement (week of July 6–10):</strong> Former BlackCat/ALPHV negotiator sentenced to 70 months; Ryuk conspirator pleads guilty in scheme tied to $15M+ in ransom payments
+        </li>
+      </ul>
+    </div>
+
+    <!-- ORACLE EBS -->
+    <div id="oracle" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 Oracle E-Business Suite: Unauthenticated RCE Under Mass Active Exploitation</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 CVE-2026-46817: Oracle Payments Flaw Enables Unauthenticated Takeover, 456 Attacks Recorded in 24 Hours on Honeypots</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          CVE-2026-46817 (CVSS 9.8) is an improper privilege management and authentication flaw in the File Transmission component of Oracle Payments, part of Oracle E-Business Suite versions 12.2.3 through 12.2.15. The bug requires no authentication and no privileges — an attacker with network access to the HTTP interface can remotely take over a vulnerable instance. Oracle patched the flaw on May 28, 2026; active exploitation began roughly four weeks later, in late June, a timeline consistent with attackers reverse-engineering the official patch to build a working exploit.
+        </p>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Honeypot operator Defused Cyber reported observing exploitation attempts over the weekend of June 27–28, and one tracking firm recorded 456 distinct attack hits against Oracle EBS honeypots in a single 24-hour period. Observed exploitation attempts use crafted XML DeliveryRequest payloads with the <code>FULL_FILE_PATH</code> parameter set to <code>/etc/passwd</code> — a classic local file read / path traversal probe used to confirm exploitability and exfiltrate sensitive system files before deeper compromise. Shadowserver now tracks roughly 950 internet-exposed Oracle EBS instances, with the largest concentrations in the United States and Europe.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> Oracle E-Business Suite runs core financial, HR, and supply-chain workflows at mid-market and enterprise organizations — exactly the profile many MSP clients' larger customers or the MSPs' own back-office systems fall into. An unauthenticated, easily automated exploit against a widely deployed ERP platform is a strong, low-noise talking point for both MDR (behavioral detection of anomalous file-read/exfiltration patterns against ERP servers) and vulnerability-aware EDR conversations — patch verification alone is not sufficient four weeks after a patch ships, given how quickly reverse-engineered exploits are now reaching mass automation.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Unauthenticated RCE/File Read</span>
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 ~950 Exposed Instances</span>
+          <span style="background:#fef3c7;color:#b45309;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Patch-Lag Failure (May 28 → Late June Exploitation)</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://thehackernews.com/2026/06/oracle-e-business-suite-flaw-cve-2026.html" target="_blank" style="color:#1a56db;">The Hacker News</a> · <a href="https://www.bleepingcomputer.com/news/security/new-oracle-e-business-suite-flaw-now-exploited-in-attacks/" target="_blank" style="color:#1a56db;">BleepingComputer</a> · <a href="https://gbhackers.com/950-oracle-e-business-suite-instances-exposed/" target="_blank" style="color:#1a56db;">GBHackers</a> · <a href="https://www.helpnetsecurity.com/2026/06/30/oracle-payments-cve-2026-46817-exploitation/" target="_blank" style="color:#1a56db;">Help Net Security</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DHS HSIN -->
+    <div id="hsin" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 DHS Confirms Breach of Homeland Security Information Network (HSIN)</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 Federal Information-Sharing Platform Breached; SharePoint System Reportedly Targeted (Confirmed July 2, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          The Department of Homeland Security confirmed that hackers breached the Homeland Security Information Network (HSIN), a sensitive-but-unclassified platform used by federal, state, local, and private-sector partners to share threat and operational intelligence — including support for World Cup security coordination currently underway in the US. The intrusion is believed to have occurred between late May and early June 2026 and was disclosed publicly in early July. Reporting indicates the threat actor targeted HSIN servers as well as an internal SharePoint collaboration system; DHS has not yet attributed the intrusion to a specific actor or confirmed what, if any, documents were exfiltrated. The House Homeland Security Committee has requested a formal briefing on the incident.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> The SharePoint angle is notable in context: the July 6 briefing covered CVE-2026-45659, a SharePoint Server RCE actively exploited by Storm-2603/Warlock since at least early July, with a patch that had been available since May. While attribution and technique for the HSIN intrusion have not been confirmed to match that specific CVE, the overlap reinforces the same pattern flagged last week — on-premises SharePoint deployments are a recurring soft target, including inside organizations that should have mature patch discipline. For MSPs with any government-adjacent, critical-infrastructure, or compliance-heavy clients, this is a timely reminder to verify SharePoint patch status and review admin-tier access logging rather than treat last week's advisory as closed.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Federal Platform Breach</span>
+          <span style="background:#fef3c7;color:#b45309;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 SharePoint-Linked, Attribution Unconfirmed</span>
+          <span style="background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 Investigation Ongoing</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://www.bleepingcomputer.com/news/security/dhs-confirms-hackers-breached-hsin-info-sharing-platform/" target="_blank" style="color:#1a56db;">BleepingComputer</a> · <a href="https://techcrunch.com/2026/07/02/us-government-says-it-got-hacked-again/" target="_blank" style="color:#1a56db;">TechCrunch</a> · <a href="https://www.nextgov.com/cybersecurity/2026/07/house-homeland-committee-seeks-briefing-dhs-network-hack/414633/" target="_blank" style="color:#1a56db;">Nextgov/FCW</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANGFLOW -->
+    <div id="langflow" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟠 Langflow Becomes First AI Agent Platform Added to CISA KEV</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fff7ed;border-left:4px solid #ea580c;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#9a3412;font-weight:700;">🆕 CVE-2026-55255: IDOR Flaw Lets Attackers Hijack Other Users' AI Pipelines and Harvest Credentials (Added to KEV July 7, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          CISA added Langflow — a widely used drag-and-drop platform for building and running AI agent pipelines, with a REST API for programmatic execution — to its Known Exploited Vulnerabilities catalog on July 7, marking the first time an AI agent development platform has appeared in KEV. The vulnerability, CVE-2026-55255, is an Insecure Direct Object Reference (IDOR) flaw: an authenticated attacker can access other users' flows by sending a crafted request containing the victim's UUID to the <code>/api/v1/responses</code> endpoint, exposing sensitive data processed by that flow and consuming the victim's compute resources. CISA set a remediation deadline of July 10 under Binding Operational Directive 26-04.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> Langflow deployments typically hold cloud credentials, LLM API keys, and access to sensitive data flows — a compromise is not just a server foothold, it is a credential-and-compute harvesting opportunity tied directly to an organization's AI infrastructure. This is the second AI-infrastructure-adjacent threat item in two briefings (following the Avalon/CrownX AI-assisted malware framework covered July 6), reinforcing that AI tooling — both attacker-side and defender-side — is now a standing category worth tracking, not a one-off story. For any client experimenting with internal AI agent pipelines (a growing segment among MSP customers), this is a concrete, dated example of what "secure your AI infrastructure" needs to mean in practice.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#ffedd5;color:#9a3412;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟠 First AI Agent Platform in CISA KEV</span>
+          <span style="background:#fef3c7;color:#b45309;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Credential/Compute Harvesting Risk</span>
+          <span style="background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 AI Infrastructure Attack Surface</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-prioritize-patching-langflow-auth-bypass-flaw/" target="_blank" style="color:#1a56db;">BleepingComputer</a> · <a href="https://www.techtimes.com/articles/319918/20260708/cisa-adds-first-ai-agent-platform-kev-sets-thursday-deadline-4-cves.htm" target="_blank" style="color:#1a56db;">Tech Times</a> · <a href="https://www.scworld.com/news/critical-langflow-ai-bug-exploited-within-20-hours-added-to-cisa-list" target="_blank" style="color:#1a56db;">SC World</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BAD EPOLL -->
+    <div id="epoll" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟡 "Bad Epoll" Linux Kernel Privilege Escalation — PoC Released, Reaches Android</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fefce8;border-left:4px solid #ca8a04;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#854d0e;font-weight:700;">🆕 CVE-2026-46242: 99%-Reliable Use-After-Free Grants Root on Linux Servers, Desktops, and Android</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Researcher Jaeyoung Chung published a working proof-of-concept for "Bad Epoll" (CVE-2026-46242), a use-after-free race condition in the Linux kernel's epoll subsystem — a core I/O multiplexing facility used extensively by nginx, Apache, Node.js, Python asyncio, database engines, and Android's event-loop infrastructure. Two separate race conditions were introduced by a single 2023 kernel commit; one was already reported by Anthropic's Mythos research effort as CVE-2026-43074, and Bad Epoll is the second, independently discovered flaw from the same root cause. The race window is only about six CPU instructions wide, but the published exploit reliably widens it via a non-crashing retry loop, achieving a 99% success rate escalating an unprivileged local user to root. The bug affects Linux kernel versions 5.10 through 6.11 and reaches Android devices through the same shared kernel code. It was reported privately in February, patched upstream April 24, and disclosed publicly May 30 — meaning the fix predates public disclosure by five weeks, and there is no confirmed in-the-wild exploitation to date.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> No confirmed active exploitation lowers urgency relative to the Oracle EBS and Langflow items above, but a 99%-reliable, publicly available local-root PoC against a kernel version range still common in production (5.10–6.11 spans most current LTS Linux distributions and a large share of deployed Android) is the kind of bug that gets folded into post-exploitation toolkits quickly once initial access is achieved by other means. Relevant to any client running Linux servers or Android fleets — patch verification against kernel 6.12+ or the backported fix is the concrete action item.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 99% Reliable Local Root PoC</span>
+          <span style="background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 Linux + Android Shared Kernel Impact</span>
+          <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patched Before Disclosure, No Confirmed Exploitation</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://thehackernews.com/2026/07/new-bad-epoll-linux-kernel-flaw-lets.html" target="_blank" style="color:#1a56db;">The Hacker News</a> · <a href="https://www.securityweek.com/proof-of-concept-exploit-released-for-linux-bad-epoll-root-access-vulnerability/" target="_blank" style="color:#1a56db;">SecurityWeek</a> · <a href="https://tuxcare.com/blog/bad-epoll-cve/" target="_blank" style="color:#1a56db;">TuxCare</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WATCHLIST -->
+    <div id="watchlist" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟡 Watchlist: Ransomware Enforcement &amp; Ecosystem Notes</h2>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #ca8a04;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;margin-bottom:6px;">
+          🟡 Ransomware Ecosystem Law Enforcement Actions — BlackCat/ALPHV Negotiator Sentenced, Ryuk Conspirator Pleads Guilty
+        </div>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 US &amp; International Law Enforcement &nbsp;|&nbsp; 📅 July 8–10, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Angelo Martino, a former ransomware negotiator who assisted the BlackCat/ALPHV group, was sentenced to 70 months in prison on July 10. Separately, Karen Serobovich Vardanyan, a 34-year-old Armenian national, pleaded guilty to conspiracy and computer fraud charges for his role in Ryuk ransomware attacks that netted accomplices more than $15 million in ransom payments. These actions arrive alongside continued 2026 ransomware-ecosystem trend data worth noting for context: the median time between initial-access-broker handoff and ransomware deployment has collapsed to roughly 22 seconds (down from over 8 hours in 2022), and "EDR killer" tooling — deliberately disabling or blinding endpoint defenses before payload execution — is now considered a standard component of ransomware playbooks rather than an advanced technique. <strong>PORTFOLIO IMPACT:</strong> Law enforcement pressure on the negotiation and laundering layer of the ransomware economy is a slow but real disruption lever, though it lags the speed of automated access-to-encryption pipelines by a wide margin. The 22-second handoff statistic and normalized use of EDR-killer tooling are useful, citable data points for MDR conversations emphasizing detection speed and tamper-resistant telemetry over signature-based defenses.</div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#dc2626;font-weight:700;">📌 Strategic Context: Patch-Lag Exploitation and AI Infrastructure Risk Are Now Recurring Themes</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">Two threads carry over directly from last week. First, patch-lag exploitation: Oracle EBS (patched May 28, exploited late June) joins SharePoint RCE (patched May, exploited by early July) as the second consecutive week where the most severe active-exploitation story is a known, already-patched bug rather than a novel zero-day — the operative risk continues to be the gap between patch availability and patch application, not undiscovered vulnerabilities. Second, AI infrastructure as an emerging attack surface: Langflow's KEV addition follows directly on last week's Avalon/CrownX malware framework story, and both point to the same conclusion — AI tooling, whether an agent development platform or an AI-assisted malware framework, is now a live category on both the attacker and defender side rather than a speculative future risk. The DHS HSIN breach, while less technically detailed than the other items, reinforces that even federal-tier information-sharing infrastructure is not immune to the same patch-lag and legacy-system exposure patterns seen across the MSP/SMB base this portfolio serves. For MDR and vulnerability-aware EDR conversations, the consistent message across both this week and last is: assume a meaningful population of clients are running unpatched, internet-facing enterprise software at any given time, and design detection and response around that assumption rather than around patch compliance alone.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
