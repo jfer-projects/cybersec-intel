@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — August 3, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for August 3, 2026 — Critical N-able N-central RMM authentication-bypass flaw under active exploitation with an incomplete first patch (CVE-2026-18556/18577); INC ransomware emerges as the dominant exploiter of the previously disclosed SonicWall SMA zero-days; CrowdStrike's 2026 Threat Hunting Report shows AI now embedded across adversary operations, including a 300-dependency npm supply-chain compromise in a single day."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — August 3, 2026"/>
+  <meta property="og:description" content="Critical: N-able N-central RMM auth-bypass under active exploitation, first patch incomplete; INC ransomware now dominant exploiter of SonicWall SMA zero-days; CrowdStrike 2026 Threat Hunting Report — AI embedded across adversary operations, 87% of software-registry threats are malicious npm packages."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-08-03.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"     style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#nable"       style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 N-able</a>
+    <a href="#sonicwall"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 SonicWall/INC</a>
+    <a href="#crowdstrike" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 Threat Hunting Report</a>
+    <a href="#watchlist"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 Watchlist</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        ⚠️ Threat Intelligence Briefing
+      </h1>
+      <div style="font-size:15px;opacity:.85;">August 3, 2026 · Week of July 28 – August 3</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>2</strong> critical incidents — N-able N-central RMM compromise + INC ransomware/SonicWall
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🟡 <strong>1</strong> major threat-landscape report — CrowdStrike 2026 Threat Hunting Report
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🎯 Focus: RMM/Management-Plane Compromise Is Now the Direct MSP Threat, Not a Hypothetical
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;letter-spacing:-.2px;">
+        📋 This Week's Threat Summary
+      </h2>
+      <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">
+        <strong>Critical developments July 28 – August 3:</strong> N-able disclosed on August 1 that attackers are actively exploiting an authentication-bypass flaw in N-central, its flagship RMM platform used directly by MSPs to manage client endpoints — and that its first patch (for CVE-2026-18556) was incomplete, requiring a second CVE (CVE-2026-18577) and a follow-up hotfix on August 2. Compromised N-central servers were used to abuse the built-in Take Control feature to reach managed endpoints directly, the same "one console, every downstream client" blast radius that made the 2021 Kaseya VSA incident so damaging; CISA added the flaw to its Known Exploited Vulnerabilities catalog and gave federal agencies a three-day patch window. Separately, reporting published August 1 shows INC ransomware has become the dominant actor exploiting the SonicWall SMA 1000 zero-days (CVE-2026-15409/15410) covered in the July 20 briefing — a shift from the original espionage-motivated Chinese actor (UTA0533) to a financially motivated ransomware crew, with new victims listed across six countries between July 17 and August 1. Finally, CrowdStrike's 2026 Threat Hunting Report, released August 3, documents AI now embedded across adversary operations at scale: China-nexus actors weaponizing new vulnerabilities in under 24 hours, a single eCrime actor compromising 300+ software dependencies in one day, and AI-agent-triggered detections growing 2.5x faster than human-triggered ones inside CrowdStrike's own SOC.
+      </p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>N-able N-central RMM auth bypass (disclosed Aug 1; hotfix Aug 2):</strong> CVE-2026-18556 + CVE-2026-18577 (incomplete first patch); admin account takeover; Take Control abused to reach managed endpoints; CISA KEV, 3-day federal patch order
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>INC ransomware dominant exploiter of SonicWall SMA zero-days (reported Aug 1):</strong> CVE-2026-15409/15410; motive shift from espionage (UTA0533) to ransomware; new victims across 6 countries, July 17 – Aug 1
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(234,179,8,0.08);border-left:3px solid #ca8a04;border-radius:4px;color:#475569;">
+          <strong>CrowdStrike 2026 Threat Hunting Report (published Aug 3):</strong> AI embedded across adversary operations; 87% of 1H 2026 software-registry threats involved malicious npm packages; AI-agent-triggered SOC detections up 2.5x
+        </li>
+      </ul>
+    </div>
+
+    <!-- N-ABLE -->
+    <div id="nable" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 N-able N-central RMM Authentication Bypass Under Active Exploitation — First Patch Incomplete</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 CVE-2026-18556 and CVE-2026-18577: Admin-Level Account Takeover on N-central, Then Abused to Reach Managed Endpoints via Take Control (Disclosed August 1, Second Hotfix August 2, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          N-able disclosed on August 1 that it detected active exploitation of an authentication-bypass vulnerability (CVE-2026-18556) in N-central, its flagship Remote Monitoring and Management platform, affecting both hosted and on-premises deployments across all versions through 2026.1. During its investigation, N-able found that its initial fix was incomplete, assigning a second CVE (CVE-2026-18577) for the residual bypass and shipping hotfix 2026.3.1.7 on August 2 — hosted customers received it automatically, while on-premises customers must apply it manually. N-able confirmed a "limited" number of customers were breached: attackers took over an administrative account on the N-central server itself and then abused the platform's built-in Take Control feature to pivot directly into managed client endpoints, opening remote sessions and running scripts. N-able published indicators of compromise, including four attacker IP addresses, a rogue service named "Cloudflared," and a suspicious svchost.exe planted in a user's Documents folder. CISA added the flaw to its Known Exploited Vulnerabilities catalog and ordered federal agencies to patch within three days.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> This is the exact MSP-specific worst case the industry has watched for since Kaseya VSA in 2021: a single compromised RMM console with legitimate, built-in remote-control functionality (here, Take Control) used to reach every downstream managed endpoint at once, with no malware required to move laterally. That the vendor's own first patch didn't fully close the hole is a second, independently useful data point — "patched" and "no longer exploitable" are not synonyms, and MSPs need monitoring on the management plane itself (anomalous admin logins, new services, Take Control session anomalies), not just on the endpoints it manages. This is a strong, concrete, dated example for both MDR conversations (why identity/behavior monitoring needs to extend to RMM/PSA tooling specifically) and internal review of how our own products would detect or contain a compromised management console being used against our own managed fleet.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 RMM Admin Account Takeover</span>
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 First Patch Incomplete</span>
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 CISA KEV — 3-Day Federal Patch Order</span>
+          <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Hotfix 2026.3.1.7 Available (Aug 2)</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://www.bleepingcomputer.com/news/security/n-able-warns-of-n-central-auth-bypass-flaw-exploited-in-attacks/" target="_blank" style="color:#1a56db;">BleepingComputer</a> · <a href="https://thehackernews.com/2026/08/n-able-says-attackers-take-over-n.html" target="_blank" style="color:#1a56db;">The Hacker News</a> · <a href="https://www.helpnetsecurity.com/2026/08/03/cve-2026-18577-n-able-n-central-vulnerability/" target="_blank" style="color:#1a56db;">Help Net Security</a> · <a href="https://www.huntress.com/blog/n-able-vulnerability-exploitation" target="_blank" style="color:#1a56db;">Huntress</a> · <a href="https://www.theregister.com/security/2026/08/04/feds-get-3-days-to-patch-n-able-god-mode-flaw-under-active-exploit/5282894" target="_blank" style="color:#1a56db;">The Register</a> · <a href="https://www.n-able.com/blog/n-central-security-update-august-2-2026" target="_blank" style="color:#1a56db;">N-able</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SONICWALL / INC -->
+    <div id="sonicwall" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 INC Ransomware Emerges as Dominant Exploiter of the SonicWall SMA Zero-Days</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 Financially Motivated Ransomware Crew Now Leads Exploitation of CVE-2026-15409/15410; New Victims in Six Countries (Reported August 1, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          The July 20 briefing covered Volexity's disclosure that suspected Chinese threat actor UTA0533 was exploiting two SonicWall SMA 1000-series zero-days (CVE-2026-15409, CVSS 10.0, and CVE-2026-15410) for espionage-motivated root-level access. New reporting published August 1 shows the exploitation landscape for the same vulnerability chain has shifted: INC ransomware, a financially motivated ransomware-as-a-service operation, has emerged as the dominant actor now weaponizing these flaws, using the foothold to extract high-value credentials, active session databases, and TOTP multi-factor-authentication seed configurations to ensure long-term persistent access ahead of ransomware deployment. Resecurity reported that victims newly listed on INC's leak site between July 17 and August 1 span private-sector and government organizations in Australia, the U.S., the U.A.E., Colombia, Switzerland, and other countries. SonicWall's patches, released mid-July, remain the fix; the concern is the population of SMA 1000 appliances still unpatched more than two weeks after fixes shipped.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> The same unpatched edge-VPN population is now being worked by two different classes of attacker with two different goals — espionage first, ransomware monetization second — which is a useful, concrete illustration for MDR and threat-intel conversations that "already covered by a nation-state advisory" does not mean a vulnerability drops off the priority list once the original actor moves on; unpatched infrastructure gets re-exploited by whoever finds it next. MSPs managing SonicWall SMA 1000 estates for clients should treat mid-July patch availability as the deadline that already passed, not a future target.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Actor Shift: Espionage → Ransomware</span>
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 New Victims, 6 Countries (Jul 17 – Aug 1)</span>
+          <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patches Available Since Mid-July</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://thehackernews.com/2026/08/inc-ransomware-emerges-as-dominant.html" target="_blank" style="color:#1a56db;">The Hacker News</a> · <a href="https://cyberscoop.com/inc-ransomware-sonicwall-zero-day-attacks/" target="_blank" style="color:#1a56db;">CyberScoop</a> · <a href="https://www.rapid7.com/blog/post/etr-rapid7-mdr-team-discovers-new-sonicwall-sma1000-zero-days-being-actively-exploited-cve-2026-15409-cve-2026-15410/" target="_blank" style="color:#1a56db;">Rapid7</a> · <a href="https://www.tenable.com/blog/cve-2026-15409-cve-2026-15410-sonicwall-sma-1000-zero-day-vulnerabilities-exploited-in-the" target="_blank" style="color:#1a56db;">Tenable</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CROWDSTRIKE THREAT HUNTING REPORT -->
+    <div id="crowdstrike" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟡 CrowdStrike 2026 Threat Hunting Report: AI Now Embedded Across Adversary Operations</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fffbeb;border-left:4px solid #ca8a04;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#854d0e;font-weight:700;">🆕 24-Hour Exploitation Windows, 300+ Compromised Dependencies in a Day, and AI-Agent Detections Outpacing Human-Triggered Ones (Published August 3, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          CrowdStrike published its 2026 Threat Hunting Report on August 3, covering front-line investigation findings from July 2025 through June 2026. Headline findings: China-nexus adversaries are now weaponizing newly disclosed vulnerabilities within 24 hours of proof-of-concept code becoming public; DPRK-nexus actors poisoned 131 trusted AI framework packages as a supply-chain vector; and threat actors are using AI directly to generate payloads and shell commands, exploit AI infrastructure, and abuse enterprise LLMs, including one campaign that sent nearly 200,000 AI model requests in two minutes. On the supply-chain front, 87% of identified software-registry threats in the first half of 2026 involved malicious npm packages, and a single eCrime actor CrowdStrike tracks as ALTERED SPIDER compromised more than 300 software dependencies in one day to harvest credentials and pivot into cloud environments. Inside CrowdStrike's own OverWatch practice, AI-agent-triggered detection leads grew at 2.5x the rate of human-triggered leads, reflecting how AI is accelerating both attacker activity and the defensive workload needed to keep pace with it.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> This is a vendor-published report, not an independent incident, but the underlying data points are useful reference statistics for MDR and EDR conversations regardless of source: a 24-hour weaponization window means patch-cycle SLAs measured in weeks are effectively meaningless for headline CVEs, and 87% of registry threats being npm-based is a concrete number to cite when discussing software-supply-chain exposure with clients running Node-based tooling. It's also a data point on CrowdStrike's own competitive positioning — publishing a high-profile annual threat report is a recurring thought-leadership/GTM move worth tracking alongside their product announcements, since it shapes how MSPs and analysts frame "who understands the threat landscape best" independent of product feature comparisons.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 24-Hr Exploitation Window (China-Nexus)</span>
+          <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 87% of Registry Threats = Malicious npm</span>
+          <span style="background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 300+ Dependencies Compromised in 1 Day</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-2026-threat-hunting-report/" target="_blank" style="color:#1a56db;">CrowdStrike (press release)</a> · <a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-2026-threat-hunting-report/" target="_blank" style="color:#1a56db;">CrowdStrike (blog)</a> · <a href="https://cyberscoop.com/crowdstrike-annual-threat-hunting-report-2026/" target="_blank" style="color:#1a56db;">CyberScoop</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WATCHLIST -->
+    <div id="watchlist" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟡 Watchlist: Management-Plane and RMM Infrastructure Continues as a Standing Target</h2>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #ca8a04;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;margin-bottom:6px;">
+          🟡 Third Consecutive Month of Centralized-Management-Plane Compromise: Check Point SmartConsole (July 22), Now N-able N-central (August 1)
+        </div>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Management-Plane / RMM Risk Pattern &nbsp;|&nbsp; 📅 Ongoing
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">The July 27 briefing flagged Check Point's SmartConsole authentication-bypass flaw as an example of "one compromise, many downstream effects" risk from centralized security-management consoles. This week's N-able N-central incident is the same pattern applied directly to MSP tooling: a single compromised admin account on a management platform, used to reach every downstream managed endpoint through legitimate remote-control functionality. <strong>PORTFOLIO IMPACT:</strong> With two centralized-management-plane compromises in two weeks — one security-vendor console, one MSP RMM platform — behavioral monitoring and anomaly detection on management-plane admin activity (not just on the endpoints those platforms manage) is becoming a recurring, dated theme rather than a one-off. Worth confirming our own products' telemetry and alerting coverage extends to the management console layer itself, not only to the fleets it administers.</div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#dc2626;font-weight:700;">📌 Strategic Context: RMM Compromise Moved From Theoretical Risk to This Week's Headline</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">For years, "an RMM compromise could be as bad as Kaseya VSA" has been a hypothetical used in MSP security conversations. This week it happened again, directly: a real N-central customer base had admin accounts taken over and managed endpoints reached via Take Control, on a platform many MSPs run alongside — or instead of — the tools in our own portfolio. Combined with the SonicWall/INC ransomware update (unpatched edge infrastructure re-exploited by a second, different attacker class) and CrowdStrike's data point that adversaries now weaponize new vulnerabilities within 24 hours, the throughline for this week is that patch-and-monitor cycles built around weekly or monthly cadences are increasingly out of step with both the speed of exploitation and the blast radius of a single compromised management tool. PORTFOLIO IMPLICATION: For MDR and EDR conversations specifically, this is a concrete, current, name-recognizable incident (N-able, not a hypothetical) to reference when discussing why detection needs to cover the RMM/management layer itself — a message that applies directly to how our own products are positioned and monitored within MSP environments.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
