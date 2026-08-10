@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🔐 Competitive Intel — Monday, August 10, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence report for August 10, 2026 — Black Hat USA 2026 drove a wave of MSP-facing announcements: Arctic Wolf's Cyber Resilience bundle with up to $3M warranty coverage, SentinelOne/ConnectWise shared MSP strategy and governed closed-loop AI response, Sophos/OpenAI partnership to bring frontier AI to MSPs, KnowBe4 simulated vishing, and Microsoft Defender AI-agent posture risk assessment."/>
+  <meta property="og:title" content="Competitive Intel — August 10, 2026"/>
+  <meta property="og:description" content="Black Hat USA 2026 roundup: Arctic Wolf Cyber Resilience bundle + $3M warranty; SentinelOne/ConnectWise MSP alliance + governed AI response; Sophos/OpenAI MSP partnership; KnowBe4 simulated vishing; Microsoft Defender AI-agent posture risk."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/competitive-intel/reports/2026-08-10.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Reports</a>
+    <a href="#takeaways"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#mdr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 MDR</a>
+    <a href="#edr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔍 EDR</a>
+    <a href="#ep"          style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🛡️ Endpoint</a>
+    <a href="#sat"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎓 SAT/HRM</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#0f2849 0%,#1a56db 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        🔐 Competitive Intelligence Report
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Monday, August 10, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📰 <strong>6</strong> high-signal items
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📦 <strong>4</strong> product categories
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Focus: Black Hat USA 2026 (Aug 1–6) Triggers a Cluster of MSP-Channel and Bundled-Offering Announcements
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="takeaways" style="background:#0f2849;border-radius:12px;padding:24px 28px;
+                margin-bottom:0;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        ⚡ This Week's Key Takeaways
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>Arctic Wolf Launches Cyber Resilience Bundle With Up to $3M in Warranty Coverage, Spanning Five of Our Six Product Categories (August 3, 2026)</strong> — Arctic Wolf packaged MDR, exposure/vulnerability management, endpoint defense, incident response, and security awareness training into a single "Cyber Resilience" offering, backed by a security-operations warranty covering up to $3 million in incident costs. The same week, Arctic Wolf reported the Aurora Superintelligence Platform now processes more than 10 trillion security events weekly, and Aurora Endpoint Security won a 2026 CRN Tech Innovator Award. IMPACT: This is the broadest cross-category bundle we've tracked from an MSP-facing MDR vendor — it overlaps directly with MDR, EDR/endpoint, and SAT/HRM simultaneously, and the dollar-denominated warranty is a concrete risk-transfer selling point that's difficult for point-solution vendors to match without a comparable underwriting arrangement.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Cross-Category Bundle + Warranty</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth a cross-functional review of whether a comparable bundled/warrantied packaging makes sense across our own MDR, endpoint, and SAT lines given how directly this spans our portfolio</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🔍 <strong>SentinelOne and ConnectWise Announce Shared MSP Strategy; SentinelOne Ships Governed Closed-Loop AI Response at Black Hat (August 3–4, 2026)</strong> — SentinelOne added governed, closed-loop response to the Singularity Platform, letting Purple AI and Singularity Hyperautomation autonomously investigate alerts, reach verdicts, and execute response actions within boundaries security teams set in advance. Alongside this, ConnectWise and SentinelOne announced a shared strategy to advance managed cybersecurity for MSPs, and SentinelOne expanded Wayfinder Frontier AI Services with LevelBlue and deeper AWS collaboration. IMPACT: A named partnership with ConnectWise — one of the largest MSP PSA/RMM platforms — is a direct channel-distribution move into the exact buyer base our portfolio targets, independent of SentinelOne's product capabilities.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 MSP Channel Partnership + AI Feature</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth checking whether our own PSA/RMM integration coverage (ConnectWise, Kaseya, N-able, etc.) is keeping pace with competitors' named channel alliances</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🛡️ <strong>Sophos Partners With OpenAI to Bring Frontier AI Models to MSPs Through Sophos Fusion (August 6, 2026, Black Hat)</strong> — Sophos announced a partnership with OpenAI to deliver frontier AI models to managed service providers through Sophos Fusion, its AI-native cybersecurity defense system, positioning it as a way for partners to build recurring services on top of a shared AI foundation. The announcement lands alongside Sophos Next-Gen SIEM reaching general availability August 15 — priced by users and servers rather than data volume, a notable pricing-model departure from consumption-based SIEM pricing — and early access to Sophos AI Defense for shadow-AI usage governance. IMPACT: A named OpenAI partnership gives Sophos a frontier-model story to tell MSP partners directly, and the flat per-user/server SIEM pricing is a pricing-model choice worth benchmarking against our own consumption-based offerings.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Frontier AI Partnership + Pricing Model Shift</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth flagging Sophos's flat per-user/server SIEM pricing to pricing/packaging as a departure from volume-based models worth watching for channel reaction</span>
+          </div>
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        New material from August 3–10 not previously reported · Complements July 27 baseline report
+      </p>
+    </div>
+
+    <!-- CATEGORY SECTIONS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">📊 Intelligence by Product Category</h2>
+
+    <!-- MDR -->
+    <div id="mdr" style="margin-bottom:32px;">
+      <div style="background:#fdf4ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #9333ea;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#7e22ce;font-weight:700;">
+          🎯 Managed Detection &amp; Response
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (2 new items)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #9333ea;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.globenewswire.com/news-release/2026/08/03/3337469/0/en/arctic-wolf-launches-comprehensive-cyber-resilience-offering-to-help-organizations-with-enhanced-coverage-for-cybersecurity-incidents.html" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Arctic Wolf Launches Cyber Resilience Offering With Up to $3M Warranty Coverage (August 3, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Arctic Wolf &nbsp;|&nbsp; 📅 August 3, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Arctic Wolf launched Cyber Resilience, a bundled offering combining security operations (MDR), exposure management, endpoint defense, and incident response with up to $3 million in security-operations warranty coverage for incident costs. The same week Arctic Wolf reported the Aurora Superintelligence Platform now processes more than 10 trillion security events weekly, and Aurora Endpoint Security won a 2026 CRN Tech Innovator Award in the Endpoint Protection/XDR category (with MDR and Security Operations Platform finalist nods for other Aurora components). COMPETITIVE IMPLICATION: Warranty-backed, cross-category bundling shifts the buying conversation from "which point product is best" to "who absorbs the financial risk if it fails" — a framing that's hard to counter without a comparable underwriting or warranty arrangement. PORTFOLIO ANGLE: Worth evaluating whether a bundled or warrantied packaging across our MDR, endpoint, and SAT lines is competitively necessary, since Arctic Wolf's bundle overlaps directly with three of our six categories at once.</div>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #9333ea;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.globenewswire.com/news-release/2026/08/04/3338765/27043/en/ConnectWise-and-SentinelOne-Announce-Shared-Strategy-to-Advance-Managed-Cybersecurity-for-MSPs-at-Black-Hat-2026.html" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 ConnectWise and SentinelOne Announce Shared MSP Strategy at Black Hat 2026 (August 4, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 SentinelOne / ConnectWise &nbsp;|&nbsp; 📅 August 4, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">ConnectWise and SentinelOne announced a shared strategy to advance managed cybersecurity for MSPs and the customers they protect, alongside SentinelOne's expanded Wayfinder Frontier AI Services offerings with LevelBlue and deeper AWS collaboration for AI governance and managed security. COMPETITIVE IMPLICATION: A named alliance with ConnectWise — one of the largest MSP PSA/RMM platforms — is a direct distribution move into the MSP channel independent of product capability, and increases SentinelOne's visibility inside the exact buyer workflows our own MDR/EDR products compete for. PORTFOLIO ANGLE: Worth confirming our own PSA/RMM integration depth (ConnectWise, Kaseya, N-able, Datto) is at parity, since channel-embedded integrations increasingly function as a procurement shortcut similar to hyperscaler marketplace deals.</div>
+      </div>
+    </div>
+
+    <!-- EDR -->
+    <div id="edr" style="margin-bottom:32px;">
+      <div style="background:#eef2ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #4338ca;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#4338ca;font-weight:700;">
+          🔍 EDR (Endpoint Detection &amp; Response)
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (2 new items)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #4338ca;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.helpnetsecurity.com/2026/08/03/sentinelone-security-operations-automation/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 SentinelOne Adds Governed, Closed-Loop AI Response to Singularity Platform (August 3, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 SentinelOne &nbsp;|&nbsp; 📅 August 3, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">SentinelOne shipped governed, closed-loop response across the Singularity Platform: Purple AI and Singularity Hyperautomation can now autonomously investigate alerts, reach verdicts, and execute response actions, with security teams pre-setting the boundaries for where AI acts independently and where it must stop for human sign-off. SentinelOne also extended Wayfinder threat hunting to identity platforms including Okta and Microsoft Entra ID. COMPETITIVE IMPLICATION: "Governed autonomy" — AI that acts within admin-defined guardrails rather than fully autonomously or fully manually — is emerging as the preferred framing across multiple EDR/MDR vendors this quarter, suggesting the market is converging on a specific autonomy model rather than a race toward full automation. PORTFOLIO ANGLE: Worth confirming our own EDR's automated-response controls offer comparable, explicit admin-configurable guardrails, since "governed" (vs. simply "automated") is becoming the specific language buyers are being trained to look for.</div>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #4338ca;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint-releases" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Microsoft Defender Adds AI-Agent Posture Risk Assessment (August 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Microsoft &nbsp;|&nbsp; 📅 August 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Microsoft Defender now assesses posture risk for AI agents — both enterprise-deployed agents and local agents discovered running on managed endpoint devices — scoring risk based on configuration, access level, runtime activity, endpoint/user context, and active alerts. COMPETITIVE IMPLICATION: This follows Jamf's native AI-governance-for-Mac launch (covered in the July 27 report) as the second major endpoint vendor in three weeks to ship AI-agent/shadow-AI discovery and risk scoring as a built-in endpoint capability rather than a bolt-on. PORTFOLIO ANGLE: AI-agent discovery and governance is solidifying into a standard EDR feature expectation across at least three vendors now (Jamf, Microsoft, and Sophos's AI Defense above) — worth a definitive answer on whether this belongs on our endpoint/EDR roadmap given the pattern is no longer a single vendor's differentiator.</div>
+      </div>
+    </div>
+
+    <!-- ENDPOINT PROTECTION -->
+    <div id="ep" style="margin-bottom:32px;">
+      <div style="background:#f0f9ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #0284c7;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#0369a1;font-weight:700;">
+          🛡️ Endpoint Protection
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #0284c7;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.sophos.com/en-us/press/press-releases/sophos-announces-partnership-with-openai-to-bring-frontier-ai-to-the-channel" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Sophos Partners With OpenAI to Bring Frontier AI to MSPs Through Sophos Fusion (August 6, 2026, Black Hat)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Sophos / OpenAI &nbsp;|&nbsp; 📅 August 6, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Sophos announced a partnership with OpenAI to deliver frontier AI models to MSPs through Sophos Fusion, its AI-native cybersecurity defense system launched in July, giving partners a way to build recurring services on a shared AI foundation. Alongside this, Sophos confirmed Next-Gen SIEM reaches general availability August 15 — priced by users and servers rather than data volume — and opened early access to Sophos AI Defense, which gives visibility into and policy control over AI and shadow-AI usage. COMPETITIVE IMPLICATION: A named OpenAI partnership is a concrete frontier-AI story Sophos can put directly in front of MSP partners, and the flat per-user/server SIEM pricing is a notable break from consumption/data-volume pricing that channel partners may find easier to forecast and resell. PORTFOLIO ANGLE: Worth a pricing/packaging review of whether our own SIEM-adjacent or data-retention pricing is competitively exposed to a flat per-user/server model if Sophos partners begin using it as a selling point.</div>
+      </div>
+    </div>
+
+    <!-- SAT/HRM -->
+    <div id="sat" style="margin-bottom:32px;">
+      <div style="background:#f0fdf4;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #16a34a;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#15803d;font-weight:700;">
+          🎓 Security Awareness Training / HRM
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #16a34a;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.knowbe4.com/press/knowbe4-combats-voice-based-threats-with-advanced-simulated-vishing-capabilities" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 KnowBe4 Launches Advanced Simulated Vishing Capabilities (Late July / August 3, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 KnowBe4 &nbsp;|&nbsp; 📅 August 3, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">KnowBe4 launched simulated vishing (voice phishing) within the attack-simulation pillar of its platform, letting security teams run customized voice-phishing simulations with local caller-ID spoofing, realistic personas, and multi-step scenarios, feeding results into the platform's overall Risk Score. The launch is backed by KnowBe4's new 2026 Phishing by Industry Benchmarking Report, which found a 79% reduction in phishing susceptibility after one year of consistent security awareness training, and follows KnowBe4's appointment of Andrew Kanzer as Chief Growth Officer (August 4). COMPETITIVE IMPLICATION: Voice phishing is the fastest-growing and least-tested social-engineering channel per multiple industry threat reports (cited by KnowBe4 as part of its own launch rationale), and KnowBe4 is first-to-market among major SAT/HRM vendors with a dedicated, caller-ID-spoofing vishing simulation product. PORTFOLIO ANGLE: A concrete, dated capability gap to assess — if our own SAT/HRM offering doesn't cover the voice channel, this is a specific, benchmarkable feature (with a caller-ID/persona bar already set) rather than a vague "add more channels" roadmap item.</div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC CONTEXT NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#f0fdf4;border-left:4px solid #16a34a;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">📌 Strategic Context: Black Hat Week Shifted the Conversation From "AI Features" to "AI Distribution and Risk Transfer"</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">Earlier weeks' competitive moves centered on adding AI capability inside individual products (autonomous investigation, agentic SOC, AI-generated training content). This week's Black Hat announcements show the same vendors turning those capabilities into channel and commercial strategy: Arctic Wolf backs its bundle with a dollar-denominated warranty; SentinelOne names ConnectWise as a specific distribution partner rather than just announcing a feature; Sophos names OpenAI as a specific model partner rather than just claiming "AI-native." In each case, the news isn't a new capability so much as a new commercial or channel wrapper around AI capability that was largely already announced. PORTFOLIO IMPLICATION: As "we have AI" becomes table stakes across the category, competitive differentiation is shifting toward who has named, credible partners (OpenAI, AWS, ConnectWise) and who backs claims with financial commitments (warranties) rather than product-feature comparisons alone — worth keeping this lens on our own AI and partnership messaging across all six products.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
