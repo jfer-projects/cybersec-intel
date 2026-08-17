@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🔐 Competitive Intel — Monday, August 17, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence report for August 17, 2026 — Microsoft Defender Experts for MDR P2 reaches GA with multi-vendor telemetry ingestion (CrowdStrike, AWS, Okta, Proofpoint, Palo Alto, Cisco, Fortinet, Zscaler); Rapid7 cuts 12% of staff in AI-platform refocus; CrowdStrike named IDC MarketScape MDR/MXDR Leader plus new distributor partnerships; KnowBe4 ships free Cybersecurity Awareness Month 2026 kit."/>
+  <meta property="og:title" content="Competitive Intel — August 17, 2026"/>
+  <meta property="og:description" content="Microsoft Defender Experts MDR P2 GA ingests competitor EDR/network telemetry; Rapid7 12% layoffs and AI-platform refocus; CrowdStrike IDC MDR/MXDR Leader + new distributors; KnowBe4 free Cybersecurity Awareness Month kit."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/competitive-intel/reports/2026-08-17.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Reports</a>
+    <a href="#takeaways"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#mdr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 MDR</a>
+    <a href="#sat"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎓 SAT/HRM</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#0f2849 0%,#1a56db 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        🔐 Competitive Intelligence Report
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Monday, August 17, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📰 <strong>4</strong> high-signal items
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📦 <strong>2</strong> product categories
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Focus: MDR Vendors Compete on Who Manages the Whole Stack — Not Just Their Own Product
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="takeaways" style="background:#0f2849;border-radius:12px;padding:24px 28px;
+                margin-bottom:0;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        ⚡ This Week's Key Takeaways
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>Microsoft Defender Experts for MDR P2 Reaches General Availability — Now Explicitly Ingests Competitor Endpoint and Network Telemetry (August 2026)</strong> — Microsoft's expert-led MDR service now supports non-Microsoft sources including CrowdStrike (endpoint), AWS and Okta (cloud/identity), Proofpoint (email), and Palo Alto Networks, Cisco, Fortinet, and Zscaler (network) — all ingested and correlated through Microsoft Sentinel. IMPACT: Microsoft is positioning its MDR service as a vendor-agnostic overlay that manages a customer's entire security stack rather than just Microsoft-native tools, directly targeting the "we'll unify what you already own" pitch that MDR-first vendors like Arctic Wolf and Huntress typically make — and doing it with a named list of the exact vendors an MSP's client mix is likely to already run.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Multi-Vendor MDR Overlay</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth confirming our own MDR's third-party telemetry ingestion list is at parity, since Microsoft named the exact vendor set (including a direct EDR competitor) it now manages on a customer's behalf</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>Rapid7 Cuts ~12% of Staff, Refocuses on Core AI-Driven Detection &amp; Response Platform (August 7, 2026)</strong> — Rapid7's board approved a restructuring cutting roughly 12% of headcount to concentrate investment in its core AI-driven Command Platform, detection and response, and exposure management, with $10–11 million in largely severance-related charges expected in Q3–Q4 2026. IMPACT: A double-digit-percentage layoff paired with an explicit "refocus on core" framing is a signal of strategic narrowing rather than expansion — worth watching for follow-on signs of product-line consolidation, partner-program changes, or pricing moves as Rapid7 works through the restructuring.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Restructuring / Strategic Narrowing</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth a quiet check on whether any MSP partners in our shared channel are affected by Rapid7 support or account-team changes over the next quarter</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🔍 <strong>CrowdStrike Named a Leader in 2026 IDC MarketScape for MDR/MXDR (Enterprise) and Signs New Distributors — Arrow Electronics, Ignition Technology, Nord Security (August 13, 2026)</strong> — On the heels of last week's ConnectWise alliance, CrowdStrike added three more named distribution partners and picked up an IDC Leader placement specifically in the enterprise MDR/MXDR category. IMPACT: CrowdStrike is stacking analyst validation and channel breadth in the same two-week window — a combined credibility-plus-distribution push into MDR that's worth tracking as a pattern rather than a one-off announcement.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 Analyst Placement + Distributor Expansion</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth confirming our own analyst-relations calendar has upcoming MDR/MXDR category evaluations on the radar, given how directly CrowdStrike is using IDC placement as a channel sales tool</span>
+          </div>
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        New material from August 11–17 not previously reported · Complements August 10 baseline report
+      </p>
+    </div>
+
+    <!-- CATEGORY SECTIONS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">📊 Intelligence by Product Category</h2>
+
+    <!-- MDR -->
+    <div id="mdr" style="margin-bottom:32px;">
+      <div style="background:#fdf4ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #9333ea;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#7e22ce;font-weight:700;">
+          🎯 Managed Detection &amp; Response
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (3 new items)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #9333ea;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/monthly-news-august-2026/4544388" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Microsoft Defender Experts for MDR P2 Reaches GA With Multi-Vendor Telemetry Ingestion (August 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Microsoft &nbsp;|&nbsp; 📅 August 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Microsoft's Defender Experts for MDR P2 service reached general availability with expanded third-party and multi-cloud coverage, ingesting and correlating telemetry from CrowdStrike (endpoint), AWS and Okta (cloud/identity), Proofpoint (email), and Palo Alto Networks, Cisco, Fortinet, and Zscaler (network) through Microsoft Sentinel — giving customers end-to-end MDR visibility across heterogeneous, multi-vendor environments rather than a Microsoft-only stack. COMPETITIVE IMPLICATION: This follows the same "manage everything the customer already owns" pitch that pure-play MDR vendors (Arctic Wolf, Huntress, Rapid7) built their category on, but backed by Microsoft's Sentinel data platform and named integration with a direct EDR competitor (CrowdStrike). PORTFOLIO ANGLE: Worth confirming our own MDR's third-party ingestion breadth is at parity with this named vendor list, since Microsoft is explicitly targeting mixed-stack MSP clients — the exact buyer profile our MDR/EDR lines compete for.</div>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #9333ea;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.tipranks.com/news/company-announcements/rapid7-announces-2026-restructuring-to-refocus-core-platform" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Rapid7 Cuts ~12% of Staff, Refocuses Investment on Core AI-Driven Platform (August 7, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Rapid7 &nbsp;|&nbsp; 📅 August 7, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Rapid7's board approved a 2026 restructuring cutting approximately 12% of the company's workforce to refocus investment on its core AI-driven Command Platform, detection and response, and exposure management offerings. The company expects $10–11 million in charges, largely severance-related, concentrated in Q3–Q4 2026. COMPETITIVE IMPLICATION: A double-digit layoff paired with explicit "refocus on core" language signals strategic narrowing — Rapid7 is trimming rather than expanding its portfolio breadth, a contrast to the bundling/expansion moves from Arctic Wolf and SentinelOne covered in recent reports. PORTFOLIO ANGLE: Worth monitoring for downstream signs of Rapid7 product-line consolidation, partner-program changes, or account-team turnover that could create openings — or channel disruption — among shared MSP partners over the next two quarters.</div>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #9333ea;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.crowdstrike.com/en-us/news/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 CrowdStrike Named IDC MarketScape MDR/MXDR Leader, Adds Three New Distributors (August 13, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 CrowdStrike &nbsp;|&nbsp; 📅 August 13, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">CrowdStrike was named a Leader in the 2026 IDC MarketScape for Worldwide MDR/MXDR for the Enterprise, and separately announced new distribution partnerships with Arrow Electronics, Ignition Technology, and Nord Security — expanding channel reach one week after the ConnectWise MSP alliance covered in the August 10 report. COMPETITIVE IMPLICATION: Stacking an analyst Leader placement with three named distributor signings in the same week is a combined credibility-and-reach push specifically into the MDR/MXDR category, layering on top of the prior week's MSP-channel announcement rather than replacing it. PORTFOLIO ANGLE: Worth checking our own analyst-relations calendar for upcoming MDR/MXDR evaluations, since CrowdStrike is visibly using IDC placement as a sales enablement asset in distributor and MSP conversations.</div>
+      </div>
+    </div>
+
+    <!-- SAT/HRM -->
+    <div id="sat" style="margin-bottom:32px;">
+      <div style="background:#f0fdf4;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #16a34a;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#15803d;font-weight:700;">
+          🎓 Security Awareness Training / HRM
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #16a34a;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.businesswire.com/news/home/20260811751804/en/KnowBe4-Releases-Free-Cybersecurity-Awareness-Month-Resource-Kit" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 KnowBe4 Releases Free Cybersecurity Awareness Month 2026 Resource Kit (August 11, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 KnowBe4 &nbsp;|&nbsp; 📅 August 11, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">KnowBe4 released a free Cybersecurity Awareness Month resource kit for October 2026, available to any organization regardless of whether they're an existing customer. The toolkit casts employees as "Secret Agents" in a Workforce Risk Division, organizing October into four week-long themed missions covering phishing and social engineering, AI safety and deepfakes, data security and passwords, and incident reporting. COMPETITIVE IMPLICATION: Giving away a polished, themed campaign kit for free is a lead-generation and brand-awareness play that puts KnowBe4's content and messaging in front of prospects (including at organizations using competing SAT platforms) months ahead of the actual training push. PORTFOLIO ANGLE: Worth deciding whether our own SAT/HRM line should have a comparable free-to-all Cybersecurity Awareness Month asset in market before October, given KnowBe4 has now set the bar with a named, themed campaign roughly seven weeks out.</div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC CONTEXT NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#f0fdf4;border-left:4px solid #16a34a;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">📌 Strategic Context: MDR Is Becoming a Fight Over Whose Console Sees Everything</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">This week's three MDR items point in a consistent direction: Microsoft is explicitly ingesting a rival EDR vendor's telemetry into its own MDR console, CrowdStrike is pairing analyst validation with channel expansion to widen its own MDR footprint, and Rapid7 is narrowing focus rather than expanding — three different responses to the same underlying pressure, which is that MDR value increasingly comes from being the single pane of glass across a customer's entire (often multi-vendor) stack rather than from any one product's detection quality alone. PORTFOLIO IMPLICATION: For our own MDR and EDR lines, the competitive question is shifting from "is our detection as good as CrowdStrike's or SentinelOne's" toward "can our MDR ingest and correlate telemetry from whatever EDR, firewall, and identity tools an MSP's clients already run" — worth a direct comparison of our third-party ingestion list against the Microsoft, Arctic Wolf, and CrowdStrike vendor lists referenced in the last two reports.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
