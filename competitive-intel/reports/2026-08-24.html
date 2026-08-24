@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🔐 Competitive Intel — Monday, August 24, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence report for August 24, 2026 — Fortinet acquires Virtue AI to extend AI runtime protection into its MDR/security portfolio; Sophos Next-Gen SIEM reaches general availability with per-user/server pricing rather than data-volume pricing; Black Kite research shows 73% of ransomware victims are mid-market firms ($10M-$1B revenue) — the exact buyer profile of the MSP/SMB channel."/>
+  <meta property="og:title" content="Competitive Intel — August 24, 2026"/>
+  <meta property="og:description" content="Fortinet acquires Virtue AI for AI runtime protection; Sophos Next-Gen SIEM reaches GA with volume-agnostic pricing; Black Kite data confirms mid-market firms are ransomware's primary target."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/competitive-intel/reports/2026-08-24.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Reports</a>
+    <a href="#takeaways"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#mdr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 MDR</a>
+    <a href="#ep"          style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🛡️ Endpoint / EDR</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#0f2849 0%,#1a56db 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        🔐 Competitive Intelligence Report
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Monday, August 24, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📰 <strong>2</strong> high-signal items
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📦 <strong>2</strong> product categories
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Focus: Platform Vendors Keep Bolting On AI Governance and Consumption-Based Data Layers
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="takeaways" style="background:#0f2849;border-radius:12px;padding:24px 28px;
+                margin-bottom:0;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        ⚡ This Week's Key Takeaways
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>Fortinet Acquires Virtue AI to Add Agentic AI Red-Teaming and Runtime Guardrails (August 17, 2026)</strong> — Fortinet acquired AI-security startup Virtue AI, adding automated red-teaming of autonomous agents across 50+ sandboxed environments, agent visibility/governance, and real-time content guardrails to its FortiAIGate line. IMPACT: Fortinet — one of our direct MDR/network-security competitors — is moving pre-emptively to secure the AI agents and MCP tool calls its own MSP customers are starting to deploy, framing "securing AI" as a natural extension of its existing security stack rather than a separate product category.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 AI Security Acquisition</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth a quick internal read on whether our MDR/EDR roadmap needs an explicit "AI agent and MCP tool monitoring" story before more competitors stake this ground</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🛡️ <strong>Sophos Next-Gen SIEM Reaches General Availability With Volume-Agnostic Pricing (August 15, 2026)</strong> — The SIEM layer of July's Sophos Fusion launch is now GA as a paid add-on to Sophos XDR/MDR, priced by user and server count rather than by data volume, with compliance dashboards and up to 10 years of retention. IMPACT: Sophos is explicitly selling against the "surprise data-ingestion bill" pain point that trips up SMB/MSP clients on consumption-priced SIEM tools — a pricing-model differentiator as much as a feature one, and a concrete data point for any MDR/EDR pricing conversation where data volume comes up.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 Platform Expansion + Pricing Model</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth confirming how our own MDR/EDR data-retention pricing compares if Sophos starts using this in head-to-head deals</span>
+          </div>
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        New material from August 18–24 not previously reported · Complements August 17 baseline report
+      </p>
+    </div>
+
+    <!-- CATEGORY SECTIONS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">📊 Intelligence by Product Category</h2>
+
+    <!-- MDR -->
+    <div id="mdr" style="margin-bottom:32px;">
+      <div style="background:#fdf4ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #9333ea;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#7e22ce;font-weight:700;">
+          🎯 Managed Detection &amp; Response
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #9333ea;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.fortinet.com/corporate/about-us/newsroom/press-releases/2026/fortinet-advances-continuous-ai-protection-with-the-acquisition-of-virtue-ai" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Fortinet Acquires Virtue AI to Strengthen AI Runtime Protection and Agent Governance (August 17, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Fortinet &nbsp;|&nbsp; 📅 August 17, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Fortinet acquired Virtue AI, whose Guardian Agent technology performs automated red-teaming of autonomous AI agents across more than 50 sandboxed environments and 14 risk domains, plus agent visibility/governance, continuous validation across model updates, and real-time guardrails spanning prompts, models, agents, Model Context Protocol tool calls, and API traffic. Terms were not disclosed; Fortinet called the deal immaterial to its financials. The technology folds into Fortinet's existing FortiAIGate line as part of a broader "Security for AI" strategy. COMPETITIVE IMPLICATION: Fortinet — a named MDR competitor in our portfolio — is moving to own the "who's watching the AI agents" conversation before it becomes a standard RFP line item, positioning AI-agent security as a natural extension of its firewall/SASE/MDR stack rather than something MSPs need to source separately. PORTFOLIO ANGLE: Worth a short internal check on whether our MDR/EDR roadmap has any planned coverage for AI agent/MCP-tool monitoring, since Fortinet, Palo Alto, and CrowdStrike (via recent SGNL/XM Cyber deals) are all now staking claims in adjacent AI-security ground.</div>
+      </div>
+    </div>
+
+    <!-- ENDPOINT PROTECTION / EDR -->
+    <div id="ep" style="margin-bottom:32px;">
+      <div style="background:#eff6ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #1a56db;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#1e3a5f;font-weight:700;">
+          🛡️ Endpoint Protection / EDR
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.sophos.com/en-us/products/next-gen-siem" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Sophos Next-Gen SIEM Reaches General Availability, Priced by Users/Servers Not Data Volume (August 15, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Sophos &nbsp;|&nbsp; 📅 August 15, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Sophos Next-Gen SIEM — the data-retention and compliance layer of the Sophos Fusion platform announced in July — became a generally available paid add-on to Sophos XDR and Sophos MDR. It's priced by user and server count rather than by data volume, offers AI-assisted log parsers, flexible ingestion of non-Sophos telemetry, built-in compliance dashboards, and retention up to 10 years. COMPETITIVE IMPLICATION: Volume-based SIEM pricing is a known pain point for SMB/MSP clients who get surprise bills after a busy logging month; Sophos is explicitly marketing predictable, seat-based pricing as the alternative, which converts a technical feature (long retention) into a budget-certainty sales pitch. PORTFOLIO ANGLE: Worth flagging to sales as a likely talking point in competitive deals where Sophos is present — if our own MDR/EDR pricing is volume-sensitive, Sophos now has a specific, dated GA announcement to point to.</div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC CONTEXT NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#f0fdf4;border-left:4px solid #16a34a;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">📌 Strategic Context: A Quiet Data Point Worth Keeping in the Back Pocket</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">Neither headline item this week is a direct feature-for-feature move against our specific products, but a research release from risk-rating vendor Black Kite (August 18, 2026) is worth noting for messaging purposes: analysis of over 13,000 ransomware incidents from 2023–2026 found that mid-market organizations ($10M–$1B revenue) account for roughly 73% of ransomware victims every year, with more than half of those victims under $50M in revenue — the exact buyer profile the MSP/SMB channel serves. Separately, a channel-trust survey published this week found that 33% of businesses considering switching MSPs cite "limited support for AI or automation" as a top driver, alongside reactive (rather than proactive) service. PORTFOLIO IMPLICATION: Both data points reinforce the same pitch for our six-product portfolio — mid-market/SMB is not a lower-priority ransomware target, it is the primary one, and MSPs are increasingly expected to pair strong security execution with visible AI/automation capability (the exact ground Fortinet's Virtue AI deal and Sophos's AI-assisted SIEM parsers are both staking out this week) to retain accounts.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
