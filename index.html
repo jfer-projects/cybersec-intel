@@ -311,11 +311,12 @@
   // a new report. Update this every run — when nothing new is found, only bump
   // this date (leave competitiveReports untouched) so the hub shows "checked, no
   // new moves" instead of looking stale.
-  const competitiveLastChecked = "2026-08-24";
+  const competitiveLastChecked = "2026-08-31";
 
   // ── RECENT THREAT BRIEFINGS ──
   // Updated automatically by the threat intel scheduled task
   const threatBriefings = [
+    { date: "2026-08-31" },
     { date: "2026-08-24" },
     { date: "2026-08-17" },
     { date: "2026-08-10" },
@@ -335,7 +336,7 @@
     { date: "2026-03-24" }
   ];
   // Same convention as competitiveLastChecked above.
-  const threatLastChecked = "2026-08-24";
+  const threatLastChecked = "2026-08-31";
 
   const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   const DAYS   = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
