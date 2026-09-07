@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🔐 Competitive Intel — Monday, September 7, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence report for September 7, 2026 — CrowdStrike launches SafeMind, the first agentic AI models purpose-built for cybersecurity, built with NVIDIA Nemotron and running natively in Falcon; CrowdStrike also expands its OpenAI partnership to secure Codex agents and bring GPT-5.6 Cyber reasoning into Falcon's detection and response workflow."/>
+  <meta property="og:title" content="Competitive Intel — September 7, 2026"/>
+  <meta property="og:description" content="CrowdStrike launches SafeMind agentic AI models (with NVIDIA); CrowdStrike expands OpenAI partnership to secure Codex agents and add GPT-5.6 Cyber reasoning to Falcon."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/competitive-intel/reports/2026-09-07.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Reports</a>
+    <a href="#takeaways"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#edr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔍 EDR</a>
+    <a href="#mdr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 MDR</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#0f2849 0%,#1a56db 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        🔐 Competitive Intelligence Report
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Monday, September 7, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📰 <strong>2</strong> high-signal items
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📦 <strong>1</strong> competitor, <strong>2</strong> product categories
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Focus: CrowdStrike Doubles Down on Agentic AI — Homegrown Models Plus an Expanded OpenAI Bet
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="takeaways" style="background:#0f2849;border-radius:12px;padding:24px 28px;
+                margin-bottom:0;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        ⚡ This Week's Key Takeaways
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🔍 <strong>CrowdStrike Launches SafeMind — First Agentic AI Models Purpose-Built for Cybersecurity, Built With NVIDIA Nemotron (September 1, 2026)</strong> — Unveiled at Fal.Con, SafeMind pairs an offensive model (Red Tempest) with a defensive model (Blue Solano), fine-tuned on CrowdStrike's own threat intelligence, sensor telemetry, and 15 years of incident-response data, running natively inside Falcon. CrowdStrike claims a 29% higher detection rate, 6x faster end-to-end remediation, and a 99% reduction in detection/remediation cost versus its baseline. IMPACT: CrowdStrike — a named EDR/MDR competitor in our portfolio — is the first major vendor to ship its own fine-tuned frontier models rather than just wrapping a third-party LLM, raising the bar on what "AI-native" means in EDR marketing.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 AI-Native Platform Launch</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth a quick internal read on whether "vendor-trained frontier models" becomes an EDR RFP checkbox item</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>CrowdStrike Expands OpenAI Partnership to Secure Codex Agents and Add GPT-5.6 Cyber Reasoning to Falcon (September 4, 2026)</strong> — Falcon Guardian (CrowdStrike's AI Detection and Response product) now monitors and controls OpenAI Codex agent activity at runtime, while a new FAIRR Service applies OpenAI's GPT-5.6 Cyber model inside a CrowdStrike-built "cyber harness" to assess risk, map attack paths, and prioritize remediation. IMPACT: This is the second AI-agent-security land grab from a portfolio competitor in three weeks (following Fortinet's Virtue AI acquisition on August 17) — CrowdStrike is pursuing the same ground via partnership rather than acquisition, extending MDR-style detection and response to cover the AI agents its own customers are deploying.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔵 Partnership Expansion — Agentic AI Security</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth flagging alongside the Fortinet/Virtue AI item from August 17 — three portfolio-relevant competitors (CrowdStrike, Fortinet, and Palo Alto/XM Cyber) now have a stated AI-agent-security answer</span>
+          </div>
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        New material from September 1–7 not previously reported · Complements August 24 baseline report (August 31 had no new competitive moves)
+      </p>
+    </div>
+
+    <!-- CATEGORY SECTIONS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">📊 Intelligence by Product Category</h2>
+
+    <!-- ENDPOINT DETECTION & RESPONSE -->
+    <div id="edr" style="margin-bottom:32px;">
+      <div style="background:#eff6ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #1a56db;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#1e3a5f;font-weight:700;">
+          🔍 Endpoint Detection &amp; Response
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-launches-frontier-models-for-cybersecurity-with-nvidia/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 CrowdStrike Launches SafeMind: Frontier AI Models for Cybersecurity, Built With NVIDIA Nemotron (September 1, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 CrowdStrike &nbsp;|&nbsp; 📅 September 1, 2026 &nbsp;|&nbsp; 📍 Announced at Fal.Con, Las Vegas
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">CrowdStrike unveiled SafeMind, described as the first agentic AI models purpose-built for cybersecurity, built by fine-tuning NVIDIA's open Nemotron models with CrowdStrike's own threat intelligence, sensor telemetry, and 15 years of incident-response data. The system runs two models in the same loop: Red Tempest, an offensive model that emulates AI adversaries and finds attack paths, and Blue Solano, a defensive model that closes them; both operate natively inside the Falcon platform. In vendor-reported benchmarks against frontier and open-source models, CrowdStrike claims a 29% higher detection rate, 6x faster end-to-end remediation, and a 99% reduction in detection/remediation cost. COMPETITIVE IMPLICATION: Rather than layering a third-party chatbot on top of its console, CrowdStrike is now shipping models it trained on its own proprietary telemetry — a harder moat for smaller EDR vendors to replicate, since it depends on years of accumulated incident data rather than API access to a frontier model. PORTFOLIO ANGLE: Worth confirming whether our own EDR/MDR AI messaging can credibly claim "trained on our own telemetry" versus "built on top of a third-party model" — that distinction is likely to become a sales-conversation talking point as competitors adopt CrowdStrike's framing.</div>
+      </div>
+    </div>
+
+    <!-- MDR -->
+    <div id="mdr" style="margin-bottom:32px;">
+      <div style="background:#fdf4ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #9333ea;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#7e22ce;font-weight:700;">
+          🎯 Managed Detection &amp; Response
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #9333ea;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-and-openai-expand-partnership-to-secure-the-agentic-era/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 CrowdStrike and OpenAI Expand Partnership to Secure Codex Agents and Add GPT-5.6 Cyber Reasoning to Falcon (September 4, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 CrowdStrike &nbsp;|&nbsp; 📅 September 4, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">CrowdStrike expanded its existing OpenAI partnership along two tracks. First, Falcon Guardian — CrowdStrike's AI Detection and Response (AIDR) product — now goes beyond posture and governance to control OpenAI Codex agent activity at runtime, letting customers see agent behavior, detect compromised or unauthorized activity, and respond before it spreads. Second, a new FAIRR Service applies OpenAI's GPT-5.6 Cyber model within a CrowdStrike-built "cyber harness" to assess risk, analyze attack paths, and prioritize remediation with expert oversight. COMPETITIVE IMPLICATION: This lands three weeks after Fortinet's Virtue AI acquisition (August 17 report) staked similar ground via M&amp;A — CrowdStrike is pursuing the same "who's watching the AI agents" conversation through partnership rather than acquisition, and is now the second named portfolio competitor with a concrete, dated AI-agent-security offering. PORTFOLIO ANGLE: With CrowdStrike, Fortinet, and Palo Alto (via its recent SGNL/XM Cyber deals, per the August 24 report) all now staking claims in AI-agent monitoring, this is worth a direct check on whether MDR/EDR roadmap planning has a placeholder for "AI agent and MCP tool monitoring" before it becomes a standard competitive-deal question.</div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC CONTEXT NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#f0fdf4;border-left:4px solid #16a34a;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">📌 Strategic Context: The AI-Agent-Security Land Grab Now Has Three Named Entrants</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">Both of this week's items come from a single competitor, but they reinforce a pattern that started with Fortinet's Virtue AI acquisition on August 17: portfolio-relevant EDR/MDR vendors are racing to answer "who secures the AI agents our customers are deploying" before it becomes a standard RFP line item. CrowdStrike's approach is notably two-pronged — a homegrown, telemetry-trained model line (SafeMind) for its own detection engine, plus a partnership (OpenAI) for securing the specific agent frameworks its customers are already adopting (Codex). That combination — build the core detection model in-house, partner for coverage of third-party agent ecosystems — is a plausible template worth studying for our own MDR/EDR roadmap discussions, independent of whether we move on AI-agent security this year or not. PORTFOLIO IMPLICATION: Worth a short internal note to the MDR/EDR product team flagging that three named competitors (CrowdStrike, Fortinet, Palo Alto) now have dated, public AI-agent-security announcements as of September 2026 — useful ammunition if this becomes a prioritization discussion.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
