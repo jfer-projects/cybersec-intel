@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🔐 Competitive Intel — Monday, September 21, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence report for September 21, 2026 — Arctic Wolf launches Aurora MDR Connect, an MSP-exclusive MDR tier with no on-site sensor; Huntress expands into Africa via a QBS Software distribution partnership; Cisco sets a hard end-of-sale/end-of-life clock on Umbrella SIG and DNS, forcing a Secure Access migration; and Hoxhunt expands its AI-native SAT platform with instant custom content and voice-based training."/>
+  <meta property="og:title" content="Competitive Intel — September 21, 2026"/>
+  <meta property="og:description" content="Arctic Wolf's Aurora MDR Connect for MSPs; Huntress expands to Africa; Cisco sets a hard EOL clock on Umbrella DNS; Hoxhunt adds AI voice-based SAT training."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/competitive-intel/reports/2026-09-21.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Reports</a>
+    <a href="#takeaways"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#mdr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 MDR</a>
+    <a href="#dns"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🌐 DNS</a>
+    <a href="#sat"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎓 SAT</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#0f2849 0%,#1a56db 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        🔐 Competitive Intelligence Report
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Monday, September 21, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📰 <strong>4</strong> high-signal items
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📦 <strong>4</strong> competitors, <strong>3</strong> product categories
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Focus: MSP-Channel Land Grab Continues — Faster MDR Deployment, Wider Geographic Reach, and a Forced DNS Migration
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="takeaways" style="background:#0f2849;border-radius:12px;padding:24px 28px;
+                margin-bottom:0;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        ⚡ This Week's Key Takeaways
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎯 <strong>Arctic Wolf Launches Aurora MDR Connect — An MSP-Exclusive MDR Tier With No Sensor to Ship, Rack, or Configure (September 15, 2026)</strong> — A new tier of Aurora MDR built specifically for MSPs, deployable across customer environments within hours rather than days. IMPACT: Arctic Wolf — a named MDR competitor — is directly targeting deployment speed as a differentiator against our own MDR onboarding, its second MSP-facing packaging move in six weeks after the August 3 Cyber Resilience bundle.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 MSP-Exclusive MDR Tier</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth a direct comparison of our MDR time-to-protect against Arctic Wolf's "hours, no sensor" claim</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🌐 <strong>Cisco Sets a Hard End-of-Sale/End-of-Life Clock on Umbrella SIG and DNS, Forcing Customers Toward Secure Access (September 17, 2026)</strong> — End-of-sale January 31, 2027; renewals accepted only until January 31, 2028; support ends January 31, 2029; no new software maintenance releases after September 30, 2026. IMPACT: This is the first dated, formal forced-migration timeline for the Umbrella-to-Secure-Access transition that earlier reports (Infoblox's July switch promotion) had only flagged informally — a concrete window for DNS Protection to win displaced Umbrella customers who don't want to re-platform onto Secure Access.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Forced Platform Migration — Hard Deadline</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth a dated sales-enablement note: Umbrella DNS customers now have an externally imposed reason to shop</span>
+          </div>
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        New material from September 8–21 not previously reported · Complements September 7 baseline report (no new competitive moves surfaced the week of September 14)
+      </p>
+    </div>
+
+    <!-- CATEGORY SECTIONS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">📊 Intelligence by Product Category</h2>
+
+    <!-- MDR -->
+    <div id="mdr" style="margin-bottom:32px;">
+      <div style="background:#fdf4ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #9333ea;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#7e22ce;font-weight:700;">
+          🎯 Managed Detection &amp; Response
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (2 new items)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #9333ea;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://arcticwolf.com/resources/press-releases/arctic-wolf-launches-aurora-mdr-connect/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Arctic Wolf Launches Aurora MDR Connect, an MSP-Exclusive MDR Tier With No Network Sensor Required (September 15, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Arctic Wolf &nbsp;|&nbsp; 📅 September 15, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Arctic Wolf launched Aurora MDR Connect, a new tier of its Aurora MDR service built exclusively for managed service providers. Powered by the Aurora Superintelligence Platform and Aurora Agentic SOC, it delivers 24x7 detection, investigation, and pre-authorized response with no network sensor to ship, rack, or configure — MSPs can deploy across customer environments within hours. Arctic Wolf says the underlying platform now processes more than 10 trillion security events and conducts over 200,000 investigations weekly across an ecosystem of 250+ integrations. COMPETITIVE IMPLICATION: This is Arctic Wolf's second MSP-facing packaging move in six weeks, following the August 3 Cyber Resilience warranty bundle — the company is iterating quickly on both pricing/risk-transfer (bundle + warranty) and deployment friction (sensor-free, hours-not-days) as competitive levers simultaneously. PORTFOLIO ANGLE: Worth benchmarking our own MDR time-to-protect and deployment complexity against Arctic Wolf's "no sensor, hours not days" claim — deployment speed is emerging as its own competitive axis independent of detection quality.</div>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #9333ea;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.msspalert.com/brief/huntress-expands-cybersecurity-platform-to-africa-through-qbs-software-partnership" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Huntress Expands Into Africa Through a QBS Software Distribution Partnership (September 16, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Huntress &nbsp;|&nbsp; 📅 September 16, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Huntress established a distribution partnership with QBS Software Africa, giving MSPs and VARs across the continent access to its managed EDR/MDR platform and 24/7 SOC, with the initial rollout focused on South Africa ahead of a planned expansion into other Sub-Saharan markets. COMPETITIVE IMPLICATION: This continues Huntress's pattern of channel-led geographic expansion throughout 2026 rather than feature-led competition — the company is racing to establish distribution footprint in underserved MSP markets before competitors arrive. PORTFOLIO ANGLE: Geographic MSP-channel coverage is becoming a competitive dimension in its own right; worth a quick check on whether our own distribution partnerships cover the same underserved regions Huntress is now entering.</div>
+      </div>
+    </div>
+
+    <!-- DNS PROTECTION -->
+    <div id="dns" style="margin-bottom:32px;">
+      <div style="background:#ecfeff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #0891b2;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#0e7490;font-weight:700;">
+          🌐 DNS Protection
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #0891b2;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://umbrella.cisco.com/umbrella-to-secure-access-migration" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Cisco Sets Formal End-of-Sale and End-of-Life Dates for Umbrella SIG and DNS, Pushing Customers to Secure Access (September 17, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Cisco &nbsp;|&nbsp; 📅 September 17, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Cisco published a formal end-of-sale and end-of-life notice for Umbrella SIG and DNS: end-of-sale is January 31, 2027; existing subscriptions can be renewed only until January 31, 2028; support continues until January 31, 2029; and no new software maintenance releases will ship after September 30, 2026. Cisco is directing all affected customers to migrate to Secure Access – DNS Defense, its successor product. COMPETITIVE IMPLICATION: Earlier reports flagged Infoblox running informal switch-from-Cisco promotions against Secure Access's disputed 39.3% threat-block-rate testing (July 20 report) — this notice converts that soft migration pressure into a hard, dated deadline that every remaining Umbrella DNS customer must now act on. PORTFOLIO ANGLE: A forced migration with a public deadline is a rare, concrete opening for DNS Protection outreach — worth a dated campaign targeting Umbrella SIG/DNS customers before the September 30 software-maintenance cutoff pushes them toward Cisco's own upgrade path by default.</div>
+      </div>
+    </div>
+
+    <!-- SAT/HRM -->
+    <div id="sat" style="margin-bottom:32px;">
+      <div style="background:#fefce8;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #ca8a04;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#854d0e;font-weight:700;">
+          🎓 Security Awareness Training / HRM
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #ca8a04;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.prnewswire.com/news-releases/hoxhunt-launches-ai-powered-security-awareness-training-for-employees-302878601.html" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Hoxhunt Expands AI-Native SAT Platform With Instant Custom Content and Interactive Voice Training (September 15, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Hoxhunt &nbsp;|&nbsp; 📅 September 15, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">Hoxhunt expanded its Security Awareness Training platform with company-specific AI-generated content produced in seconds, broader topic coverage, faster localization, automated administration, and interactive AI voice training that gives employees realistic practice against social-engineering attempts that go beyond email, such as vishing. COMPETITIVE IMPLICATION: Hoxhunt is pressing its AI-native content-generation speed as a direct challenge to KnowBe4's ModStore-and-AIDA approach (September 7 area context), and the voice-training piece specifically targets a growing attack vector — voice phishing — that most SAT libraries still treat as a secondary scenario rather than a dedicated training track. PORTFOLIO ANGLE: Worth checking whether our own SAT/HRM content roadmap has a dedicated vishing/voice-based social-engineering module, since two competitors (Hoxhunt here, KnowBe4's AIDA agents previously) are now building distinct capabilities around it.</div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC CONTEXT NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#f0fdf4;border-left:4px solid #16a34a;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">📌 Strategic Context: Three Different Categories, One Shared Pattern — Reduce Friction to Win the MSP Channel</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">This week's items span MDR, DNS, and SAT, but each one reduces a different kind of friction for the MSP buyer: Arctic Wolf removes deployment friction (no sensor, hours not days), Huntress removes distribution friction (new regional partner network), Cisco is about to remove customer inertia by force (a hard EOL deadline), and Hoxhunt removes content-creation friction (instant custom training, including voice). None of these are pure product feature wins — they're all about making it easier or more urgent for an MSP or SMB buyer to act. PORTFOLIO IMPLICATION: Worth a short cross-functional note comparing our own MDR onboarding time, channel geographic coverage, and SAT content-authoring speed against this week's moves — the competitive question increasingly isn't "whose detection is better" but "who is easiest and fastest to buy from and deploy."</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — September 21, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for September 21, 2026 — a maximum-impact Cisco Secure Email Gateway zero-day (CVE-2026-76461, CVSS 9.8) exploited for root command execution before disclosure; a hardcoded-key unauthenticated RCE in SolarWinds Access Rights Manager (CVE-2026-28326, CVSS 8.8), a tool widely deployed by MSPs; Oracle's September Critical Patch Update fixing 800+ flaws with at least one already exploited; and three Linux kernel CVEs added to CISA's KEV catalog under a forensic-triage mandate."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — September 21, 2026"/>
+  <meta property="og:description" content="Cisco Secure Email Gateway zero-day (CVSS 9.8) exploited pre-disclosure; SolarWinds ARM hardcoded-key RCE; Oracle's 800+-flaw September CPU; three Linux kernel CVEs added to CISA KEV under forensic-triage mandate."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-09-21.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"     style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#ciscoesa"    style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 Cisco ESA</a>
+    <a href="#solarwinds"  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 SolarWinds ARM</a>
+    <a href="#oracle"      style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 Oracle CPU</a>
+    <a href="#linux"       style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 Linux KEV</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        ⚠️ Threat Intelligence Briefing
+      </h1>
+      <div style="font-size:15px;opacity:.85;">September 21, 2026 · Week of September 15 – 21</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>2</strong> critical items — Cisco Secure Email Gateway zero-day, SolarWinds ARM hardcoded key
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🟡 <strong>2</strong> notable items — Oracle's 800+-flaw September CPU, three Linux kernel CVEs added to KEV
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🎯 Focus: A Mail Gateway and an Access-Management Tool Both Had Root-Level Holes This Week
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;letter-spacing:-.2px;">
+        📋 This Week's Threat Summary
+      </h2>
+      <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">
+        <strong>Critical developments September 15 – 21:</strong> Cisco confirmed active, pre-disclosure exploitation of CVE-2026-76461, a maximum-severity (CVSS 9.8) flaw in Secure Email Gateway (AsyncOS) that lets an unauthenticated remote attacker run arbitrary commands as root by sending a single crafted email; CISA added it to the KEV catalog with a September 17 federal remediation deadline. Separately, SolarWinds patched CVE-2026-28326 (CVSS 8.8) in Access Rights Manager — a hardcoded, static cryptographic key baked into all versions through 2026.2 that enables unauthenticated remote code execution; the fix shipped in ARM 2026.2.1 on September 19, and while SolarWinds has not confirmed in-the-wild exploitation, ARM's role in MSP identity and access management makes it a high-priority patch regardless. On the volume side, Oracle's September Critical Patch Update closed out 673 patches resolving more than 800 vulnerabilities — over 100 critical and 240+ remotely exploitable without authentication — across 17 product families, with at least one flaw already under active exploitation per a Hong Kong government advisory. CISA also added three Linux kernel CVEs to its KEV catalog on September 18, invoking Binding Operational Directive 26-04's forensic-triage requirement for the first time on kernel-level flaws.
+      </p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>Cisco Secure Email Gateway zero-day (patched ~Sept 15, KEV deadline Sept 17):</strong> CVE-2026-76461, CVSS 9.8, unauthenticated root RCE via crafted email — exploited before public disclosure
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>SolarWinds Access Rights Manager hardcoded key (patched Sept 19):</strong> CVE-2026-28326, CVSS 8.8, unauthenticated RCE via a static cryptographic key shipped in the product — not yet confirmed exploited, not yet in KEV
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(234,179,8,0.08);border-left:3px solid #ca8a04;border-radius:4px;color:#475569;">
+          <strong>Oracle September Critical Patch Update (Sept 15):</strong> 673 patches / 800+ vulnerabilities across 17 product families, 100+ critical, one already exploited per a Hong Kong government advisory
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(234,179,8,0.08);border-left:3px solid #ca8a04;border-radius:4px;color:#475569;">
+          <strong>Three Linux kernel CVEs added to CISA KEV (Sept 18):</strong> CVE-2025-39682 (CVSS 9.8), CVE-2026-53266, CVE-2025-39964 — first use of BOD 26-04's forensic-triage mandate on kernel flaws
+        </li>
+      </ul>
+    </div>
+
+    <!-- CISCO ESA -->
+    <div id="ciscoesa" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 Cisco Secure Email Gateway Zero-Day Lets an Attacker Reach Root With a Single Crafted Email</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 CVE-2026-76461 (CVSS 9.8): Insufficient Email-Parsing Validation Enables Unauthenticated Root Command Execution — Exploited Before Public Disclosure (Patched ~September 15, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Cisco disclosed and patched CVE-2026-76461, a maximum-impact flaw in AsyncOS for Secure Email Gateway caused by insufficient validation in the product's email-parsing logic. An unauthenticated remote attacker can send a single crafted email containing malicious SQL statements to trigger arbitrary command execution with root privileges on the underlying operating system — no user interaction or credentials required. Rapid7 characterized the activity as true zero-day exploitation, since attacks were already underway when Cisco publicly disclosed the flaw. There is no workaround; affected organizations must update to the patched release. CISA added the CVE to its Known Exploited Vulnerabilities catalog with a September 17 remediation deadline for federal civilian agencies.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> Email security gateways sit directly in an organization's inbound mail path and are a common target for both initial-access attackers and follow-on backdoor deployment once root is obtained; MSP account teams running Cisco Secure Email Gateway for any client should confirm patch status immediately rather than waiting for a routine maintenance window, and treat any gateway that was internet-facing before the patch as requiring an integrity check, not just an update.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 CVSS 9.8 — Unauthenticated Root RCE</span>
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Exploited Before Disclosure</span>
+          <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patch Available</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://thehackernews.com/2026/09/cisco-secure-email-gateway-flaw.html" target="_blank" style="color:#1a56db;">The Hacker News</a> · <a href="https://www.helpnetsecurity.com/2026/09/15/cve-2026-76461-cisco-email-gateway-zero-day-exploited/" target="_blank" style="color:#1a56db;">Help Net Security</a> · <a href="https://www.securityweek.com/root-rce-zero-day-in-cisco-secure-email-gateway-under-active-exploitation/" target="_blank" style="color:#1a56db;">SecurityWeek</a> · <a href="https://threatprotect.qualys.com/2026/09/15/cisco-secure-email-gateway-vulnerability-exploited-in-attacks-cve-2026-76461/" target="_blank" style="color:#1a56db;">Qualys ThreatPROTECT</a> · <a href="https://securityaffairs.com/199137/hacking/cisco-warns-of-ongoing-exploitation-of-critical-email-gateway-zero-day.html" target="_blank" style="color:#1a56db;">Security Affairs</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOLARWINDS ARM -->
+    <div id="solarwinds" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 SolarWinds Access Rights Manager Shipped With a Hardcoded Cryptographic Key, Enabling Unauthenticated RCE</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 CVE-2026-28326 (CVSS 8.8): Static Key Baked Into All ARM Versions Through 2026.2 Enables Unauthenticated Remote Code Execution — Fixed in 2026.2.1 (September 19, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          SolarWinds patched CVE-2026-28326 in Access Rights Manager (ARM), caused by a hardcoded, static cryptographic key present in every version through 2026.2. An attacker who obtains the key — extractable from the shipped product itself — can exploit it for remote code execution over the network with no authentication required. SolarWinds has not disclosed evidence of in-the-wild exploitation, and the flaw is not yet listed in CISA's KEV catalog; its EPSS exploitation-probability score is currently under 1%. The fix ships in ARM 2026.2.1, and SolarWinds recommends all customers upgrade rather than rely on network segmentation alone, since the flaw lives in the application's own cryptographic design rather than a network-exposed service.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> ARM is widely used for identity and access governance in MSP-managed environments, and a hardcoded key is a design-level flaw rather than a one-off coding bug — meaning every deployment ships with the same exploitable key until patched, unlike a bug that requires attacker-specific reconnaissance. Low current exploitation activity is not a reason to deprioritize this one: SolarWinds' history as a high-value supply-chain target (2020's SUNBURST) means account teams should treat ARM patch compliance as a standing checklist item, not a wait-and-see patch.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 CVSS 8.8 — Unauthenticated RCE</span>
+          <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Not Yet Confirmed Exploited</span>
+          <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patch Available (2026.2.1)</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://thehackernews.com/2026/09/solarwinds-patches-arm-hard-coded-key.html" target="_blank" style="color:#1a56db;">The Hacker News</a> · <a href="https://app.opencve.io/cve/CVE-2026-28326" target="_blank" style="color:#1a56db;">OpenCVE</a> · <a href="https://www.strix.ai/cve/CVE-2026-28326" target="_blank" style="color:#1a56db;">Strix</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORACLE CPU -->
+    <div id="oracle" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟡 Oracle's September Critical Patch Update Resolves 800+ Vulnerabilities, One Already Exploited</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fffbeb;border-left:4px solid #ca8a04;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#854d0e;font-weight:700;">🆕 673 Patches, 800+ Vulnerabilities, 100+ Critical, 240+ Unauthenticated Remote-Exploitable Across 17 Product Families (September 15, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Oracle's September 2026 Critical Patch Update shipped 673 patches resolving more than 800 vulnerabilities — 672 uniquely tracked CVEs plus over 130 additional flaws quietly resolved through bundled fixes — across 17 product families. More than 100 of the newly addressed defects carry a critical severity rating, and over 240 can be exploited remotely without authentication. E-Business Suite (159 patches), Fusion Middleware (153), and Hyperion (102) accounted for the largest share of fixes. Oracle has not disclosed evidence of in-the-wild exploitation for any September flaw, but a Hong Kong government cybersecurity advisory indicates at least one of the patched vulnerabilities is already being actively exploited.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> Oracle's enterprise application footprint (E-Business Suite, Fusion Middleware) skews toward larger managed environments rather than typical SMB deployments, but any client running Oracle infrastructure should be flagged for this cycle given the unusually high proportion of unauthenticated, remotely exploitable flaws — worth a targeted patch-compliance sweep rather than folding it into routine monthly patching.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 800+ Vulnerabilities, 100+ Critical</span>
+          <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patches Available (Sept 15)</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://www.oracle.com/security-alerts/cspusep2026.html" target="_blank" style="color:#1a56db;">Oracle</a> · <a href="https://blog.qualys.com/vulnerabilities-threat-research/2026/09/16/oracle-critical-security-patch-update-september-2026-review" target="_blank" style="color:#1a56db;">Qualys</a> · <a href="https://cybersecuritynews.com/oracle-security-update-673-vulnerabilities/" target="_blank" style="color:#1a56db;">Cybersecurity News</a> · <a href="https://www.cio.com/article/4222872/oracles-september-patches-put-fusion-middleware-back-in-the-hot-seat.html" target="_blank" style="color:#1a56db;">CIO</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LINUX KEV -->
+    <div id="linux" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟡 CISA Adds Three Linux Kernel Flaws to KEV, Invoking Forensic-Triage Requirement Under BOD 26-04</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fffbeb;border-left:4px solid #ca8a04;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#854d0e;font-weight:700;">🆕 CVE-2025-39682 (CVSS 9.8, TLS Receive Path), CVE-2026-53266 (Netfilter Bridge Ebtables SNAT), and CVE-2025-39964 (AF_ALG Socket Race Condition) — Remediation Required September 21, 2026</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          CISA added three actively exploited Linux kernel vulnerabilities to its Known Exploited Vulnerabilities catalog on September 18: CVE-2025-39682, a critical (CVSS 9.8) improper-condition check in the kernel's TLS receive path; CVE-2026-53266, a high-severity (CVSS 8.8) out-of-bounds write in the netfilter bridge ebtables SNAT target that can cause memory corruption, denial of service, or privilege escalation; and CVE-2025-39964, a CVSS 7.8 synchronization flaw affecting AF_ALG sockets. All three were marked as requiring forensic triage under Binding Operational Directive 26-04, meaning affected federal agencies must investigate potentially exposed assets for evidence of compromise rather than simply patching — the first time this kernel-level flaw set has triggered that requirement, with remediation required by September 21.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> These flaws sit at the Linux kernel level rather than in typical SMB endpoint software, so direct relevance is lower for most managed environments, but any client running Linux-based appliances, firewalls, or servers with kernel versions in scope should be checked — the forensic-triage requirement itself is a signal worth noting internally as a template for how CISA may treat future kernel-level KEV additions.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 3 Linux Kernel CVEs Added to KEV</span>
+          <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 First Forensic-Triage Mandate on Kernel Flaws</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" style="color:#1a56db;">CISA</a> · <a href="https://securityaffairs.com/199430/security/u-s-cisa-adds-linux-kernel-flaws-to-its-known-exploited-vulnerabilities-catalog-2.html" target="_blank" style="color:#1a56db;">Security Affairs</a> · <a href="https://cybersecuritynews.com/linux-kernel-vulnerabilities-actively-exploited/" target="_blank" style="color:#1a56db;">Cybersecurity News</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#dc2626;font-weight:700;">📌 Strategic Context: Root-Level Flaws in the Tools Meant to Secure the Perimeter</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">This week's two critical items share an uncomfortable theme: both flaws lived inside security and access-management infrastructure itself — an email security gateway and an access-rights management tool — rather than in a generic business application. A mail gateway with a root-level hole is a single email away from full compromise; an access-management tool with a hardcoded key undermines the very access controls it exists to enforce. Combined with Oracle's unusually high share of unauthenticated, remotely exploitable flaws this cycle, the throughline is that attackers increasingly find their highest-value entry points in the infrastructure organizations trust most, not in peripheral software. PORTFOLIO IMPLICATION: Worth a short note to EDR/MDR and endpoint product teams on whether current detection logic specifically watches for anomalous behavior originating from security-appliance processes themselves (mail gateways, access-management agents) rather than treating them as trusted infrastructure by default — that blind spot is exactly what root-level flaws in security tooling are positioned to exploit.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
