@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🔐 Competitive Intel — Monday, September 28, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence report for September 28, 2026 — Microsoft Defender adds Local AI Agent Discovery to inventory agentic AI on endpoints; SentinelOne extends Wayfinder threat hunting to AWS, Azure, and Google Cloud; and KnowBe4 expands Agent Risk Manager with a browser extension for real-time shadow-AI governance."/>
+  <meta property="og:title" content="Competitive Intel — September 28, 2026"/>
+  <meta property="og:description" content="Microsoft Defender's Local AI Agent Discovery; SentinelOne's Wayfinder cloud expansion; KnowBe4's shadow-AI governance browser extension."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/competitive-intel/reports/2026-09-28.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Reports</a>
+    <a href="#takeaways"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#ep"          style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🛡️ Endpoint Protection</a>
+    <a href="#edr"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔍 EDR</a>
+    <a href="#sat"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎓 SAT</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#0f2849 0%,#1a56db 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        🔐 Competitive Intelligence Report
+      </h1>
+      <div style="font-size:15px;opacity:.85;">Monday, September 28, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📰 <strong>3</strong> high-signal items
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          📦 <strong>3</strong> competitors, <strong>3</strong> product categories
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔍 Focus: AI Agents Become the New Attack Surface — Defenders Race to Discover and Govern Them
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px 0;">
+    <div id="takeaways" style="background:#0f2849;border-radius:12px;padding:24px 28px;
+                margin-bottom:0;color:#fff;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;letter-spacing:-.2px;">
+        ⚡ This Week's Key Takeaways
+      </h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;">
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🛡️ <strong>Microsoft Defender Adds Local AI Agent Discovery to Inventory Agentic AI Running on Employee Devices (September 24, 2026)</strong> — A new Defender capability identifies and catalogs AI agents operating on endpoints, paired with Security Copilot integration that generates AI explanations of URL and file sandboxing results. IMPACT: Microsoft is extending Zero Trust and endpoint visibility to agentic AI activity itself, folding a brand-new asset class — autonomous AI agents — into the same inventory and control plane as traditional endpoint software.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 New Asset Class — Agentic AI Discovery</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth checking whether our own EP/EDR agents can currently detect or inventory third-party AI agent processes running on managed endpoints</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🔍 <strong>SentinelOne Extends Wayfinder Threat Hunting to AWS, Azure, and Google Cloud (September 25, 2026)</strong> — Wayfinder now hunts across cloud control planes for IAM privilege escalation, unauthorized access, S3 reconnaissance, and suspicious policy changes, alongside its existing endpoint and identity coverage, all mapped to MITRE ATT&CK with AI-summarized findings. IMPACT: SentinelOne is pushing further past pure endpoint detection into unified cross-layer XDR, raising the bar on what "detection and response" is expected to cover for any EDR competitor selling primarily on endpoint telemetry.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 EDR → XDR Scope Expansion</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth confirming whether our EDR's cloud-control-plane visibility keeps pace, particularly for MSP clients running customer workloads in AWS/Azure/GCP</span>
+          </div>
+        </li>
+        <li style="font-size:14px;line-height:1.6;padding-left:4px;">
+          🎓 <strong>KnowBe4 Expands Agent Risk Manager With a Browser Extension for Real-Time Shadow-AI Governance (September 23, 2026)</strong> — A native Chrome/Edge extension lets security teams allow, warn, or block employee access to known AI sites the moment it happens, rather than detecting unauthorized use after the fact, with usage metrics and one-click governance. IMPACT: KnowBe4 is moving beyond passive awareness training into active, real-time behavioral enforcement — a capability shift that blurs the line between SAT/HRM and endpoint policy control.
+          <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 SAT Vendor Moves Into Real-Time Enforcement</span>
+            <span style="color:#94a3b8;font-size:11px;padding:3px 0;">📌 Worth evaluating whether our SAT/HRM roadmap needs an active shadow-AI blocking capability, not just awareness content about AI risk</span>
+          </div>
+        </li>
+      </ul>
+      <p style="margin:18px 0 0;font-size:11px;opacity:.5;text-align:right;">
+        New material from September 22–28 not previously reported · Complements the September 21 report
+      </p>
+    </div>
+
+    <!-- CATEGORY SECTIONS -->
+    <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+               letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+               margin:28px 0 22px;margin-top:28px;">📊 Intelligence by Product Category</h2>
+
+    <!-- ENDPOINT PROTECTION -->
+    <div id="ep" style="margin-bottom:32px;">
+      <div style="background:#eff6ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #2563eb;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#1d4ed8;font-weight:700;">
+          🛡️ Endpoint Protection
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #2563eb;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.microsoft.com/en-us/security/blog/2026/09/24/whats-new-in-microsoft-security-september-2026/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 Microsoft Defender Adds Local AI Agent Discovery to Identify and Inventory Agentic AI on Endpoints (September 24, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 Microsoft Defender &nbsp;|&nbsp; 📅 September 24, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">As part of its September 2026 security roundup, Microsoft added Local AI Agent Discovery to Defender, giving security teams a way to identify and inventory AI agents running on employee devices so agentic activity can be discovered and controlled rather than operating invisibly. The same update adds Security Copilot–generated explanations of URL and file sandboxing results to speed SOC investigation, and extends Intune's Enterprise Application Management, Cloud PKI, and Remote Help to GCC High and DoD environments. COMPETITIVE IMPLICATION: Microsoft is treating autonomous AI agents as a new managed-asset class inside its existing endpoint security console rather than shipping a bolt-on tool, which sets a baseline expectation that endpoint protection platforms should natively discover agentic AI the same way they discover unmanaged software. PORTFOLIO ANGLE: Worth checking whether our EP/EDR telemetry can currently distinguish an autonomous AI agent process from ordinary application activity on a managed endpoint — this is an emerging visibility gap several vendors are now racing to close.</div>
+      </div>
+    </div>
+
+    <!-- EDR -->
+    <div id="edr" style="margin-bottom:32px;">
+      <div style="background:#f5f3ff;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #7c3aed;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#6d28d9;font-weight:700;">
+          🔍 Endpoint Detection &amp; Response
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #7c3aed;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.helpnetsecurity.com/2026/09/25/sentinelone-extends-wayfinder-threat-hunting/" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 SentinelOne Extends Wayfinder Threat Hunting to AWS, Azure, and Google Cloud (September 25, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 SentinelOne &nbsp;|&nbsp; 📅 September 25, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">SentinelOne expanded Wayfinder threat hunting to cover AWS, Azure, and Google Cloud, combining AI-powered telemetry from the Singularity Platform with expert-led hunting to monitor cloud control planes alongside endpoints and identities. Coverage includes detection of IAM privilege escalation, unauthorized access, data exfiltration, S3 reconnaissance, and suspicious policy changes, all mapped to MITRE ATT&CK with AI-summarized findings for triage; existing Wayfinder customers gain the new coverage through marketplace plugins. This builds on Wayfinder's earlier AWS/LevelBlue expansion (reported August 10) with a distinct capability: full cloud-control-plane hunting rather than a channel partnership. COMPETITIVE IMPLICATION: SentinelOne is positioning itself as a unified XDR player spanning endpoint, identity, and cloud rather than a pure-play EDR vendor, directly pressuring competitors whose cloud visibility is thinner or requires a separate product. PORTFOLIO ANGLE: Worth a comparison of our own EDR's cloud workload and IAM-misconfiguration visibility against Wayfinder's new scope, especially for MSP clients whose customers run meaningful workloads in public cloud.</div>
+      </div>
+    </div>
+
+    <!-- SAT/HRM -->
+    <div id="sat" style="margin-bottom:32px;">
+      <div style="background:#fefce8;border-radius:10px;padding:14px 20px;
+                  border-left:5px solid #ca8a04;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#854d0e;font-weight:700;">
+          🎓 Security Awareness Training / HRM
+          <span style="font-size:13px;font-weight:400;color:#64748b;"> (1 new item)</span>
+        </h2>
+      </div>
+
+      <div style="margin-bottom:14px;padding:14px 16px;background:#fff;border-radius:8px;
+                  border-left:4px solid #ca8a04;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <a href="https://www.financialcontent.com/article/bizwire-2026-9-23-knowbe4-shuts-down-shadow-ai-with-agent-security-innovation" target="_blank"
+           style="font-weight:600;font-size:14px;color:#1e3a5f;text-decoration:none;
+                  line-height:1.4;display:block;margin-bottom:6px;">🆕 KnowBe4 Expands Agent Risk Manager With a Browser Extension for Real-Time Shadow-AI Governance (September 23, 2026)</a>
+        <div style="font-size:12px;color:#64748b;margin-bottom:6px;">
+          🏷 KnowBe4 &nbsp;|&nbsp; 📅 September 23, 2026
+        </div>
+        <div style="font-size:13px;color:#475569;line-height:1.5;">KnowBe4 added a native Chrome/Edge browser extension to its Agent Risk Manager product (originally launched mid-2026) that lets security teams allow, warn, or block employee access to known AI sites the moment it happens — not just detect unauthorized use after data exposure — with quantified usage metrics and one-click governance requiring no external tools or engineering tickets. KnowBe4 cites survey data that 52% of organizations report their AI use is unapproved or ungoverned, and the extension integrates with existing phishing simulation, awareness training, and risk-scoring data for a unified behavioral risk profile. It's currently in early access for Security Awareness Training Advanced customers, with broader rollout planned in coming months. COMPETITIVE IMPLICATION: This is a shift from awareness-only content toward active, real-time enforcement — a capability standalone shadow-AI monitoring tools and traditional SAT libraries alike don't combine today. PORTFOLIO ANGLE: Worth evaluating whether our SAT/HRM offering needs an active governance layer (allow/warn/block) for shadow AI, rather than only training content about AI risk, since KnowBe4 is now selling enforcement, not just education.</div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC CONTEXT NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#f0fdf4;border-left:4px solid #16a34a;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#15803d;font-weight:700;">📌 Strategic Context: AI Agents Are Becoming a Managed-Asset Category in Their Own Right</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">All three items this week point at the same underlying shift: AI agents — both sanctioned enterprise agents and unsanctioned "shadow AI" tools employees adopt on their own — are being treated as a distinct category that security platforms must discover, inventory, and govern, not just a feature bolted onto existing products. Microsoft is doing this at the endpoint-inventory layer, SentinelOne is doing it by widening its detection surface into the cloud control plane where agentic workloads increasingly run, and KnowBe4 is doing it at the point of human interaction with browser-based AI tools. None of these are detection-quality plays in the traditional sense — they're all about extending visibility and control to a category of activity that didn't exist as a defined asset class eighteen months ago. PORTFOLIO IMPLICATION: Worth a short cross-functional review of whether Endpoint Protection, EDR, and SAT/HRM each have a concrete answer to "can we see and govern AI agent activity" — three competitors moved on this in the same week, which suggests it's becoming a baseline buyer expectation rather than a differentiator.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>

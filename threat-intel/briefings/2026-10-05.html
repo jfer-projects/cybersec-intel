@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — October 5, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for October 5, 2026 — two unauthenticated Citrix NetScaler ADC/Gateway zero-days (CVSS 9.5) under active exploitation; a four-vulnerability CISA KEV batch spanning Check Point, Arista VeloCloud Orchestrator (CVSS 10), and F5 BIG-IP APM, all exploited in the wild; and the emergence of the n0n ransomware gang, which threatens to destroy backups alongside data theft."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — October 5, 2026"/>
+  <meta property="og:description" content="Citrix NetScaler zero-days (CVSS 9.5) exploited; Check Point/Arista/F5 four-CVE KEV batch; n0n ransomware gang threatens backup destruction."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-09-28.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"     style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#fortimail"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 FortiMail</a>
+    <a href="#netscaler"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 NetScaler SAML</a>
+    <a href="#killswitch"  style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 KillSec Takedown</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">⚠️ Threat Intelligence Briefing</h1>
+      <div style="font-size:15px;opacity:.85;">October 5, 2026 · Week of September 29 – October 5</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🔴 <strong>1</strong> critical item — FortiMail unauthenticated file-write zero-day (CVSS 9.8)</div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🟡 <strong>2</strong> notable items — NetScaler SAML DoS zero-day; KillSec ransomware takedown</div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🎯 Focus: Another Perimeter Appliance Zero-Day, This Time Email Security</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;letter-spacing:-.2px;">📋 This Week's Threat Summary</h2>
+      <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;"><strong>Critical developments September 29 – October 5:</strong> Fortinet FortiMail is under active exploitation via CVE-2026-104286, an unauthenticated path-traversal/arbitrary-file-write flaw (CVSS 9.8) with patches not yet available for all versions; CISA added it to KEV on October 1. Citrix disclosed a third NetScaler flaw in two weeks, CVE-2026-88779 (CVSS 8.7), exploited in targeted denial-of-service attacks against SAML deployments and added to KEV. Separately, law enforcement seized KillSec ransomware infrastructure in "Operation KillSwitch."</p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;"><strong>FortiMail CVE-2026-104286 (CVSS 9.8, KEV Oct 1):</strong> unauthenticated arbitrary file write; FortiMail 7.2–8.0 affected; workaround = disable IBE and restrict management access</li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(202,138,4,0.08);border-left:3px solid #ca8a04;border-radius:4px;color:#475569;"><strong>NetScaler CVE-2026-88779 (CVSS 8.7, KEV; federal deadline Oct 7):</strong> memory overflow on SAML SP/IdP configurations, exploited for DoS; patches available</li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(202,138,4,0.08);border-left:3px solid #ca8a04;border-radius:4px;color:#475569;"><strong>Operation KillSwitch (Sept 30):</strong> KillSec ransomware servers and domains seized, 3 arrests, ~1,000 suspected attacks</li>
+      </ul>
+    </div>
+
+    <div id="fortimail" style="margin-top:32px;margin-bottom:32px;">
+      <div style="padding:14px 18px;background:#fee2e2;border-radius:8px;border-left:5px solid #b91c1c;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#b91c1c;font-weight:700;">🔴 FortiMail Zero-Day Under Active Exploitation — Unauthenticated Arbitrary File Write</h2>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #b91c1c;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:8px;">🆕 CVE-2026-104286 (CVSS 9.8): Path Traversal and Null-Byte Flaw in Fortinet FortiMail, Added to CISA KEV October 1, 2026 (reported October 2)</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">Fortinet disclosed a critical flaw combining path traversal and improper null-byte neutralization that lets an unauthenticated attacker write arbitrary files on the underlying system through crafted HTTP/HTTPS requests. Affected: FortiMail 8.0.0–8.0.1, 7.6.0–7.6.6, 7.4.0–7.4.8 and 7.2.0–7.2.9. In-the-wild exploitation is confirmed; published indicators include IPs 79.141.169.187 and 45.129.0.192 and modified or added system files. CISA added the CVE to KEV on October 1 with a federal deadline of October 4. Patches were not yet available for all versions at the time of reporting; Fortinet’s workarounds are disabling the IBE (identity-based encryption) feature and restricting management-interface access to trusted networks. No threat actor has been attributed.</div>
+        <div style="margin-top:10px;font-size:13px;color:#475569;line-height:1.6;"><strong>PORTFOLIO IMPACT:</strong> FortiMail is a common email-security gateway in MSP-managed SMB environments, and email is the primary phishing channel our SAT and EDR/MDR products defend against. Arbitrary file write on a mail gateway can lead to web shells and lateral movement. MSP customers running FortiMail should apply the workarounds immediately, hunt for the listed IOCs and unexpected file changes, and apply fixed builds as soon as Fortinet releases them. Competitive note: Fortinet is also an MDR/endpoint competitor.</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 CVSS 9.8 — Unauthenticated</span><span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Exploited in the Wild (KEV)</span><span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Patches Incomplete — Workaround Available</span></div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html" target="_blank" style="color:#1a56db;">The Hacker News</a> · <a href="https://cybersecuritynews.com/fortinet-fortimail-0-day-vulnerability-exploitation" target="_blank" style="color:#1a56db;">Cybersecurity News</a></div>
+      </div>
+    </div>
+    <div id="netscaler" style="margin-top:32px;margin-bottom:32px;">
+      <div style="padding:14px 18px;background:#fef9c3;border-radius:8px;border-left:5px solid #854d0e;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#854d0e;font-weight:700;">🟡 Third NetScaler Flaw in Two Weeks — SAML Memory Overflow Exploited for Denial of Service</h2>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #854d0e;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:8px;">🆕 CVE-2026-88779 (CVSS 8.7): NetScaler ADC/Gateway SAML Memory Overflow, Added to KEV (October 5, 2026)</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">Citrix patched CVE-2026-88779, a memory overflow affecting NetScaler ADC/Gateway when configured as a SAML service provider or identity provider (builds 14.1-73.41 and 13.1-64.28 and later, plus the corresponding FIPS/NDcPP builds). Citrix has observed targeted attacks on unmitigated deployments that cause denial of service. Unlike last week’s CVE-2026-88771/88772 (exploited to deploy web shells and tunneling tools), this flaw causes service disruption only, with no identified impact on customer data integrity. CISA added it to KEV with a federal deadline of October 7.</div>
+        <div style="margin-top:10px;font-size:13px;color:#475569;line-height:1.6;"><strong>PORTFOLIO IMPACT:</strong> Customers who already patched for 88771/88772 should confirm they are on the newest builds, since SAML-fronted remote access outages affect every user behind the gateway. Lower severity than last week’s pair, but it extends the run of NetScaler exploitation reported in the September 28 briefing.</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 CVSS 8.7 — DoS</span><span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Exploited (KEV)</span><span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patch Available</span></div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html" target="_blank" style="color:#1a56db;">The Hacker News</a> · <a href="https://bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks" target="_blank" style="color:#1a56db;">BleepingComputer</a></div>
+      </div>
+    </div>
+    <div id="killswitch" style="margin-top:32px;margin-bottom:32px;">
+      <div style="padding:14px 18px;background:#fef9c3;border-radius:8px;border-left:5px solid #854d0e;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#854d0e;font-weight:700;">🟡 Operation KillSwitch — Law Enforcement Seizes KillSec Ransomware Infrastructure</h2>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #854d0e;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:8px;">🆕 Servers and Domains Seized, Three Arrests (September 30, 2026)</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">Per a weekly roundup, authorities seized KillSec ransomware infrastructure on September 30 — five servers and multiple domains, with more than 110 TB of data secured — and made three arrests, including a 16-year-old identified as the lead administrator. The group is linked to roughly 1,000 suspected attacks, about 500 believed successful. This item rests on a single aggregator source; confirmation from official law-enforcement statements was not located at the time of writing.</div>
+        <div style="margin-top:10px;font-size:13px;color:#475569;line-height:1.6;"><strong>PORTFOLIO IMPACT:</strong> A takedown can temporarily reduce activity, but affiliates typically rebrand or migrate. MDR and EDR detection content for KillSec tooling should stay in place; the seized data may produce victim notifications in the coming weeks.</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Takedown — Single-Source</span><span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Teen Administrator Arrested</span></div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://igorslab.de/en/leakwatch-cw-40-2026-ai-agents-attack-vector-identity-records-zero-days" target="_blank" style="color:#1a56db;">Leakwatch CW 40/2026</a></div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:22px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#dc2626;font-weight:700;">📌 Strategic Context: Email Gateways Join VPNs and ADCs on the Zero-Day Target List</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">For the third consecutive week, internet-facing security appliances (Citrix, Check Point, Arista, F5, now Fortinet FortiMail) dominate exploited-vulnerability news. Because these devices sit outside EDR visibility, MSPs need asset inventory, rapid patch SLAs and compensating monitoring for them.</p>
+    </div>
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>

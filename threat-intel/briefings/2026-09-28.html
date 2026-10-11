@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — September 28, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for September 28, 2026 — two unauthenticated Citrix NetScaler ADC/Gateway zero-days (CVSS 9.5) under active exploitation; a four-vulnerability CISA KEV batch spanning Check Point, Arista VeloCloud Orchestrator (CVSS 10), and F5 BIG-IP APM, all exploited in the wild; and the emergence of the n0n ransomware gang, which threatens to destroy backups alongside data theft."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — September 28, 2026"/>
+  <meta property="og:description" content="Citrix NetScaler zero-days (CVSS 9.5) exploited; Check Point/Arista/F5 four-CVE KEV batch; n0n ransomware gang threatens backup destruction."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-09-28.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"     style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#citrix"      style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 Citrix NetScaler</a>
+    <a href="#kevbatch"    style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 KEV Batch</a>
+    <a href="#n0n"         style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 n0n Ransomware</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);
+              padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">
+        ⚠️ Threat Intelligence Briefing
+      </h1>
+      <div style="font-size:15px;opacity:.85;">September 28, 2026 · Week of September 22 – 28</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🔴 <strong>2</strong> critical items — Citrix NetScaler zero-days, a four-CVE Check Point/Arista/F5 KEV batch
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🟡 <strong>1</strong> notable item — the emerging n0n ransomware gang's backup-destruction threats
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">
+          🎯 Focus: Perimeter and Remote-Access Infrastructure Takes Another Round of Maximum-Severity Hits
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;letter-spacing:-.2px;">
+        📋 This Week's Threat Summary
+      </h2>
+      <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;">
+        <strong>Critical developments September 22 – 28:</strong> Citrix disclosed and CISA added to KEV two maximum-severity (CVSS 9.5) zero-days in NetScaler ADC and Gateway — CVE-2026-88771 (unauthenticated command execution via improper input validation, affecting all deployments by default) and CVE-2026-88772 (a memory overflow on appliances with DTLS enabled, the default for VPN virtual servers) — both confirmed under active exploitation on unmitigated devices as of September 27. Separately, CISA's September 22 KEV update added four actively exploited, unauthenticated remote-code-execution flaws in a single batch: two in Check Point products (CVE-2026-85102, certificate-validation bypass; CVE-2026-93616, path traversal; both CVSS 9.8), a maximum-severity CVSS 10 flaw in Arista's VeloCloud Orchestrator (CVE-2026-93952), and a heap-based buffer overflow in F5 BIG-IP APM (CVE-2026-94127, CVSS 9.8) — all four trigger Binding Operational Directive 26-04's mandatory federal remediation. On the ransomware side, a newly identified group tracked as "n0n" emerged this week, combining data theft with explicit threats to destroy backup infrastructure and encrypt shadow copies — a tactic researchers say is designed to eliminate recovery options entirely, not just pressure victims through exposure.
+      </p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>Citrix NetScaler ADC/Gateway zero-days (disclosed Sept 27, added to KEV same day):</strong> CVE-2026-88771 and CVE-2026-88772, both CVSS 9.5, unauthenticated command execution / memory overflow — actively exploited on unmitigated devices
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;">
+          <strong>Four-CVE KEV batch (added Sept 22):</strong> Check Point CVE-2026-85102 &amp; CVE-2026-93616 (CVSS 9.8 each), Arista VeloCloud Orchestrator CVE-2026-93952 (CVSS 10), F5 BIG-IP APM CVE-2026-94127 (CVSS 9.8) — all unauthenticated RCE, all exploited in the wild, BOD 26-04 mandatory remediation
+        </li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(234,179,8,0.08);border-left:3px solid #ca8a04;border-radius:4px;color:#475569;">
+          <strong>n0n ransomware gang emerges (first detected Sept 18, a dozen+ victims claimed by Sept 22):</strong> double extortion plus explicit backup/shadow-copy destruction threats — primarily targeting U.S. financial services, technology, retail, and education
+        </li>
+      </ul>
+    </div>
+
+    <!-- CITRIX NETSCALER -->
+    <div id="citrix" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 Two Unauthenticated Citrix NetScaler Zero-Days Under Active Exploitation — Every Default Deployment Is Affected</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 CVE-2026-88771 &amp; CVE-2026-88772 (CVSS 9.5 Each): Unauthenticated Command Execution and Memory Overflow in NetScaler ADC/Gateway — Exploited Before Patches Were Widely Applied (September 27, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Citrix disclosed two maximum-severity zero-days in NetScaler ADC and Gateway. CVE-2026-88771 stems from improper input validation and lets an unauthenticated remote attacker execute arbitrary commands — it affects all NetScaler deployments, including default configurations, with no special feature required. CVE-2026-88772 is a memory overflow that can trigger remote code execution or denial of service on appliances with DTLS enabled, which is the default setting for VPN virtual servers. Citrix and CISA confirmed exploitation of both flaws on unmitigated devices. Six additional, lower-severity flaws (CVE-2026-88773 through 88778, CVSS 7.0–8.8) covering HTTP request smuggling, policy bypass, and memory overflow issues were patched in the same release. Fixes are available in NetScaler ADC/Gateway 14.1-73.37 and 13.1-64.23 and later (13.1 had already reached end-of-maintenance before this release). CISA added both CVEs to its KEV catalog the same day they were disclosed.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> NetScaler ADC/Gateway is widely deployed as a remote-access and load-balancing front door, exactly the kind of internet-facing infrastructure MSPs manage for SMB clients; the fact that CVE-2026-88771 affects "all deployments including default configurations" means every unpatched instance is exposed with no configuration check required. Account teams should treat any client-managed NetScaler as an emergency patch item today, not a routine maintenance-window item, and should assume compromise on any internet-facing instance that was unpatched before September 27 pending an integrity review.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 CVSS 9.5 — Unauthenticated RCE (×2)</span>
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Exploited on Unmitigated Devices</span>
+          <span style="background:#dcfce7;color:#15803d;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patch Available (14.1-73.37 / 13.1-64.23)</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html" target="_blank" style="color:#1a56db;">The Hacker News</a> · <a href="https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/" target="_blank" style="color:#1a56db;">BleepingComputer</a> · <a href="https://www.cisa.gov/news-events/alerts/2026/09/27/critical-zero-day-vulnerabilities-exploited-citrix-netscaler-adc-gateway" target="_blank" style="color:#1a56db;">CISA</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUR-CVE KEV BATCH -->
+    <div id="kevbatch" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🔴 CISA Adds Four Actively Exploited RCE Flaws to KEV in One Batch — Check Point, Arista VeloCloud, and F5 BIG-IP</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#7f1d1d;font-weight:700;">🆕 CVE-2026-85102, CVE-2026-93616 (Check Point, CVSS 9.8 Each), CVE-2026-93952 (Arista VeloCloud Orchestrator, CVSS 10), CVE-2026-94127 (F5 BIG-IP APM, CVSS 9.8) — All Exploited in the Wild, Added September 22, 2026</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          CISA added four unrelated but similarly severe vulnerabilities to its Known Exploited Vulnerabilities catalog in a single September 22 update. CVE-2026-85102 is an improper-certificate-validation flaw across multiple Check Point products that lets attackers bypass SSL/TLS security controls. CVE-2026-93616, also in multiple Check Point products, is a path-traversal flaw allowing access to files outside restricted directories. CVE-2026-93952 is a maximum-severity (CVSS 10) improper-input-validation flaw in Arista's VeloCloud Orchestrator enabling remote code execution through malicious input. CVE-2026-94127 is a heap-based buffer overflow in F5 BIG-IP APM allowing remote attackers to execute arbitrary code. CISA confirmed all four as exploited in the wild, and each enables either remote code execution or full control of publicly exposed infrastructure; their addition triggers mandatory remediation for federal agencies under Binding Operational Directive 26-04.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> Check Point, Arista, and F5 products are all common in mid-market and MSP-managed network perimeters — firewalls, SD-WAN orchestration, and application/VPN access management respectively — so this batch spans three distinct pieces of edge infrastructure clients are likely running simultaneously. The maximum CVSS 10 score on the Arista VeloCloud flaw and the confirmed in-the-wild exploitation across all four make this a same-week, all-hands patch-verification sweep rather than something to fold into routine monthly patching.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 4 CVEs, CVSS 9.8–10.0</span>
+          <span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 All Exploited in the Wild</span>
+          <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 BOD 26-04 Mandatory Remediation</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://aviatrix.ai/threat-research-center/cisa-kev-catalog-four-vulnerabilities-2026-09-22/" target="_blank" style="color:#1a56db;">Aviatrix Threat Research Center</a> · <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" style="color:#1a56db;">CISA KEV Catalog</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- N0N RANSOMWARE -->
+    <div id="n0n" style="margin-top:32px;margin-bottom:32px;">
+      <h2 style="font-size:13px;font-weight:700;color:#64748b;text-transform:uppercase;
+                 letter-spacing:1.5px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;
+                 margin:0 0 22px;">🟡 New Ransomware Group "n0n" Threatens Backup Destruction on Top of Double Extortion</h2>
+
+      <div style="margin-bottom:16px;padding:18px 20px;background:#fffbeb;border-left:4px solid #ca8a04;border-radius:8px;">
+        <h3 style="margin:0 0 10px;font-size:14px;color:#854d0e;font-weight:700;">🆕 A Dozen-Plus Victims Claimed in Four Days as n0n Combines Data Theft With Explicit Threats to Destroy Backups and Shadow Copies (First Detected September 18, 2026)</h3>
+        <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">
+          Researchers at CyberXTron identified a new ransomware group, tracked as "n0n," first active around September 18 and claiming over a dozen victims by September 22. Beyond the now-standard double-extortion model of stealing data and threatening to leak it, n0n explicitly threatens to destroy victims' backup infrastructure and encrypt shadow copies if ransom demands aren't met — a tactic researchers describe as designed to eliminate recovery options entirely rather than simply add reputational pressure. Financial services organizations account for 23% of claimed targets, with technology, retail, and education each around 15%; victims have been claimed primarily in the United States, with additional cases in Vietnam, Uzbekistan, Brazil, Sweden, and Luxembourg.
+        </p>
+        <p style="margin:10px 0 0;font-size:13px;color:#475569;line-height:1.6;">
+          <strong>PORTFOLIO IMPACT:</strong> A group that explicitly targets backup infrastructure and shadow copies as part of its extortion playbook is a direct threat to the "just restore from backup" recovery assumption many SMB clients rely on; this is a timely, concrete talking point for MDR and EDR conversations about detecting anomalous access to backup systems and shadow-copy services specifically, not just endpoint and file-server activity. Financial services' outsized share of claimed victims (23%) also makes this relevant to any client in that vertical, even before individual intrusion details are public.
+        </p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 New Group — 12+ Victims in 4 Days</span>
+          <span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Backup &amp; Shadow-Copy Destruction Tactic</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">
+          Sources: <a href="https://www.infosecurity-magazine.com/news/ransomware-gang-uses-backup/" target="_blank" style="color:#1a56db;">Infosecurity Magazine</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC NOTE -->
+    <div style="margin-top:32px;padding:22px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#dc2626;font-weight:700;">📌 Strategic Context: The Perimeter Keeps Absorbing the Worst Vulnerabilities, and Attackers Are Targeting Recovery Itself</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">Six actively exploited, unauthenticated RCE vulnerabilities across three vendors — Citrix, Check Point, Arista, and F5 — landed in CISA's KEV catalog in a single week, every one of them living in remote-access, VPN, firewall, or load-balancing infrastructure that sits directly on the internet-facing perimeter. That's a continuation of a pattern from prior weeks (Cisco Secure Email Gateway, SolarWinds ARM) where the highest-severity flaws keep showing up in the infrastructure organizations trust to secure everything else, not in generic business applications. Layered against that, n0n's emergence signals that ransomware operators are increasingly attacking the recovery path itself — backups and shadow copies — rather than only the data. PORTFOLIO IMPLICATION: Worth a joint note to MDR/EDR and DNS Protection teams recommending clients audit exposure on any Citrix NetScaler, Check Point, Arista SD-WAN, or F5 BIG-IP instance this week specifically, and a parallel note encouraging MDR clients to verify backup-system access monitoring and offline/immutable backup coverage given n0n's targeting of recovery infrastructure directly.</p>
+    </div>
+
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
