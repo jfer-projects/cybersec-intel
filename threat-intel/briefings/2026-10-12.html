@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — October 12, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for October 12, 2026 — CISA adds Apache Struts CVE-2016-3081 (exploited, forensic triage required), plus BIND, ProFTPD, ONLYOFFICE, Strapi and Zammad flaws to KEV."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — October 12, 2026"/>
+  <meta property="og:description" content="Apache Struts CVE-2016-3081 exploited; legacy BIND/ProFTPD flaws added to KEV."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-10-12.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"     style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#struts" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 Apache Struts</a>
+    <a href="#legacy" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🟡 Legacy KEV Additions</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">⚠️ Threat Intelligence Briefing</h1>
+      <div style="font-size:15px;opacity:.85;">October 12, 2026 · Week of October 6 – October 12</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🔴 <strong>1</strong> critical item — Apache Struts CVE-2016-3081 exploited, forensic triage required</div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🟡 <strong>1</strong> notable item — legacy BIND / ProFTPD / ONLYOFFICE / Strapi / Zammad KEV additions</div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🎯 Focus: Old Bugs, New Exploitation — Patch Debt Is the Attack Surface</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;letter-spacing:-.2px;">📋 This Week's Threat Summary</h2>
+      <p style="margin:0 0 14px;font-size:13px;color:#475569;line-height:1.6;"><strong>Critical developments October 6 – October 12:</strong> CISA added Apache Struts command injection CVE-2016-3081 to KEV on October 8, confirming in-the-wild exploitation of a ten-year-old flaw and requiring forensic triage, not just patching. A third-party tracker also lists several other legacy flaws added this week, including ISC BIND CVE-2015-5477 — relevant to DNS infrastructure.</p>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="font-size:12px;padding:8px 12px;background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;border-radius:4px;color:#475569;"><strong>Apache Struts CVE-2016-3081 (KEV Oct 8; federal deadline Oct 11):</strong> remote command injection when Dynamic Method Invocation is enabled; fixed in 2.3.20.3, 2.3.24.3, 2.3.28.1</li>
+        <li style="font-size:12px;padding:8px 12px;background:rgba(202,138,4,0.08);border-left:3px solid #ca8a04;border-radius:4px;color:#475569;"><strong>Legacy KEV batch (single-source list):</strong> ProFTPD CVE-2015-3306, ISC BIND CVE-2015-5477, ONLYOFFICE Docs CVE-2021-3199, Strapi CVE-2023-22894, Zammad CVE-2026-102489/102490</li>
+      </ul>
+    </div>
+
+    <div id="struts" style="margin-top:32px;margin-bottom:32px;">
+      <div style="padding:14px 18px;background:#fee2e2;border-radius:8px;border-left:5px solid #b91c1c;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#b91c1c;font-weight:700;">🔴 Apache Struts Command Injection Exploited in the Wild</h2>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #b91c1c;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:8px;">🆕 CVE-2016-3081: Added to CISA KEV October 8, 2026 (CWE-77)</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">CISA added the Apache Struts flaw to KEV on October 8 with a federal remediation deadline of October 11 under BOD 26-04, noting attackers are using it in real-world attacks and that the entry requires forensic triage to determine whether systems were already accessed. When Dynamic Method Invocation is enabled, a crafted request abusing the method prefix can execute OS commands. Affected: 2.3.19–2.3.20.2, 2.3.21–2.3.24.1 and 2.3.25–2.3.28; fixed in 2.3.20.3, 2.3.24.3 and 2.3.28.1. Mitigations if patching is delayed: disable DMI, restrict public access, add network controls. Hunt for requests containing "method:" values, unexpected child processes from Java services, new scheduled tasks and suspicious outbound traffic; preserve logs first. No threat actor attribution or campaign details were published.</div>
+        <div style="margin-top:10px;font-size:13px;color:#475569;line-height:1.6;"><strong>PORTFOLIO IMPACT:</strong> Struts sits inside many line-of-business and vendor-bundled Java apps at SMB customers, often unpatched and invisible to inventory. Post-exploitation (web shells, credential theft, lateral movement) is where EDR/MDR detections apply; MSPs should confirm Java-process child-process alerting is enabled and scan customers for Struts.</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Exploited (KEV)</span><span style="background:#dcfce7;color:#166534;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patch Available</span></div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://cybersecuritynews.com/apache-struts-vulnerability-exploited" target="_blank" style="color:#1a56db;">Cyber Security News</a> · <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" style="color:#1a56db;">CISA KEV Catalog</a></div>
+      </div>
+    </div>
+
+    <div id="legacy" style="margin-top:32px;margin-bottom:32px;">
+      <div style="padding:14px 18px;background:#fef9c3;border-radius:8px;border-left:5px solid #854d0e;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#854d0e;font-weight:700;">🟡 Legacy Flaws Join KEV — BIND, ProFTPD, ONLYOFFICE, Strapi, Zammad</h2>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #854d0e;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:8px;">🆕 Older CVEs Confirmed Exploited (week of October 6, 2026)</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">A KEV tracker lists these additions alongside Struts: ProFTPD CVE-2015-3306 (improper access control), ISC BIND CVE-2015-5477 (data processing error), ONLYOFFICE Docs Server CVE-2021-3199 (path traversal), Strapi CVE-2023-22894 (cleartext storage of sensitive information) and Zammad CVE-2026-102489 / CVE-2026-102490 (session fixation, improper privilege management). The tracker is internally inconsistent (headline says 6 CVEs, body lists 8) and gives no add dates; verify against the CISA catalog before acting. The Struts and NetScaler entries are covered separately.</div>
+        <div style="margin-top:10px;font-size:13px;color:#475569;line-height:1.6;"><strong>PORTFOLIO IMPACT:</strong> BIND is core DNS software; MSP customers self-hosting resolvers should confirm patched versions, and it reinforces the case for managed DNS protection over self-run resolvers. The set shows attackers sweeping for long-unpatched internet-facing software, which favors vulnerability-aware EDR/MDR coverage.</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Single-Source — Verify</span><span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Exploited (KEV)</span></div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://senserva.com/exploited-this-week.html" target="_blank" style="color:#1a56db;">Senserva KEV tracker</a> · <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" style="color:#1a56db;">CISA KEV Catalog</a></div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:22px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#dc2626;font-weight:700;">📌 Strategic Context: Old Vulnerabilities, Fresh Exploitation</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">After three weeks of perimeter-appliance zero-days, this week shows the other half of the problem: decade-old flaws (Struts 2016, BIND and ProFTPD 2015) being actively exploited. MSP asset inventory, third-party software patching and post-exploitation detection matter as much as zero-day response. Search coverage this week was limited; additional disclosures may be missing.</p>
+    </div>
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
