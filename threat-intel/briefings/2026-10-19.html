@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — October 19, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat briefing for October 19, 2026 — Microsoft record 1,413-CVE Patch Tuesday with exploited Mark-of-the-Web bypass CVE-2026-96951."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — October 19, 2026"/>
+  <meta property="og:description" content="Record Patch Tuesday (1,413 CVEs) and exploited MotW bypass added to KEV."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-10-19.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"     style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#patch" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 Patch Tuesday</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">⚠️ Threat Intelligence Briefing</h1>
+      <div style="font-size:15px;opacity:.85;">October 19, 2026 · Week of October 13 – October 19</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🔴 <strong>1</strong> critical item — exploited Windows MotW bypass in record Patch Tuesday</div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🎯 Focus: Patch Volume Is Now the Problem</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;">📋 This Week's Threat Summary</h2>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;"><strong>Critical development:</strong> Microsoft's October 2026 Patch Tuesday fixed a record 1,413 CVEs (counts vary by tracker, 1,407–1,413), including one actively exploited zero-day, CVE-2026-96951, a Windows shell Mark-of-the-Web security feature bypass (CVSS 8.8). CISA added it to KEV with an October 16 federal deadline.</p>
+    </div>
+
+    <div id="patch" style="margin-top:32px;margin-bottom:32px;">
+      <div style="padding:14px 18px;background:#fee2e2;border-radius:8px;border-left:5px solid #b91c1c;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#b91c1c;font-weight:700;">🔴 Record Patch Tuesday and Exploited Mark-of-the-Web Bypass</h2>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #b91c1c;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:8px;">🆕 CVE-2026-96951: Windows shell MotW bypass exploited (Patch Tuesday October 13–14, 2026)</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">Per SecurityWeek, Microsoft patched 1,413 CVEs (1,102 Windows, 134 Office, 61 developer tools, 36 SharePoint Server, plus Exchange, Azure and Defender). The exploited zero-day lets an attacker evade Mark-of-the-Web protections that trigger SmartScreen and Office Protected View warnings on downloaded files. Two further flaws were publicly disclosed before fixes: CVE-2026-108398 (WDAC bypass; exploitation judged unlikely) and CVE-2026-92707 (MessagePack-CSharp denial of service). The article attributes the record volume largely to AI-assisted vulnerability discovery and says the 2026 total has passed 4,000, more than all of 2025.</div>
+        <div style="margin-top:10px;font-size:13px;color:#475569;line-height:1.6;"><strong>PORTFOLIO IMPACT:</strong> MotW bypasses are a staple of phishing and malware-delivery chains, so they weaken the file-download warnings SMB users rely on. This strengthens the case for EP/EDR behavioral detection on downloaded-file execution, DNS filtering of payload hosts, and SAT content on attachments. The patch volume itself is a burden for MSPs; prioritize CVE-2026-96951 and internet-facing components first.</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Exploited (KEV)</span><span style="background:#dcfce7;color:#166534;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patch Available</span><span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Single outlet fetched; counts vary</span></div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/" target="_blank" style="color:#1a56db;">SecurityWeek</a> · <a href="https://www.tenable.com/blog/microsofts-october-2026-patch-tuesday-addresses-1407-cves-cve-2026-96951" target="_blank" style="color:#1a56db;">Tenable</a> · <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" style="color:#1a56db;">CISA KEV Catalog</a></div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:22px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#dc2626;font-weight:700;">📌 Strategic Context</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">Search coverage this week was limited; ransomware and APT activity searches returned no verifiable new items beyond earlier briefings. Only the Patch Tuesday item is reported.</p>
+    </div>
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
