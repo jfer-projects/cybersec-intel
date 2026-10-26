@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🔐 Competitive Intel — Monday, October 26, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="description" content="Competitive intelligence report for October 26, 2026 — SentinelOne Agentic Detection and Response, Arctic Wolf Aurora Adaptive Threat Protection, Palo Alto Advanced DNS Security on AWS Route 53, Quad9 leaving France."/>
+  <meta property="og:title" content="Competitive Intel — October 26, 2026"/>
+  <meta property="og:description" content="SentinelOne and Arctic Wolf push agentic/AI-era endpoint offerings; Quad9 exits France; Palo Alto brings DNS security to AWS Route 53"/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/competitive-intel/reports/2026-10-26.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Reports</a>
+    <a href="#takeaways"   style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">⚡ Takeaways</a>
+    <a href="#ep" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🛡️🔍 EP / EDR</a><a href="#mdr" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🎯 MDR</a><a href="#dns" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🌐 DNS</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#1a56db;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#0f2849 0%,#1a56db 100%);padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">🔐 Competitive Intelligence Report</h1>
+      <div style="font-size:15px;opacity:.85;">Monday, October 26, 2026</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">📰 <strong>5</strong> new items</div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">📦 <strong>5</strong> vendors, <strong>3</strong> product categories</div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🔍 Focus: Agent Security Goes EDR-Native; Court Orders Test Public DNS</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="takeaways" style="background:#fff;border-radius:12px;padding:24px 28px;border-left:5px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+      <h2 style="margin:0 0 14px;font-size:16px;font-weight:700;color:#1e3a5f;">⚡ This Week's Key Takeaways</h2>
+      <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">🤖 <strong>SentinelOne launches Singularity ADR</strong> — AI agent/MCP discovery, policy and runtime prevention correlated with EDR telemetry. IMPACT: agent governance is becoming an EDR-native feature, not just a point product.</p>
+      <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">🎯 <strong>Arctic Wolf adds an endpoint layer (Aurora Adaptive Threat Protection, beta)</strong> that coexists with third-party EPP/EDR, following its MSP-focused MDR Connect. IMPACT: MDR vendors keep moving down into the endpoint.</p>
+      <p style="margin:0 0 10px;font-size:13px;color:#475569;line-height:1.6;">🌐 <strong>Quad9 will leave France November 24</strong> after a piracy-blocking order; Palo Alto brings DNS security to AWS Route 53. IMPACT: displacement window for commercial DNS filtering in France/EU.</p>
+      <p style="margin:0;font-size:12px;color:#64748b;line-height:1.6;">New material from October 20 – October 26 not previously reported · SAT had no new un-reported vendor moves (a KnowBe4 "2026 momentum" release was not retrievable) · Several items are single-source; verify against vendor releases.</p>
+    </div>
+
+    <h2 style="margin:32px 0 0;font-size:18px;color:#0f172a;">📊 Intelligence by Product Category</h2>
+    <div id="ep" style="margin-top:32px;">
+      <div style="padding:14px 18px;background:#f8fafc;border-radius:8px;border-left:5px solid #1a56db;margin-bottom:14px;"><h2 style="margin:0;font-size:17px;color:#1e3a5f;font-weight:700;">🛡️ Endpoint Protection / 🔍 EDR (2 new items)</h2></div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #6d28d9;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin-bottom:12px;">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:4px;">🆕 SentinelOne Singularity Agentic Detection and Response (ADR)</div>
+        <div style="font-size:12px;color:#64748b;margin-bottom:8px;">🏷 SentinelOne &nbsp;|&nbsp; 📅 October 21–22, 2026</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">SentinelOne announced Singularity ADR, which discovers AI agents and MCP servers across endpoints, SaaS and cloud, enforces allow/block and approval policy, and blocks prompt injection, credential exfiltration and tool poisoning inline. Agent activity is joined with EDR telemetry in Storyline, with intent-drift detection and single-agent containment. Coverage reportedly spans Salesforce Agentforce, Copilot Studio, ChatGPT workspace agents and Claude managed agents. A companion Singularity AI SOC (ASOC) announcement was published the same day. No GA date, packaging or pricing disclosed; MSP angle is not addressed by the vendor. <strong>PORTFOLIO ANGLE:</strong> Confirms that agent governance is moving from standalone add-on to an EDR-native capability (see Bitdefender, WithSecure, ESET, CrowdStrike last week). The differentiator is correlation with endpoint telemetry. Decide whether our EP/EDR roadmap needs agent/MCP inventory and where MSPs would price it.</div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://helpnetsecurity.com/2026/10/22/sentinelone-singularity-agentic-detection-and-response" target="_blank" style="color:#1a56db;">Help Net Security</a> · <a href="https://stockhouse.com/news/press-releases/2026/10/21/sentinelone-delivers-ai-advantage-to-defenders-with-singularity-adr-and" target="_blank" style="color:#1a56db;">SentinelOne press release (via Stockhouse)</a></div>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #1a56db;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin-bottom:12px;">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:4px;">🆕 Arctic Wolf Aurora Adaptive Threat Protection (exclusive beta)</div>
+        <div style="font-size:12px;color:#64748b;margin-bottom:8px;">🏷 Arctic Wolf &nbsp;|&nbsp; 📅 October 21, 2026 (Security Operations Summit)</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">Arctic Wolf introduced an endpoint security layer using intent-based detection over a causal graph of process, file, registry and API activity, with automated interruption and rollback once malicious intent is confirmed. It is designed to run alongside existing third-party EPP/EDR rather than replace it, uses a custom small language model with human oversight, and is in an exclusive beta for current Arctic Wolf customers. Not stated whether MSP partners can access it. <strong>PORTFOLIO ANGLE:</strong> Arctic Wolf is now offering its own endpoint prevention layer on top of an MDR relationship, after Aurora MDR Connect (September 21) aimed at smaller MSPs. The "coexist, don't rip-and-replace" positioning pressures standalone EP vendors in MSP stacks.</div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://cxotoday.com/media-coverage/arctic-wolf-unveils-next-generation-endpoint-security-solution-for-the-ai-era" target="_blank" style="color:#1a56db;">CXOToday</a></div>
+      </div>
+    </div>
+    <div id="mdr" style="margin-top:32px;">
+      <div style="padding:14px 18px;background:#f8fafc;border-radius:8px;border-left:5px solid #16a34a;margin-bottom:14px;"><h2 style="margin:0;font-size:17px;color:#1e3a5f;font-weight:700;">🎯 MDR (1 new item)</h2></div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #16a34a;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin-bottom:12px;">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:4px;">🆕 Arctic Wolf named Best Security Vendor in CRN Best of the Channel; Veeam integration</div>
+        <div style="font-size:12px;color:#64748b;margin-bottom:8px;">🏷 Arctic Wolf &nbsp;|&nbsp; 📅 October 23, 2026</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">Arctic Wolf won CRN's Best of the Channel award for security vendor, and separately integrated Veeam event data into its platform for detection-to-recovery correlation. Both single-source search snippets; details not retrieved. <strong>PORTFOLIO ANGLE:</strong> Reinforces Arctic Wolf's channel momentum alongside its MSP-focused MDR; backup-signal integration is a feature MSPs may start requesting from MDR vendors.</div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://globenewswire.com/news-release/2026/10/23/3387267/0/en/arctic-wolf-named-best-security-vendor-in-crn-s-annual-best-of-the-channel-awards.html" target="_blank" style="color:#1a56db;">GlobeNewswire</a></div>
+      </div>
+    </div>
+    <div id="dns" style="margin-top:32px;">
+      <div style="padding:14px 18px;background:#f8fafc;border-radius:8px;border-left:5px solid #0891b2;margin-bottom:14px;"><h2 style="margin:0;font-size:17px;color:#1e3a5f;font-weight:700;">🌐 DNS Protection (2 new items)</h2></div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #0891b2;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin-bottom:12px;">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:4px;">🆕 Palo Alto Networks Advanced DNS Security inside Amazon Route 53 Resolver DNS Firewall</div>
+        <div style="font-size:12px;color:#64748b;margin-bottom:8px;">🏷 Palo Alto Networks, AWS &nbsp;|&nbsp; 📅 GA September 29; Palo Alto announcement October 9, 2026</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">AWS made the integration generally available across 32 regions. It inspects internet-bound queries from AWS workloads with 30+ threat detections (hidden communication, newly registered/fake domains, hijacked domains, infrastructure abuse), purchased via AWS Marketplace and rolled out through License Manager and Firewall Manager. Detections can start in alert mode. Source is a single secondary blog post. <strong>PORTFOLIO ANGLE:</strong> DNS security is being embedded in the cloud-provider control plane, which is outside the SMB/MSP segment but sets expectations on threat-category depth and newly-registered-domain handling.</div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://www.shashi.co/2026/10/palo-alto-networks-launches-dns-threat.html" target="_blank" style="color:#1a56db;">shashi.co (secondary)</a></div>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #0891b2;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin-bottom:12px;">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:4px;">🆕 Quad9 to stop serving France on November 24 after beIN piracy-blocking order</div>
+        <div style="font-size:12px;color:#64748b;margin-bottom:8px;">🏷 Quad9 (also Mullvad) &nbsp;|&nbsp; 📅 October 2026</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">A Paris court ordered Quad9 to block sports-piracy domains under a €1,000/day penalty; Quad9 has appealed and says it will withdraw both filtering and resolution in France on November 24 rather than extend the blocklist globally. About 20 other French suits are reportedly pending. Mullvad closes its public DoH service on November 2 and points users to Quad9, so those users face a second migration. The blocking requirement itself expires November 14. <strong>PORTFOLIO ANGLE:</strong> Regulatory/court-ordered DNS blocking is a live risk for free public resolvers and creates a displacement opportunity with French and EU SMBs and MSPs that rely on Quad9 for filtering. A commercial, jurisdiction-aware DNS filter with admin-controlled policy is the natural alternative to message.</div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://cyberinsider.com/quad9-to-leave-france/" target="_blank" style="color:#1a56db;">CyberInsider</a></div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:22px;background:#eff6ff;border-left:4px solid #1a56db;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#1a56db;font-weight:700;">📌 Strategic Context</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">Two weeks of AI-agent security launches have now culminated in SentinelOne tying agent activity into its EDR graph, while Arctic Wolf pushes a coexisting endpoint layer from the MDR side. For an MSP/SMB-focused portfolio the open questions are packaging (module vs. included) and whether agent/MCP inventory is table stakes by 2027. In DNS, the Quad9 withdrawal is a concrete, dated opening in France.</p>
+    </div>
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>

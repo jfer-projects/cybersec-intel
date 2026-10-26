@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>⚠️ Threat Intelligence Briefing — October 26, 2026</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚠️</text></svg>">
+  <meta name="description" content="Threat intelligence briefing for October 26, 2026 — CISA KEV adds Arista VeloCloud Orchestrator CVE-2026-114625 and Collabora Online CVE-2026-110447; mid-October KEV additions."/>
+  <meta property="og:title" content="Threat Intelligence Briefing — October 26, 2026"/>
+  <meta property="og:description" content="Record Patch Tuesday (1,413 CVEs) and exploited MotW bypass added to KEV."/>
+  <meta property="og:url" content="https://jfer-projects.github.io/cybersec-intel/threat-intel/briefings/2026-10-26.html"/>
+  <meta property="og:type" content="article"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media print {
+      nav { display: none !important; }
+      body { background: #fff !important; font-size: 12px; }
+      a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 9px; color: #666; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f1f5f9;
+             font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- STICKY NAV -->
+  <nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;
+              padding:9px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+              box-shadow:0 1px 4px rgba(0,0,0,.06);">
+    <a href="../../index.html" style="background:#0f172a;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:2px;">🏠 Home</a>
+    <a href="../index.html" style="background:#1e3a5f;color:#fff;padding:5px 14px;border-radius:20px;
+       font-size:12px;font-weight:700;text-decoration:none;margin-right:6px;">← All Briefings</a>
+    <a href="#summary"     style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">📋 Summary</a>
+    <a href="#patch" style="background:#f1f5f9;color:#475569;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;">🔴 Patch Tuesday</a>
+    <span style="flex:1;"></span>
+    <button onclick="window.print()" style="background:#dc2626;color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;">📄 Export to PDF</button>
+  </nav>
+
+
+  <div style="background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%);padding:32px 36px 28px;color:#fff;">
+    <div style="max-width:820px;margin:0 auto;">
+      <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;letter-spacing:-0.5px;">⚠️ Threat Intelligence Briefing</h1>
+      <div style="font-size:15px;opacity:.85;">October 26, 2026 · Week of October 20 – October 26</div>
+      <div style="margin-top:18px;display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🔴 <strong>1</strong> critical item — exploited Windows MotW bypass in record Patch Tuesday</div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:6px;padding:8px 16px;font-size:13px;">🎯 Focus: Edge and Collaboration Infrastructure Under Active Exploitation</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:860px;margin:0 auto;padding:28px 16px;">
+    <div id="summary" style="background:#fef2f2;border-radius:12px;padding:24px 28px;margin-bottom:0;border-left:5px solid #dc2626;">
+      <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#7f1d1d;">📋 This Week's Threat Summary</h2>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;"><strong>Critical development:</strong> CISA added Arista VeloCloud Orchestrator CVE-2026-114625 (CVSS 9.9, exploited, third VCO flaw since July) and Collabora Online/Nextcloud CVE-2026-110447 (CVSS 9.2, web-shell activity) to KEV on October 23 with an October 26 federal deadline. A mid-October batch also hit remote-support and backup tools used by MSPs. Ransomware and APT searches returned no verifiable new items.</p>
+    </div>
+
+    <div id="kev" style="margin-top:32px;margin-bottom:32px;">
+      <div style="padding:14px 18px;background:#fee2e2;border-radius:8px;border-left:5px solid #b91c1c;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:17px;color:#b91c1c;font-weight:700;">🔴 Actively Exploited: Network Orchestration and Collaboration Platforms</h2>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #b91c1c;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin-bottom:12px;">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:8px;">🆕 CVE-2026-114625: Arista VeloCloud Orchestrator SQL injection exploited (CVSS 9.9)</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">CISA added the flaw to KEV on October 23 with a federal deadline of October 26. Authenticated SQL injection in on-premises VCO (minimum role Enterprise Read Only) can expose privileged internal functionality. Fixed in 5.2.3.18, 6.1.3.10 and 6.4.2.12. Arista says it is known to be exploited, shared two Japan-geolocated IPs (74.82.197[.]86, 38.54.50[.]151) and has not attributed it. The Hacker News counts this as the third VCO flaw exploited since July (after CVE-2026-16812 and CVE-2026-93952, both CVSS 10.0).</div>
+        <div style="margin-top:10px;font-size:13px;color:#475569;line-height:1.6;"><strong>PORTFOLIO IMPACT:</strong> SD-WAN orchestrators sit in many MSP-managed SMB networks. Patch on-prem VCO, restrict management access, and hunt for the listed IPs; EDR/MDR customers should confirm network-device telemetry coverage.</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Exploited (KEV)</span><span style="background:#dcfce7;color:#166534;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patch Available</span></div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html" target="_blank" style="color:#1a56db;">The Hacker News</a> · <a href="https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog-0" target="_blank" style="color:#1a56db;">CISA alert</a></div>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #b91c1c;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin-bottom:12px;">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:8px;">🆕 CVE-2026-110447: Collabora Online built-in CODE server (Nextcloud richdocumentscode) command injection exploited (CVSS 9.2)</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">OS command injection via proxy.php when the CODE local document server is not running; fixed in September in version 26.4.303. Attackers have planted web shells on Nextcloud servers and search for credential stores, password-manager artifacts and crypto wallets.</div>
+        <div style="margin-top:10px;font-size:13px;color:#475569;line-height:1.6;"><strong>PORTFOLIO IMPACT:</strong> Self-hosted Nextcloud is common among small businesses and MSP-hosted file shares. Web-shell activity should trigger EDR/MDR detections on web-server processes; confirm patch status and look for unexpected proxy.php requests.</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Exploited (KEV)</span><span style="background:#dcfce7;color:#166534;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟢 Patch Available</span></div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html" target="_blank" style="color:#1a56db;">The Hacker News</a></div>
+      </div>
+      <div style="padding:16px 18px;background:#fff;border-radius:8px;border-left:4px solid #d97706;box-shadow:0 1px 3px rgba(0,0,0,0.06);margin-bottom:12px;">
+        <div style="font-weight:600;font-size:14px;color:#1e3a5f;line-height:1.4;margin-bottom:8px;">🆕 Mid-October KEV additions: BeyondTrust Remote Support, Ivanti Connect Secure, Palo Alto PAN-OS, Fortinet, Atlassian, Ahsay, Cisco ESA</div>
+        <div style="font-size:13px;color:#475569;line-height:1.6;">Per a secondary weekly summary, nine entries were added October 13–16, including BeyondTrust Remote Support CVE-2026-102764 (auth bypass), Ivanti Connect Secure CVE-2026-104935 (auth bypass), PAN-OS CVE-2026-0322 (code injection), two Ahsay AhsayCBS flaws (CVE-2026-105133/105134, backup server), Cisco Secure Email Gateway CVE-2026-76519 (path traversal), Atlassian CVE-2026-21589 and Fortinet CVE-2025-61624. Ransomware use is listed as unknown for all. Windows CVE-2026-96951 was already covered October 19. CVSS scores and details were not verified against NVD/CISA.</div>
+        <div style="margin-top:10px;font-size:13px;color:#475569;line-height:1.6;"><strong>PORTFOLIO IMPACT:</strong> Remote-support and backup tools (BeyondTrust, AhsayCBS) are direct MSP tooling; treat as priority checks. Edge VPN and email-gateway flaws reinforce the case for EDR plus MDR coverage and for DNS filtering of post-exploitation callbacks.</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;"><span style="background:#fee2e2;color:#b91c1c;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🔴 Exploited (KEV)</span><span style="background:#fef9c3;color:#854d0e;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;">🟡 Single outlet fetched</span></div>
+        <div style="margin-top:10px;font-size:12px;color:#64748b;">Sources: <a href="https://dev.to/devaland/actively-exploited-this-week-9-new-cisa-kev-entries-12-october-to-18-october-2026-3dno" target="_blank" style="color:#1a56db;">DEV Community KEV roundup (secondary)</a></div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:22px;background:#fef2f2;border-left:4px solid #dc2626;border-radius:8px;">
+      <h3 style="margin:0 0 12px;font-size:14px;color:#dc2626;font-weight:700;">📌 Strategic Context</h3>
+      <p style="margin:0;font-size:13px;color:#475569;line-height:1.6;">Exploitation continues to concentrate on infrastructure that sits outside endpoint agents: SD-WAN orchestrators, VPN gateways, remote-support and backup servers. For MSP/SMB customers this argues for pairing EDR with MDR monitoring of server and network-device logs, and for fast patch workflows on MSP's own tooling. Coverage this week relied on a news outlet plus a secondary KEV roundup; verify against CISA before acting.</p>
+    </div>
+  </div>
+
+  <footer style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px;text-align:center;font-size:12px;color:#64748b;">
+    Cybersecurity Intel Hub · Internal Use Only · Ferrick Product Management Team<br/>
+    <a href="https://jfer-projects.github.io/cybersec-intel" style="color:#94a3b8;text-decoration:none;">jfer-projects.github.io/cybersec-intel</a>
+  </footer>
+
+</body>
+</html>
